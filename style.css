@@ -5,6 +5,7 @@ body {
   color: #333; 
   background: #fff; 
   scroll-behavior: smooth;
+  cursor: none; /* 👈 HIDE the native cursor */
 }
 
 /* Smooth Fade-In Animation */
@@ -285,7 +286,16 @@ footer {
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 10000;
-  transition: background 0.2s ease;
+  transition: transform 0.15s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Grow cursor and glow when hovering links and buttons */
+a:hover ~ .cursor,
+button:hover ~ .cursor,
+.project:hover ~ .cursor {
+  transform: translate(-50%, -50%) scale(2);
+  background-color: #00B4DB;
+  box-shadow: 0 0 12px rgba(0, 180, 219, 0.7);
 }
 
 /* Mobile Optimization */
@@ -314,4 +324,3 @@ footer {
     padding: 20px;
   }
 }
-
