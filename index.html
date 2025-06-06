@@ -61,20 +61,32 @@
     </a>
   </section>
 
- <!-- About Section -->
-<section id="about" class="about fade-in">
-  <div class="about-container">
-    <div class="about-image">
-      <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Designer" alt="Placeholder Character">
+  <!-- About Section -->
+  <section id="about" class="about fade-in">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Designer" alt="Placeholder Character">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense. Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to go create good things.
+        </p>
+      </div>
     </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense. Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to go create good things.
-      </p>
-    </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact fade-in">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
   <!-- Footer -->
   <footer>
     &copy; 2025 Go Create Good Things | Follow me 
@@ -84,8 +96,22 @@
   <!-- Scroll to Top Button -->
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- Script for Scroll-to-Top Button -->
+  <!-- Custom Cursor Script -->
   <script>
+    const cursor = document.querySelector('.cursor');
+
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+    });
+
+    document.addEventListener('click', () => {
+      cursor.classList.add('click');
+      setTimeout(() => {
+        cursor.classList.remove('click');
+      }, 150);
+    });
+
     const scrollBtn = document.querySelector(".scroll-to-top");
 
     window.addEventListener("scroll", () => {
@@ -99,13 +125,6 @@
     scrollBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Custom Cursor Move
-    const cursor = document.querySelector('.cursor');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
     });
   </script>
 
