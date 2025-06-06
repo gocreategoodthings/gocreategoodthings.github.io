@@ -33,7 +33,8 @@ nav a {
 .hero img { 
   width: 250px; 
   margin-bottom: 20px; 
-  animation: dramaticBounce 2s ease-out forwards, floatAnimation 6s ease-in-out infinite;
+  animation: dramaticBounce 2s ease-out forwards, 
+             floatAnimation 6s ease-in-out infinite 2s; /* FLOAT starts AFTER bounce */
   transform-origin: center center; 
 }
 
