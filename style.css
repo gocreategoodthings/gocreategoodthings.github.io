@@ -5,7 +5,7 @@ body {
   color: #333; 
   background: #fff; 
   scroll-behavior: smooth;
-  cursor: none; /* 👈 HIDE the native cursor */
+  cursor: none; /* Hide native cursor */
 }
 
 /* Smooth Fade-In Animation */
@@ -228,25 +228,6 @@ nav a:hover::after {
   line-height: 1.6;
 }
 
-/* Mobile Optimization */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-image img {
-    width: 200px;
-  }
-
-  .about-text h2 {
-    font-size: 2em;
-  }
-
-  .about-text p {
-    font-size: 1em;
-  }
-}
 /* Contact Section */
 .contact { 
   padding: 40px; 
@@ -315,7 +296,7 @@ footer {
   background: #00B4DB;
 }
 
-/* Custom Cursor */
+/* --- 🖱️ Custom Cursor --- */
 .cursor {
   width: 12px;
   height: 12px;
@@ -325,16 +306,25 @@ footer {
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 10000;
-  transition: transform 0.15s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: width 0.2s, height 0.2s, background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
 
-/* Grow cursor and glow when hovering links and buttons */
+/* Hover Interactive Elements */
 a:hover ~ .cursor,
 button:hover ~ .cursor,
+input:hover ~ .cursor,
+textarea:hover ~ .cursor,
 .project:hover ~ .cursor {
-  transform: translate(-50%, -50%) scale(2);
-  background-color: #00B4DB;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: 2px solid #00B4DB;
   box-shadow: 0 0 12px rgba(0, 180, 219, 0.7);
+}
+
+/* Click Animation */
+.cursor.click {
+  transform: translate(-50%, -50%) scale(0.7);
 }
 
 /* Mobile Optimization */
@@ -361,5 +351,22 @@ button:hover ~ .cursor,
   .portfolio {
     gap: 20px;
     padding: 20px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 200px;
+  }
+
+  .about-text h2 {
+    font-size: 2em;
+  }
+
+  .about-text p {
+    font-size: 1em;
   }
 }
