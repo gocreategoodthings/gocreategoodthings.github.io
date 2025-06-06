@@ -13,6 +13,9 @@
 </head>
 <body>
 
+  <!-- Cursor -->
+  <div class="cursor"></div>
+
   <!-- Header -->
   <header>
     <div class="logo">
@@ -87,8 +90,30 @@
   <!-- Scroll to Top Button -->
   <a href="#" class="scroll-to-top">↑</a>
 
-</body>
-</html>
+  <!-- Script for Scroll-to-Top Button -->
+  <script>
+    const scrollBtn = document.querySelector(".scroll-to-top");
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+
+    scrollBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Custom Cursor Move
+    const cursor = document.querySelector('.cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+    });
+  </script>
 
 </body>
 </html>
