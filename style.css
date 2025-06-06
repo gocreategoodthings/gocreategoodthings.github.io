@@ -4,7 +4,7 @@ body {
   font-family: 'DM Serif Text', serif;
   color: #333; 
   background: #fff; 
-  scroll-behavior: smooth; /* Add smooth scroll behavior globally */
+  scroll-behavior: smooth;
 }
 
 /* Smooth Fade-In Animation */
@@ -275,7 +275,43 @@ footer {
   background: #00B4DB;
 }
 
-/* Show Scroll Button when page is scrolled */
-body:has(.hero:target) ~ .scroll-to-top {
-  display: block;
+/* Custom Cursor */
+.cursor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #FF6A00;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  transition: background 0.2s ease;
 }
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero img {
+    width: 180px;
+  }
+
+  .portfolio {
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
