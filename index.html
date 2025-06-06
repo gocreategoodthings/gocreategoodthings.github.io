@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Create Good Things</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo" width="100"></div>
+        <nav>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
+        <h1>Go Create Good Things</h1>
+        <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <img src="https://via.placeholder.com/300x400" alt="Project 1">
+        <img src="https://via.placeholder.com/300x400" alt="Project 2">
+        <img src="https://via.placeholder.com/300x400" alt="Project 3">
+        <img src="https://via.placeholder.com/300x400" alt="Project 4">
+    </section>
+
+    <section id="about" class="about">
+        <img src="https://via.placeholder.com/150" alt="Your Photo">
+        <h2>About Me</h2>
+        <p>I'm a graphic designer passionate about creating visual stories that connect and inspire. Let's make something great together.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2025 Go Create Good Things | Follow me <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+    </footer>
+
+</body>
+</html>
