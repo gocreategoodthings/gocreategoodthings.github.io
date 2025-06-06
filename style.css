@@ -1,12 +1,12 @@
 /* Base Reset */
 body { 
   margin: 0; 
-  font-family: 'DM Serif Text', serif; /* Body text is elegant serif */
+  font-family: 'DM Serif Text', serif;
   color: #333; 
   background: #fff; 
 }
 
-/* Headings, Nav, Buttons use clean Sans-Serif */
+/* Headings, Nav, Buttons use Sans-Serif */
 h1, h2, h3, nav a, button {
   font-family: 'Space Grotesk', sans-serif;
 }
@@ -16,9 +16,9 @@ header {
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 20px; 
+  padding: 20px 40px; 
   background: #fff; 
-  border-bottom: 1px solid #eee; /* subtle separator */
+  border-bottom: 1px solid #eee; 
 }
 
 header .logo img {
@@ -26,8 +26,20 @@ header .logo img {
   height: auto;
 }
 
+header .slogan {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* Nav horizontal layout */
+nav {
+  display: flex;
+  gap: 30px;
+}
+
 nav a { 
-  margin-left: 20px; 
   text-decoration: none; 
   color: #333; 
   font-weight: bold; 
@@ -85,7 +97,6 @@ nav a:hover::after {
   transition: transform 0.3s ease;
 }
 
-/* Button Hover Effect */
 .hero button:hover {
   transform: scale(1.1);
 }
