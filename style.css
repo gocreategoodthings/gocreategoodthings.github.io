@@ -4,6 +4,7 @@ body {
   font-family: 'DM Serif Text', serif;
   color: #333; 
   background: #fff; 
+  scroll-behavior: smooth; /* Add smooth scroll behavior globally */
 }
 
 /* Smooth Fade-In Animation */
@@ -14,7 +15,6 @@ body {
   animation-delay: 0.3s;
 }
 
-/* Keyframes for Fade-In */
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -113,7 +113,6 @@ nav a:hover::after {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Button Hover Effect */
 .hero button:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -255,28 +254,28 @@ footer {
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Project Detail Page */
-.project-detail {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 0 20px;
-  text-align: center;
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #FF6A00;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s;
 }
 
-.project-detail h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+.scroll-to-top:hover {
+  background: #00B4DB;
 }
 
-.project-detail img {
-  width: 100%;
-  max-width: 800px;
-  margin: 20px 0;
-  border-radius: 10px;
-}
-
-.project-detail p {
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin-bottom: 40px;
+/* Show Scroll Button when page is scrolled */
+body:has(.hero:target) ~ .scroll-to-top {
+  display: block;
 }
