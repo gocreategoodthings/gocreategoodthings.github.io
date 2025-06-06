@@ -1,9 +1,14 @@
 /* Base Reset */
 body { 
   margin: 0; 
-  font-family: Arial, sans-serif; 
+  font-family: 'DM Serif Text', serif; /* Body text is elegant serif */
   color: #333; 
   background: #fff; 
+}
+
+/* Headings, Nav, Buttons use clean Sans-Serif */
+h1, h2, h3, nav a, button {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Header */
@@ -13,10 +18,11 @@ header {
   align-items: center; 
   padding: 20px; 
   background: #fff; 
+  border-bottom: 1px solid #eee; /* subtle separator */
 }
 
 header .logo img {
-  width: 100px; /* Small logo in header */
+  width: 100px;
   height: auto;
 }
 
@@ -25,52 +31,63 @@ nav a {
   text-decoration: none; 
   color: #333; 
   font-weight: bold; 
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #FF6A00;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* Hero Section */
 .hero { 
-  position: relative; /* For layering */
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
   align-items: center; 
   height: 80vh; 
   text-align: center; 
-  overflow: hidden; /* Contain background */
-}
-
-.hero-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 120%;
-  background: url('images/GCGT_Logo-07.png') no-repeat center center;
-  background-size: contain;
-  transform: translate(-50%, -50%);
-  filter: blur(20px) brightness(70%); /* Blur + darken */
-  z-index: 0; /* Behind content */
+  background: #fff; 
 }
 
 .hero img { 
-  position: relative; /* On top of background */
   width: 250px; 
   margin-bottom: 20px; 
   animation: dramaticBounce 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards, 
              floatAnimation 8s ease-in-out infinite 2.5s; 
   transform-origin: center center; 
   transition: transform 0.4s ease;
-  z-index: 1; /* Above background */
 }
 
-.hero h1, .hero button {
-  position: relative;
-  z-index: 1;
+.hero h1 { 
+  font-size: 3em; 
+  margin: 0; 
+  letter-spacing: 1px;
 }
 
-/* Logo Hover Effect */
-.hero img:hover {
-  transform: scale(1.05) rotate(2deg);
+.hero button { 
+  margin-top: 20px; 
+  padding: 10px 20px; 
+  font-size: 1em; 
+  cursor: pointer; 
+  border: none; 
+  background: linear-gradient(to right, #00B4DB, #FF6A00); 
+  color: #fff; 
+  border-radius: 5px; 
+  transition: transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.hero button:hover {
+  transform: scale(1.1);
 }
 
 /* Bounce Animation */
@@ -99,28 +116,6 @@ nav a {
   100% {
     transform: translateY(0px) scale(1);
   }
-}
-
-.hero h1 { 
-  font-size: 3em; 
-  margin: 0; 
-}
-
-.hero button { 
-  margin-top: 20px; 
-  padding: 10px 20px; 
-  font-size: 1em; 
-  cursor: pointer; 
-  border: none; 
-  background: linear-gradient(to right, #00B4DB, #FF6A00); 
-  color: #fff; 
-  border-radius: 5px; 
-  transition: transform 0.3s ease;
-}
-
-/* Button Hover Effect */
-.hero button:hover {
-  transform: scale(1.1);
 }
 
 /* Portfolio Section */
