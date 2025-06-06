@@ -10,11 +10,13 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Cursor -->
-  <div class="cursor"></div>
 
   <!-- Header -->
   <header>
@@ -65,7 +67,7 @@
   <section id="about" class="about fade-in">
     <div class="about-container">
       <div class="about-image">
-        <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Designer" alt="Placeholder Character">
+        <img src="https://api.dicebear.com/7.x/micah/svg?seed=CreativeDesigner" alt="Character Placeholder">
       </div>
       <div class="about-text">
         <h2>About Me</h2>
@@ -96,22 +98,8 @@
   <!-- Scroll to Top Button -->
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- Custom Cursor Script -->
+  <!-- Scroll to Top Script -->
   <script>
-    const cursor = document.querySelector('.cursor');
-
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
-    });
-
-    document.addEventListener('click', () => {
-      cursor.classList.add('click');
-      setTimeout(() => {
-        cursor.classList.remove('click');
-      }, 150);
-    });
-
     const scrollBtn = document.querySelector(".scroll-to-top");
 
     window.addEventListener("scroll", () => {
