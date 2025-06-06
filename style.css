@@ -6,21 +6,37 @@ body {
   background: #fff; 
 }
 
-/* Headings, Nav, Buttons use Sans-Serif */
-h1, h2, h3, nav a, button {
-  font-family: 'Space Grotesk', sans-serif;
+/* Smooth Fade-In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
-/* Header */
+/* Keyframes for Fade-In */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Sticky Header */
 header { 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
   padding: 20px 40px; 
   background: #fff; 
   border-bottom: 1px solid #eee; 
+  backdrop-filter: blur(10px);
 }
 
+/* Header Items */
 header .logo img {
   width: 100px;
   height: auto;
@@ -33,7 +49,7 @@ header .slogan {
   color: #666;
 }
 
-/* Nav horizontal layout */
+/* Nav */
 nav {
   display: flex;
   gap: 30px;
@@ -94,11 +110,13 @@ nav a:hover::after {
   background: linear-gradient(to right, #00B4DB, #FF6A00); 
   color: #fff; 
   border-radius: 5px; 
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Button Hover Effect */
 .hero button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Bounce Animation */
@@ -141,7 +159,7 @@ nav a:hover::after {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
   text-decoration: none;
   color: inherit;
 }
@@ -232,7 +250,9 @@ footer {
   text-align: center; 
   padding: 20px; 
   font-size: 0.9em; 
-  background: #eee; 
+  background: #eee;
+  border-top: 2px solid #ccc;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Project Detail Page */
