@@ -15,6 +15,11 @@ header {
   background: #fff; 
 }
 
+header .logo img {
+  width: 100px; /* 👈 NEW: make the top logo small */
+  height: auto;
+}
+
 nav a { 
   margin-left: 20px; 
   text-decoration: none; 
@@ -110,8 +115,8 @@ nav a {
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s;
-  text-decoration: none; /* No underline on links */
-  color: inherit; /* Keep text color */
+  text-decoration: none;
+  color: inherit;
 }
 
 .project img {
@@ -226,6 +231,9 @@ footer {
 .project-detail p {
   font-size: 1.1em;
   line-height: 1.6;
+  margin-bottom: 40px;
+}
+
   margin-bottom: 40px;
 }
 
