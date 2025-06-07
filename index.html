@@ -71,7 +71,7 @@
       <h2>About Me</h2>
       <p>
         I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
-        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="underline-animation">go create good things</span>.
+        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="gradient-text">go create good things</span>.
       </p>
     </div>
   </div>
@@ -115,29 +115,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Fade In on Scroll for Sections
-  const faders = document.querySelectorAll('.fade-in');
-
-  const appearOptions = {
-    threshold: 0.3,
-    rootMargin: "0px 0px -50px 0px"
-  };
-
-  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add('visible');
-        appearOnScroll.unobserve(entry.target);
-      }
-    });
-  }, appearOptions);
-
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-
   // Rotating Slogan Text
   const phrases = [
     "Kerning Enthusiast.",
@@ -149,7 +126,17 @@
     "Fonts Speak Louder Than Words.",
     "Helvetica Whisperer.",
     "Grid Systems Rule Everything Around Me.",
-    "Saving the World, One Pixel at a Time."
+    "Saving the World, One Pixel at a Time.",
+    "Pantone 448C Fan Club President.",
+    "Running on Coffee and Deadlines.",
+    "Designers Do It on Layers.",
+    "Whitespace is My Happy Place.",
+    "Eat. Sleep. Design. Repeat.",
+    "Comic Sans: Not Even Once.",
+    "Exporting Artboards Since 2010.",
+    "Proofreading... No Thanks.",
+    "Will Work for Exposure.",
+    "Alignment Issues Give Me Nightmares."
   ];
 
   const sloganEl = document.getElementById('rotating-slogan');
@@ -161,7 +148,7 @@
     sloganEl.classList.add('fade-in-text');
     sloganEl.textContent = phrases[index];
     index = (index + 1) % phrases.length;
-  }, 5000);
+  }, 8000); // slower rotation
 </script>
 
 </body>
