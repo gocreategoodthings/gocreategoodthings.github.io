@@ -31,10 +31,8 @@
 
   <!-- Hero Section -->
   <section class="hero fade-in">
-    <div class="hero-logo-container">
-      <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="parallax-hero">
-    </div>
-    <h1>Go Create Good Things</h1>
+    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
+    <h1><span class="underline-animation">Go Create Good Things</span></h1>
     <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
   </section>
 
@@ -66,14 +64,14 @@
   <!-- About Section -->
   <section id="about" class="about fade-in">
     <div class="about-container">
-      <div class="about-image hover-tilt">
+      <div class="about-image hover-glow">
         <img src="images/your-photo.png" alt="Brady Hudson Photo">
       </div>
       <div class="about-text">
         <h2>About Me</h2>
         <p>
-          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense. Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to 
-          <span class="underline-animation">go create good things</span>.
+          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
+          Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="underline-animation">go create good things</span>.
         </p>
       </div>
     </div>
@@ -138,33 +136,6 @@
 
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
-    });
-
-    // Parallax Effect
-    document.addEventListener('mousemove', function(e) {
-      document.querySelectorAll('.parallax-hero').forEach(move => {
-        const speed = 15;
-        const x = (window.innerWidth - e.pageX * speed) / 100;
-        const y = (window.innerHeight - e.pageY * speed) / 100;
-        move.style.transform = `translateX(${x}px) translateY(${y}px)`;
-      });
-    });
-
-    // Hover Tilt for About Image
-    document.querySelectorAll('.hover-tilt').forEach((tilt) => {
-      tilt.addEventListener('mousemove', (e) => {
-        const rect = tilt.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const deltaX = (x - centerX) / centerX;
-        const deltaY = (y - centerY) / centerY;
-        tilt.style.transform = `rotateX(${deltaY * 10}deg) rotateY(${deltaX * 10}deg)`;
-      });
-      tilt.addEventListener('mouseleave', () => {
-        tilt.style.transform = `rotateX(0deg) rotateY(0deg)`;
-      });
     });
   </script>
 
