@@ -29,8 +29,6 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-    <!-- Dark Mode Toggle -->
-    <button id="theme-toggle">🌙</button>
   </header>
 
   <!-- Hero Section -->
@@ -42,27 +40,27 @@
 
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio">
-    <div class="project">
+    <a href="project1.html" class="project">
       <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
       <div class="project-info">
         <h3>Diamond Court Tennis Club</h3>
         <p>Brand identity, website, and social assets for an elite tennis club.</p>
       </div>
-    </div>
-    <div class="project">
-      <img src="images/project2.jpg" alt="Project 2">
+    </a>
+    <a href="project2.html" class="project">
+      <img src="images/project2.jpg" alt="Cover for Web Design">
       <div class="project-info">
         <h3>Web Design</h3>
         <p>Responsive website for a creative agency.</p>
       </div>
-    </div>
-    <div class="project">
-      <img src="images/project3.jpg" alt="Project 3">
+    </a>
+    <a href="project3.html" class="project">
+      <img src="images/project3.jpg" alt="Cover for Packaging Design">
       <div class="project-info">
         <h3>Packaging Design</h3>
         <p>Minimalist packaging for an organic brand.</p>
       </div>
-    </div>
+    </a>
   </section>
 
   <!-- About Section -->
@@ -135,13 +133,6 @@
       sloganIndex = (sloganIndex + 1) % slogans.length;
       document.getElementById('slogan').textContent = slogans[sloganIndex];
     }, 3000);
-
-    // Dark Mode Toggle
-    const toggle = document.getElementById('theme-toggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    });
   </script>
 
 </body>
