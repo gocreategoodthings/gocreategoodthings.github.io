@@ -23,7 +23,7 @@
     <div class="logo">
       <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
     </div>
-    <div class="slogan">Go Create Good Things</div>
+    <div class="slogan" id="slogan">Go Create Good Things</div>
     <nav>
       <a href="#portfolio">Portfolio</a>
       <a href="#about">About</a>
@@ -32,7 +32,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero fade-in">
+  <section class="hero fade-in" id="hero">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
     <h1>Go Create Good Things</h1>
     <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
@@ -98,8 +98,9 @@
   <!-- Scroll to Top Button -->
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- Scroll to Top Script -->
+  <!-- Scripts -->
   <script>
+    // Scroll to Top
     const scrollBtn = document.querySelector(".scroll-to-top");
 
     window.addEventListener("scroll", () => {
@@ -114,10 +115,8 @@
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  </script>
 
-  <!-- Scroll Animation Script for About Image -->
-  <script>
+    // Scroll Animation for About Image
     function handleScrollAnimation() {
       const aboutImage = document.querySelector('.about-image');
       const rect = aboutImage.getBoundingClientRect();
@@ -128,6 +127,27 @@
 
     window.addEventListener('scroll', handleScrollAnimation);
     window.addEventListener('load', handleScrollAnimation);
+
+    // Parallax Effect on Hero
+    window.addEventListener('scroll', function() {
+      const hero = document.getElementById('hero');
+      hero.style.backgroundPositionY = window.scrollY * 0.3 + 'px';
+    });
+
+    // Rotating Header Slogan
+    const slogans = [
+      "Go Create Good Things",
+      "Design with Purpose",
+      "Craft Meaningful Brands",
+      "Shape Visual Stories",
+      "Ideas Made Real"
+    ];
+
+    let sloganIndex = 0;
+    setInterval(() => {
+      sloganIndex = (sloganIndex + 1) % slogans.length;
+      document.getElementById('slogan').textContent = slogans[sloganIndex];
+    }, 3000); // every 3 seconds
   </script>
 
 </body>
