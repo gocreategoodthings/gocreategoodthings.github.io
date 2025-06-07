@@ -32,134 +32,111 @@
   <!-- Hero Section -->
   <section class="hero fade-in">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
-    <h1><span class="underline-animation">Go Create Good Things</span></h1>
+    <h1>Go Create Good Things</h1>
     <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
   </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio fade-in">
-    <a href="project1.html" class="project">
-      <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
-      <div class="project-info">
-        <h3>Diamond Court Tennis Club</h3>
-        <p>Brand identity, website, and social assets for an elite tennis club.</p>
-      </div>
-    </a>
-    <a href="project2.html" class="project">
-      <img src="images/project2-cover.jpg" alt="Cover for Web Design">
-      <div class="project-info">
-        <h3>Web Design</h3>
-        <p>Responsive website for a creative agency.</p>
-      </div>
-    </a>
-    <a href="project3.html" class="project">
-      <img src="images/project3-cover.jpg" alt="Cover for Packaging Design">
-      <div class="project-info">
-        <h3>Packaging Design</h3>
-        <p>Minimalist packaging for an organic brand.</p>
-      </div>
-    </a>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about fade-in">
-    <div class="about-container">
-      <div class="about-image hover-glow">
-        <img src="images/your-photo.png" alt="Brady Hudson Photo">
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>
-          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
-          Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="underline-animation">go create good things</span>.
-        </p>
-      </div>
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio fade-in">
+  <a href="project1.html" class="project">
+    <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
+    <div class="project-info">
+      <h3>Diamond Court Tennis Club</h3>
+      <p>Brand identity, website, and social assets for an elite tennis club.</p>
     </div>
-  </section>
+  </a>
+  <a href="project2.html" class="project">
+    <img src="images/project2-cover.jpg" alt="Cover for Web Design">
+    <div class="project-info">
+      <h3>Web Design</h3>
+      <p>Responsive website for a creative agency.</p>
+    </div>
+  </a>
+  <a href="project3.html" class="project">
+    <img src="images/project3-cover.jpg" alt="Cover for Packaging Design">
+    <div class="project-info">
+      <h3>Packaging Design</h3>
+      <p>Minimalist packaging for an organic brand.</p>
+    </div>
+  </a>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact fade-in">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+<!-- About Section -->
+<section id="about" class="about fade-in">
+  <div class="about-container">
+    <div class="about-image hover-glow">
+      <img src="images/your-photo.png" alt="Brady Hudson Photo">
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
+        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="underline-animation">go create good things</span>.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Go Create Good Things | Follow me 
-    <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-  </footer>
+<!-- Contact Section -->
+<section id="contact" class="contact fade-in">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
-  <!-- Scroll to Top Button -->
-  <a href="#" class="scroll-to-top">↑</a>
+<!-- Footer -->
+<footer>
+  &copy; 2025 Go Create Good Things | Follow me 
+  <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+</footer>
 
-  <!-- Scripts -->
-  <script>
-    // Scroll to top button
-    const scrollBtn = document.querySelector(".scroll-to-top");
+<!-- Scroll to Top Button -->
+<a href="#" class="scroll-to-top">↑</a>
 
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    });
+<!-- Scripts -->
+<script>
+  // Scroll to top button
+  const scrollBtn = document.querySelector(".scroll-to-top");
 
-    scrollBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
 
-    // Fade In on Scroll for Sections
-    const faders = document.querySelectorAll('.fade-in');
+  scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-    const appearOptions = {
-      threshold: 0.3,
-      rootMargin: "0px 0px -50px 0px"
-    };
+  // Rotating Slogan Text
+  const phrases = [
+    "Building Brands. Breaking Hearts.",
+    "Caffeine and Creativity.",
+    "Designing Cool Stuff Since 2025.",
+    "Pixels are my love language.",
+    "Minimal Design, Maximal Vibes.",
+    "Turning Ideas Into Icons.",
+    "Where Fonts Meet Funk."
+  ];
 
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        } else {
-          entry.target.classList.add('visible');
-          appearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
+  const sloganEl = document.getElementById('rotating-slogan');
 
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-
-    // Rotating Slogan Text
-    const phrases = [
-      "Building Brands. Breaking Hearts.",
-      "Caffeine and Creativity.",
-      "Designing Cool Stuff Since 2025.",
-      "Pixels are my love language.",
-      "Minimal Design, Maximal Vibes.",
-      "Turning Ideas Into Icons.",
-      "Where Fonts Meet Funk."
-    ];
-
-    const sloganEl = document.getElementById('rotating-slogan');
-
-    let index = 0;
-    setInterval(() => {
-      sloganEl.classList.remove('fade-in-text');
-      void sloganEl.offsetWidth; // trigger reflow
-      sloganEl.classList.add('fade-in-text');
-      sloganEl.textContent = phrases[index];
-      index = (index + 1) % phrases.length;
-    }, 5000);
-  </script>
+  let index = 0;
+  setInterval(() => {
+    sloganEl.classList.remove('fade-in-text');
+    void sloganEl.offsetWidth;
+    sloganEl.classList.add('fade-in-text');
+    sloganEl.textContent = phrases[index];
+    index = (index + 1) % phrases.length;
+  }, 5000);
+</script>
 
 </body>
 </html>
