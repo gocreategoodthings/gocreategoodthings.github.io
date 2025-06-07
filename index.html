@@ -21,7 +21,7 @@
         <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
       </a>
     </div>
-    <div class="slogan">Craft Meaningful Brands</div>
+    <div class="slogan" id="rotating-slogan">Craft Meaningful Brands</div>
     <nav>
       <a href="#portfolio">Portfolio</a>
       <a href="#about">About</a>
@@ -137,6 +137,28 @@
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
+
+    // Rotating Slogan Text
+    const phrases = [
+      "Building Brands. Breaking Hearts.",
+      "Caffeine and Creativity.",
+      "Designing Cool Stuff Since 2025.",
+      "Pixels are my love language.",
+      "Minimal Design, Maximal Vibes.",
+      "Turning Ideas Into Icons.",
+      "Where Fonts Meet Funk."
+    ];
+
+    const sloganEl = document.getElementById('rotating-slogan');
+
+    let index = 0;
+    setInterval(() => {
+      sloganEl.classList.remove('fade-in-text');
+      void sloganEl.offsetWidth; // trigger reflow
+      sloganEl.classList.add('fade-in-text');
+      sloganEl.textContent = phrases[index];
+      index = (index + 1) % phrases.length;
+    }, 5000);
   </script>
 
 </body>
