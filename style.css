@@ -13,6 +13,9 @@ header {
   align-items: center;
   padding: 20px 30px;
   background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header .logo img {
@@ -78,18 +81,18 @@ nav {
 }
 
 .hero-logo {
-  width: 360px;
-  animation: bigZoomIn 1.5s ease-out forwards, float 6s ease-in-out infinite;
+  width: 420px;
+  animation: hugeZoomIn 2s ease-out forwards, float 4s ease-in-out infinite;
   margin-bottom: 20px;
 }
 
-@keyframes bigZoomIn {
+@keyframes hugeZoomIn {
   0% {
-    transform: scale(0.6);
+    transform: scale(0.5);
     opacity: 0;
   }
-  60% {
-    transform: scale(1.3);
+  50% {
+    transform: scale(2);
     opacity: 1;
   }
   100% {
@@ -102,7 +105,7 @@ nav {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-10px);
   }
   100% {
     transform: translateY(0px);
@@ -140,6 +143,18 @@ nav {
   font-weight: bold;
 }
 
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Portfolio */
 .portfolio {
   display: grid;
@@ -172,17 +187,6 @@ nav {
 }
 
 /* About Section */
-.about.fade-in {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.about.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .about-container {
   display: flex;
   flex-wrap: wrap;
