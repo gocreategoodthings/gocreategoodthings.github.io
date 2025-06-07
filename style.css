@@ -5,34 +5,6 @@ body {
   background: #fff;
   color: #111;
   scroll-behavior: smooth;
-  transition: background 0.5s, color 0.5s;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-  background: #121212;
-  color: #f1f1f1;
-}
-
-body.dark-mode header,
-body.dark-mode footer,
-body.dark-mode .about,
-body.dark-mode .contact {
-  background: #1e1e1e;
-  color: #f1f1f1;
-}
-
-body.dark-mode nav a {
-  color: #f1f1f1;
-}
-
-/* Toggle Button */
-#theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  margin-left: 20px;
 }
 
 /* Hero Section */
@@ -166,15 +138,44 @@ nav a:hover {
   padding: 40px;
 }
 
+.project {
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .project img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
+  display: block;
+}
+
+.project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .project-info {
+  padding: 20px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
   text-align: center;
-  margin-top: 10px;
+}
+
+.project-info h3 {
+  font-size: 1.5em;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.project-info p {
+  font-size: 1em;
+  color: #666;
+  margin: 0;
 }
 
 /* About Section */
@@ -272,4 +273,23 @@ footer {
 
 .scroll-to-top:hover {
   background: #00B4DB;
+}
+
+/* Underline Hover */
+.underline-hover {
+  position: relative;
+  cursor: pointer;
+}
+
+.underline-hover::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #FF6A00;
+  transition: width 0.3s;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
 }
