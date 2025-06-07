@@ -38,41 +38,41 @@
     <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
   </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio fade-in">
-  <a href="project1.html" class="project">
-    <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
-    <div class="project-info">
-      <h3>Diamond Court Tennis Club</h3>
-      <p>Brand identity, website, and social assets for an elite tennis club.</p>
-    </div>
-  </a>
-  <a href="project2.html" class="project">
-    <img src="images/project2.jpg" alt="Project 2">
-    <div class="project-info">
-      <h3>Web Design</h3>
-      <p>Responsive website for a creative agency.</p>
-    </div>
-  </a>
-  <a href="project3.html" class="project">
-    <img src="images/project3.jpg" alt="Project 3">
-    <div class="project-info">
-      <h3>Packaging Design</h3>
-      <p>Minimalist packaging for an organic brand.</p>
-    </div>
-  </a>
-</section>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio fade-in">
+    <a href="project1.html" class="project">
+      <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
+      <div class="project-info">
+        <h3>Diamond Court Tennis Club</h3>
+        <p>Brand identity, website, and social assets for an elite tennis club.</p>
+      </div>
+    </a>
+    <a href="project2.html" class="project">
+      <img src="images/project2.jpg" alt="Project 2">
+      <div class="project-info">
+        <h3>Web Design</h3>
+        <p>Responsive website for a creative agency.</p>
+      </div>
+    </a>
+    <a href="project3.html" class="project">
+      <img src="images/project3.jpg" alt="Project 3">
+      <div class="project-info">
+        <h3>Packaging Design</h3>
+        <p>Minimalist packaging for an organic brand.</p>
+      </div>
+    </a>
+  </section>
 
   <!-- About Section -->
   <section id="about" class="about fade-in">
     <div class="about-container">
       <div class="about-image">
-      <img src="images/your-photo.png" alt="Brady Hudson Photo">
+        <img src="images/your-photo.png" alt="Brady Hudson Photo">
       </div>
       <div class="about-text">
         <h2>About Me</h2>
         <p>
-          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense. Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to go create good things.
+          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense. Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="underline-hover">go create good things</span>.
         </p>
       </div>
     </div>
@@ -114,6 +114,20 @@
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  </script>
+
+  <!-- Scroll Animation Script for About Image -->
+  <script>
+    function handleScrollAnimation() {
+      const aboutImage = document.querySelector('.about-image');
+      const rect = aboutImage.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        aboutImage.classList.add('in-view');
+      }
+    }
+
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation);
   </script>
 
 </body>
