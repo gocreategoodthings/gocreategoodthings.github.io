@@ -15,31 +15,35 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 10px 30px;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-header img {
-  width: 80px;
+header .logo img {
+  width: 60px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
 }
 
 nav a {
-  margin-left: 20px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .slogan {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #666;
   min-width: 200px;
   text-align: center;
 }
 
-/* Slogan Fade-in Text */
 .fade-in-text {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -56,18 +60,44 @@ nav a {
   justify-content: center;
   align-items: center;
   height: 90vh;
-  padding-top: 100px; /* adjust for sticky header */
+  padding-top: 120px; /* push down because of sticky header */
   text-align: center;
 }
 
 .hero-logo {
-  width: 300px;
-  animation: bounceIn 1s ease-out forwards;
+  width: 320px;
+  animation: zoomIn 1.2s ease-out forwards, float 4s ease-in-out infinite;
   margin-bottom: 20px;
 }
 
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 .hero h1 {
-  font-size: 2.8em;
+  font-size: 3em;
   margin: 0;
 }
 
@@ -251,19 +281,4 @@ footer {
   text-decoration: none;
   display: none;
   font-size: 1.5rem;
-}
-
-/* Keyframes */
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
 }
