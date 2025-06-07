@@ -24,11 +24,29 @@ nav {
   gap: 20px;
 }
 
-nav a {
+.nav-link {
   text-decoration: none;
   color: #333;
   font-weight: bold;
   font-size: 1rem;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #00B4DB, #FF6A00);
+  bottom: -4px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 .slogan {
@@ -36,6 +54,16 @@ nav a {
   font-size: 1rem;
   color: #666;
   text-align: center;
+  min-width: 200px;
+}
+
+.fade-in-text {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Hero Section */
@@ -88,31 +116,6 @@ nav a {
 
 .hero button:hover {
   background: linear-gradient(to right, #FF6A00, #00B4DB);
-}
-
-/* Underline Animation */
-.underline-animation {
-  position: relative;
-  display: inline;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-.underline-animation::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background: linear-gradient(to right, #00B4DB, #FF6A00);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
-}
-
-.underline-animation:hover::after {
-  transform: scaleX(1);
 }
 
 /* Portfolio */
