@@ -1,286 +1,148 @@
-/* Base Styles */
-body {
-  margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  color: #333;
-  background: #fff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Create Good Things</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
+      </a>
+    </div>
+    <div class="slogan" id="rotating-slogan">Craft Meaningful Brands</div>
+    <nav>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
-header .logo img {
-  width: 80px;
-}
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
+    <h1>Go Create Good Things</h1>
+    <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
+  </section>
 
-nav {
-  display: flex;
-  gap: 20px;
-}
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio fade-in">
+  <a href="project1.html" class="project">
+    <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
+    <div class="project-info">
+      <h3>Diamond Court Tennis Club</h3>
+      <p>Brand identity, website, and social assets for an elite tennis club.</p>
+    </div>
+  </a>
+  <a href="project2.html" class="project">
+    <img src="images/project2-cover.jpg" alt="Cover for Web Design">
+    <div class="project-info">
+      <h3>Web Design</h3>
+      <p>Responsive website for a creative agency.</p>
+    </div>
+  </a>
+  <a href="project3.html" class="project">
+    <img src="images/project3-cover.jpg" alt="Cover for Packaging Design">
+    <div class="project-info">
+      <h3>Packaging Design</h3>
+      <p>Minimalist packaging for an organic brand.</p>
+    </div>
+  </a>
+</section>
 
-.nav-link {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  font-size: 1rem;
-  position: relative;
-}
+<!-- About Section -->
+<section id="about" class="about fade-in">
+  <div class="about-container">
+    <div class="about-image hover-glow">
+      <img src="images/your-photo.png" alt="Brady Hudson Photo">
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
+        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="gradient-text">go create good things</span>.
+      </p>
+    </div>
+  </div>
+</section>
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, #00B4DB, #FF6A00);
-  bottom: -4px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
+<!-- Contact Section -->
+<section id="contact" class="contact fade-in">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
+<!-- Footer -->
+<footer>
+  &copy; 2025 Go Create Good Things | Follow me 
+  <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+</footer>
 
-.slogan {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
-  color: #666;
-  text-align: center;
-  min-width: 200px;
-}
+<!-- Scroll to Top Button -->
+<a href="#" class="scroll-to-top">↑</a>
 
-.fade-in-text {
-  animation: fadeIn 0.5s ease-in-out;
-}
+<!-- Scripts -->
+<script>
+  const scrollBtn = document.querySelector(".scroll-to-top");
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
 
-/* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  padding-top: 20px;
-  text-align: center;
-}
+  scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-.hero-logo {
-  width: 420px;
-  animation: hugeZoomIn 2s ease-out forwards, float 4s ease-in-out infinite;
-  margin-bottom: 20px;
-}
+  const phrases = [
+    "Kerning Enthusiast.",
+    "Pixel Perfectionist.",
+    "Unpaid Therapist for Fonts.",
+    "404 Error: Idea Not Found.",
+    "Design Now, Sleep Later.",
+    "Ctrl + Z My Life.",
+    "Fonts Speak Louder Than Words.",
+    "Helvetica Whisperer.",
+    "Grid Systems Rule Everything Around Me.",
+    "Saving the World, One Pixel at a Time.",
+    "Pantone 448C Fan Club President.",
+    "Running on Coffee and Deadlines.",
+    "Designers Do It on Layers.",
+    "Whitespace is My Happy Place.",
+    "Eat. Sleep. Design. Repeat.",
+    "Comic Sans: Not Even Once.",
+    "Exporting Artboards Since 2010.",
+    "Proofreading... No Thanks.",
+    "Will Work for Exposure.",
+    "Alignment Issues Give Me Nightmares."
+  ];
 
-@keyframes hugeZoomIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+  const sloganEl = document.getElementById('rotating-slogan');
+  let index = 0;
 
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
+  setInterval(() => {
+    sloganEl.classList.remove('fade-in-text');
+    void sloganEl.offsetWidth;
+    sloganEl.classList.add('fade-in-text');
+    sloganEl.textContent = phrases[index];
+    index = (index + 1) % phrases.length;
+  }, 8000);
+</script>
 
-.hero h1 {
-  font-size: 3em;
-  margin: 0;
-}
-
-.hero button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  font-size: 1em;
-  cursor: pointer;
-  border: none;
-  background: linear-gradient(to right, #00B4DB, #FF6A00);
-  color: #fff;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.hero button:hover {
-  background: linear-gradient(to right, #FF6A00, #00B4DB);
-}
-
-/* Gradient Text for About Me */
-.gradient-text {
-  background: linear-gradient(to right, #00B4DB, #FF6A00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  font-weight: bold;
-}
-
-/* Fade-in Animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Portfolio */
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 40px;
-}
-
-.project {
-  text-align: center;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.project-info {
-  padding: 20px;
-}
-
-.project:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* About Section */
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  background: #f5f5f5;
-}
-
-.about-image img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  transition: box-shadow 0.3s ease;
-}
-
-.hover-glow:hover img {
-  box-shadow: 0 0 20px rgba(0, 180, 219, 0.5);
-}
-
-.about-text {
-  max-width: 600px;
-  margin-left: 40px;
-}
-
-.about-text h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.about-text p {
-  font-family: 'DM Serif Text', serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-/* Contact Section */
-.contact {
-  padding: 40px;
-  text-align: center;
-}
-
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.contact input,
-.contact textarea {
-  padding: 10px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.contact button {
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  border: none;
-  background: linear-gradient(to right, #00B4DB, #FF6A00);
-  color: #fff;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.contact button:hover {
-  background: linear-gradient(to right, #FF6A00, #00B4DB);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  background: #eee;
-}
-
-/* Scroll To Top */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: orange;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  display: none;
-  font-size: 1.5rem;
-}
+</body>
+</html>
