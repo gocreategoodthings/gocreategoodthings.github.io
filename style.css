@@ -87,7 +87,7 @@ nav a:hover::after {
 }
 
 .hero img { 
-  width: 250px; 
+  width: 400px; /* ⬅️ NEW BIGGER LOGO */
   margin-bottom: 20px; 
   animation: dramaticBounce 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards, 
              floatAnimation 8s ease-in-out infinite 2.5s; 
@@ -169,7 +169,7 @@ nav a:hover::after {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 10px 10px 0 0; /* Rounded top corners */
+  border-radius: 10px 10px 0 0;
   transition: transform 0.3s ease;
 }
 
@@ -185,7 +185,7 @@ nav a:hover::after {
 .project-info {
   padding: 20px;
   background: #fff;
-  border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+  border-radius: 0 0 10px 10px;
   text-align: center;
 }
 
@@ -323,7 +323,7 @@ footer {
   }
 
   .hero img {
-    width: 180px;
+    width: 250px; /* smaller logo on mobile */
   }
 
   .portfolio {
