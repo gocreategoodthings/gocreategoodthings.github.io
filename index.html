@@ -29,6 +29,8 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle">🌙</button>
   </header>
 
   <!-- Hero Section -->
@@ -102,7 +104,6 @@
   <script>
     // Scroll to Top
     const scrollBtn = document.querySelector(".scroll-to-top");
-
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
         scrollBtn.style.display = "block";
@@ -110,7 +111,6 @@
         scrollBtn.style.display = "none";
       }
     });
-
     scrollBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -124,7 +124,6 @@
         aboutImage.classList.add('in-view');
       }
     }
-
     window.addEventListener('scroll', handleScrollAnimation);
     window.addEventListener('load', handleScrollAnimation);
 
@@ -142,12 +141,18 @@
       "Shape Visual Stories",
       "Ideas Made Real"
     ];
-
     let sloganIndex = 0;
     setInterval(() => {
       sloganIndex = (sloganIndex + 1) % slogans.length;
       document.getElementById('slogan').textContent = slogans[sloganIndex];
-    }, 3000); // every 3 seconds
+    }, 3000);
+
+    // Dark Mode Toggle
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
   </script>
 
 </body>
