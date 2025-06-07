@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go Create Good Things</title>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
   <style>
     html {
@@ -21,9 +17,11 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
+      <a href="index.html">
+        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
+      </a>
     </div>
-    <div class="slogan" id="slogan">Go Create Good Things</div>
+    <div class="slogan">Craft Meaningful Brands</div>
     <nav>
       <a href="#portfolio">Portfolio</a>
       <a href="#about">About</a>
@@ -32,14 +30,14 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" id="hero">
+  <section class="hero fade-in">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
     <h1>Go Create Good Things</h1>
     <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
+  <section id="portfolio" class="portfolio fade-in">
     <a href="project1.html" class="project">
       <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
       <div class="project-info">
@@ -47,15 +45,15 @@
         <p>Brand identity, website, and social assets for an elite tennis club.</p>
       </div>
     </a>
-   <a href="project2.html" class="project">
-  <img src="images/project2-cover.jpg" alt="Cover for Web Design">
-  <div class="project-info">
-    <h3>Web Design</h3>
-    <p>Responsive website for a creative agency.</p>
-  </div>
-</a>
+    <a href="project2.html" class="project">
+      <img src="images/project2-cover.jpg" alt="Cover for Web Design">
+      <div class="project-info">
+        <h3>Web Design</h3>
+        <p>Responsive website for a creative agency.</p>
+      </div>
+    </a>
     <a href="project3.html" class="project">
-      <img src="images/project3.jpg" alt="Cover for Packaging Design">
+      <img src="images/project3-cover.jpg" alt="Cover for Packaging Design">
       <div class="project-info">
         <h3>Packaging Design</h3>
         <p>Minimalist packaging for an organic brand.</p>
@@ -64,7 +62,7 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about">
+  <section id="about" class="about fade-in">
     <div class="about-container">
       <div class="about-image">
         <img src="images/your-photo.png" alt="Brady Hudson Photo">
@@ -72,14 +70,15 @@
       <div class="about-text">
         <h2>About Me</h2>
         <p>
-          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense. Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="underline-hover">go create good things</span>.
+          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense. Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to 
+          <span class="underline-animation">go create good things</span>.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact fade-in">
     <h2>Contact Me</h2>
     <form>
       <input type="text" placeholder="Name" required>
@@ -98,10 +97,11 @@
   <!-- Scroll to Top Button -->
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- Scripts -->
+  <!-- Scroll to Top Script + Fade In Scroll Animation -->
   <script>
-    // Scroll to Top
+    // Scroll to top button
     const scrollBtn = document.querySelector(".scroll-to-top");
+
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
         scrollBtn.style.display = "block";
@@ -109,30 +109,34 @@
         scrollBtn.style.display = "none";
       }
     });
+
     scrollBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Parallax Effect on Hero
-    window.addEventListener('scroll', function() {
-      const hero = document.getElementById('hero');
-      hero.style.backgroundPositionY = window.scrollY * 0.3 + 'px';
-    });
+    // Fade In on Scroll for Sections
+    const faders = document.querySelectorAll('.fade-in');
 
-    // Rotating Header Slogan
-    const slogans = [
-      "Go Create Good Things",
-      "Design with Purpose",
-      "Craft Meaningful Brands",
-      "Shape Visual Stories",
-      "Ideas Made Real"
-    ];
-    let sloganIndex = 0;
-    setInterval(() => {
-      sloganIndex = (sloganIndex + 1) % slogans.length;
-      document.getElementById('slogan').textContent = slogans[sloganIndex];
-    }, 3000);
+    const appearOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('visible');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
   </script>
 
 </body>
