@@ -4,7 +4,7 @@ body {
   font-family: 'DM Serif Text', serif;
   color: #333; 
   background: #fff; 
-  scroll-behavior: smooth; /* native smooth scroll */
+  scroll-behavior: smooth;
 }
 
 /* Smooth Fade-In Animation */
@@ -19,6 +19,18 @@ body {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Scroll Animation for About Image */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -87,7 +99,7 @@ nav a:hover::after {
 }
 
 .hero img { 
-  width: 400px; /* ⬅️ NEW BIGGER LOGO */
+  width: 400px;
   margin-bottom: 20px; 
   animation: dramaticBounce 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards, 
              floatAnimation 8s ease-in-out infinite 2.5s; 
@@ -217,6 +229,17 @@ nav a:hover::after {
   flex-wrap: wrap;
 }
 
+.about-image {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-image.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about-image img {
   width: 280px;
   border-radius: 50%;
@@ -235,6 +258,25 @@ nav a:hover::after {
 .about-text p {
   font-size: 1.2em;
   line-height: 1.6;
+}
+
+/* Underline Hover Effect for "go create good things" */
+.underline-hover {
+  position: relative;
+  cursor: pointer;
+}
+
+.underline-hover::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #FF6A00;
+  transition: width 0.3s;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
 }
 
 /* Contact Section */
@@ -323,7 +365,7 @@ footer {
   }
 
   .hero img {
-    width: 250px; /* smaller logo on mobile */
+    width: 250px;
   }
 
   .portfolio {
