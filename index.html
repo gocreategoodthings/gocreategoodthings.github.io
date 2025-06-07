@@ -21,11 +21,11 @@
         <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
       </a>
     </div>
-    <div class="slogan">Craft Meaningful Brands</div>
+    <div class="slogan" id="rotating-slogan">Craft Meaningful Brands</div>
     <nav>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </header>
 
@@ -137,6 +137,31 @@
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
+
+  // Rotating Slogan Text
+  const phrases = [
+    "Kerning Enthusiast.",
+    "Pixel Perfectionist.",
+    "Unpaid Therapist for Fonts.",
+    "404 Error: Idea Not Found.",
+    "Design Now, Sleep Later.",
+    "Ctrl + Z My Life.",
+    "Fonts Speak Louder Than Words.",
+    "Helvetica Whisperer.",
+    "Grid Systems Rule Everything Around Me.",
+    "Saving the World, One Pixel at a Time."
+  ];
+
+  const sloganEl = document.getElementById('rotating-slogan');
+
+  let index = 0;
+  setInterval(() => {
+    sloganEl.classList.remove('fade-in-text');
+    void sloganEl.offsetWidth;
+    sloganEl.classList.add('fade-in-text');
+    sloganEl.textContent = phrases[index];
+    index = (index + 1) % phrases.length;
+  }, 5000);
 </script>
 
 </body>
