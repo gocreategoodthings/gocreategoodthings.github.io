@@ -31,7 +31,9 @@
 
   <!-- Hero Section -->
   <section class="hero fade-in">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
+    <div class="hero-logo-container">
+      <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="parallax-hero">
+    </div>
     <h1>Go Create Good Things</h1>
     <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
   </section>
@@ -64,7 +66,7 @@
   <!-- About Section -->
   <section id="about" class="about fade-in">
     <div class="about-container">
-      <div class="about-image">
+      <div class="about-image hover-tilt">
         <img src="images/your-photo.png" alt="Brady Hudson Photo">
       </div>
       <div class="about-text">
@@ -97,7 +99,7 @@
   <!-- Scroll to Top Button -->
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- Scroll to Top Script + Fade In Scroll Animation -->
+  <!-- Scripts -->
   <script>
     // Scroll to top button
     const scrollBtn = document.querySelector(".scroll-to-top");
@@ -136,6 +138,33 @@
 
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
+    });
+
+    // Parallax Effect
+    document.addEventListener('mousemove', function(e) {
+      document.querySelectorAll('.parallax-hero').forEach(move => {
+        const speed = 15;
+        const x = (window.innerWidth - e.pageX * speed) / 100;
+        const y = (window.innerHeight - e.pageY * speed) / 100;
+        move.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      });
+    });
+
+    // Hover Tilt for About Image
+    document.querySelectorAll('.hover-tilt').forEach((tilt) => {
+      tilt.addEventListener('mousemove', (e) => {
+        const rect = tilt.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+        tilt.style.transform = `rotateX(${deltaY * 10}deg) rotateY(${deltaX * 10}deg)`;
+      });
+      tilt.addEventListener('mouseleave', () => {
+        tilt.style.transform = `rotateX(0deg) rotateY(0deg)`;
+      });
     });
   </script>
 
