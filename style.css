@@ -1,97 +1,29 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* General Styles */
-body {
-  font-family: 'Space Grotesk', sans-serif;
-  background: #fff;
-  color: #111;
-  line-height: 1.6;
-}
-
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: transparent;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-header.scrolled {
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-header .logo img {
-  height: 50px;
-}
-
-nav {
-  display: flex;
-  gap: 30px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-nav a:hover {
-  color: #E2542B;
-}
-
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 100px 20px 60px;
-}
-
-.hero-logo {
-  width: 220px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeUp 2s forwards;
-}
-
-h1 {
-  font-size: 3.5rem;
-  margin-top: 20px;
-}
-
-/* Portfolio */
-.portfolio {
+.portfolio-page {
   padding: 60px 20px;
   max-width: 1200px;
   margin: auto;
   text-align: center;
 }
 
+.portfolio-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+  grid-template-columns: repeat(3, 1fr); /* FIXED: 3 columns always on desktop */
   gap: 30px;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .portfolio-grid {
     grid-template-columns: 1fr; /* 1 column on mobile */
   }
@@ -137,170 +69,4 @@ h1 {
   font-size: 1.5rem;
   font-weight: 500;
   margin: 0;
-}
-
-.view-all-link {
-  text-align: center;
-  margin: 60px 0;
-}
-
-.underline-link {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #E2542B;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
-}
-
-.underline-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  background: #E2542B;
-  transition: width 0.3s ease;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -5px;
-}
-
-.underline-link:hover::after {
-  width: 100%;
-}
-
-/* About */
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 60px;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-image img {
-  width: 280px;
-  border-radius: 50%;
-}
-
-.about-text {
-  max-width: 600px;
-}
-
-.highlight-text {
-  color: #E2542B;
-  font-weight: bold;
-}
-
-/* Contact */
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 600px;
-  margin: auto;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 16px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  background-color: #E2542B;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-footer a {
-  color: #E2542B;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Scroll to Top */
-.scroll-to-top {
-  display: none;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background-color: #E2542B;
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.scroll-to-top:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* Animations */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  nav {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 500px) {
-  h1 {
-    font-size: 2rem;
-  }
-  .hero-logo {
-    width: 180px;
-  }
 }
