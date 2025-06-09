@@ -8,11 +8,6 @@
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 <body>
 
@@ -32,29 +27,26 @@
 
   <!-- Hero Section -->
   <section class="hero fade-up">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
+    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo">
     <h1>Go Create Good Things</h1>
   </section>
 
-  <!-- Portfolio Section -->
+  <!-- Portfolio Preview -->
   <section id="portfolio" class="portfolio fade-up">
     <div class="portfolio-grid">
       <a href="project1.html" class="portfolio-item">
-        <!-- Placeholder for Project 1 -->
         <div class="project-placeholder">Project 1 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Diamond Court Tennis Club</h3>
         </div>
       </a>
       <a href="project2.html" class="portfolio-item">
-        <!-- Placeholder for Project 2 -->
         <div class="project-placeholder">Project 2 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 2 Title</h3>
         </div>
       </a>
       <a href="project3.html" class="portfolio-item">
-        <!-- Placeholder for Project 3 -->
         <div class="project-placeholder">Project 3 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 3 Title</h3>
@@ -70,7 +62,6 @@
   <section id="about" class="about fade-up">
     <div class="about-container">
       <div class="about-image">
-        <!-- Placeholder for About photo -->
         <div class="image-placeholder">About Photo Coming Soon</div>
       </div>
       <div class="about-text">
@@ -90,13 +81,10 @@
       <form>
         <label for="name">Name</label>
         <input id="name" type="text" placeholder="Your Name" required>
-
         <label for="email">Email</label>
         <input id="email" type="email" placeholder="Your Email" required>
-
         <label for="message">Message</label>
         <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-
         <button type="submit" class="btn">Send Message</button>
       </form>
     </div>
@@ -107,10 +95,8 @@
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
-  <!-- Scroll to Top Button -->
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- Scripts -->
   <script>
     const scrollBtn = document.querySelector(".scroll-to-top");
     const header = document.getElementById("header");
@@ -134,6 +120,5 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
-
 </body>
 </html>
