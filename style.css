@@ -13,7 +13,7 @@ body {
   line-height: 1.6;
 }
 
-/* Placeholder */
+/* Placeholders */
 .image-placeholder {
   width: 280px;
   height: 280px;
@@ -27,9 +27,22 @@ body {
   border-radius: 50%;
 }
 
+.project-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #f0f0f0;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
 /* Contact Background */
 .contact-background {
-  background-image: url('images/contact-background.svg'); /* Custom SVG design */
+  background-image: url('images/contact-background.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -122,17 +135,6 @@ h1 {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-}
-
-.portfolio-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.portfolio-item:hover img {
-  transform: scale(1.05);
 }
 
 .portfolio-overlay {
@@ -317,24 +319,5 @@ footer a:hover {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  nav {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 500px) {
-  h1 {
-    font-size: 2rem;
-  }
-  .hero-logo {
-    width: 180px;
   }
 }
