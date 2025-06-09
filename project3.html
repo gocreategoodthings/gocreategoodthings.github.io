@@ -3,51 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Packaging Design | Go Create Good Things</title>
+  <title>Project 3 Title Here</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
+  <!-- Header -->
+  <header id="header">
     <div class="logo">
       <a href="index.html">
         <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
       </a>
     </div>
     <nav>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="project-hero">
-    <img src="images/project3-cover.jpg" alt="Packaging Design Hero">
-    <div class="project-title">
-      <h1>Packaging Design</h1>
-      <p>Minimalist packaging for an organic brand.</p>
-    </div>
-  </section>
+  <!-- Hero Image -->
+  <img src="images/project3-hero.jpg" alt="Project 3 Hero" class="project-hero">
 
-  <section class="project-content">
-    <div class="project-description">
-      <h2>Project Overview</h2>
-      <p>
-        Designed packaging that reflects the organic, sustainable ethos of the brand. Clean lines, neutral tones, and premium materials to stand out on shelves.
-      </p>
-    </div>
+  <!-- Project Details -->
+  <div class="project-page">
+    <h1 class="project-title">Project 3 Title Here</h1>
+    <p class="project-description">
+      Brief description about what this project covers. Talk about the concept, the problem you solved, or any special details about the project execution.
+    </p>
 
+    <!-- Project Gallery -->
     <div class="project-gallery">
-      <img src="images/packaging-1.jpg" alt="Packaging Gallery Image 1">
-      <img src="images/packaging-2.jpg" alt="Packaging Gallery Image 2">
-      <img src="images/packaging-3.jpg" alt="Packaging Gallery Image 3">
+      <img src="images/project3-1.jpg" alt="Project 3 Image 1">
+      <img src="images/project3-2.jpg" alt="Project 3 Image 2">
+      <img src="images/project3-3.jpg" alt="Project 3 Image 3">
     </div>
-  </section>
 
+    <!-- Back to Portfolio Link -->
+    <div class="back-link">
+      <a href="portfolio.html" class="underline-link">← Back to Full Portfolio</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">Instagram</a>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
 
 </body>
 </html>
