@@ -13,9 +13,23 @@ body {
   line-height: 1.6;
 }
 
-/* Contact Background Design */
+/* Placeholder */
+.image-placeholder {
+  width: 280px;
+  height: 280px;
+  background-color: #f0f0f0;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+  border-radius: 50%;
+}
+
+/* Contact Background */
 .contact-background {
-  background-image: url('images/contact-background.svg'); /* Placeholder for custom background */
+  background-image: url('images/contact-background.svg'); /* Custom SVG design */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -186,9 +200,10 @@ h1 {
   justify-content: center;
 }
 
-.about-image img {
-  width: 280px;
-  border-radius: 50%;
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-text {
