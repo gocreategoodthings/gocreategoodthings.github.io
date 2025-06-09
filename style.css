@@ -63,7 +63,7 @@ nav a:hover {
   margin-bottom: 20px;
   opacity: 0;
   animation: logoEntrance 2s ease forwards, float 6s ease-in-out infinite;
-  animation-delay: 0s, 2s; /* First: entrance, then: float after 2s */
+  animation-delay: 0s, 2s; /* Entrance first, Float after 2s */
 }
 
 @keyframes logoEntrance {
@@ -76,19 +76,19 @@ nav a:hover {
     transform: scale(2) rotate(720deg); /* BIG spin */
   }
   100% {
-    transform: scale(1) rotate(0deg); /* Shrink to normal size */
+    transform: scale(1) rotate(0deg); /* Shrink to normal */
   }
 }
 
 @keyframes float {
   0% {
-    transform: translateY(0px);
+    transform: scale(1) rotate(0deg) translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: scale(1) rotate(0deg) translateY(-10px);
   }
   100% {
-    transform: translateY(0px);
+    transform: scale(1) rotate(0deg) translateY(0px);
   }
 }
 
