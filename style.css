@@ -1,4 +1,4 @@
-/* General styles */
+/* General Styles */
 body {
   font-family: 'Space Grotesk', sans-serif;
   margin: 0;
@@ -82,25 +82,58 @@ section {
   margin: auto;
 }
 
+/* Portfolio Homepage */
+.portfolio {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
 .project {
-  display: block;
+  flex: 1 1 300px;
+  max-width: 350px;
   text-align: center;
-  margin-bottom: 40px;
   text-decoration: none;
   color: inherit;
+  transition: transform 0.3s;
 }
 
 .project img {
   width: 100%;
   height: auto;
-  max-width: 400px;
   border-radius: 10px;
+}
+
+.project:hover {
+  transform: scale(1.05);
 }
 
 .project-info {
   margin-top: 10px;
 }
 
+/* View All Button */
+.view-all-button {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+/* About Section */
 .about-container {
   display: flex;
   flex-wrap: wrap;
@@ -162,6 +195,16 @@ footer {
   border-radius: 50%;
   font-size: 1.5rem;
   text-decoration: none;
+}
+
+/* Full Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .fade-in {
