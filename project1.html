@@ -4,67 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diamond Court Tennis Club</title>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
   <style>
     html {
       scroll-behavior: smooth;
     }
-    .project-hero {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 0;
-      margin-bottom: 40px;
-    }
-    .project-page {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .project-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    .project-description {
-      font-size: 1.2em;
-      margin-bottom: 40px;
-      color: #666;
-    }
-    .project-gallery img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-gallery img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-    .back-button {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 10px 20px;
-      font-size: 1em;
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(to right, #00B4DB, #FF6A00);
-      border-radius: 5px;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .back-button:hover {
-      background: linear-gradient(to right, #FF6A00, #00B4DB);
-      transform: scale(1.05);
-    }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
   <!-- Hero Image -->
   <img src="images/diamondcourt-hero.jpg" alt="Diamond Court Tennis Club Hero" class="project-hero">
@@ -81,12 +43,31 @@
       <img src="images/diamondcourt-1.jpg" alt="Diamond Court Tennis Club Image 1">
       <img src="images/diamondcourt-2.jpg" alt="Diamond Court Tennis Club Image 2">
       <img src="images/diamondcourt-3.jpg" alt="Diamond Court Tennis Club Image 3">
-      <!-- Add more images here -->
     </div>
 
-    <!-- Back to Portfolio Button -->
-    <a href="index.html#portfolio" class="back-button">← Back to Portfolio</a>
+    <!-- Back to Portfolio Link -->
+    <div class="back-link">
+      <a href="portfolio.html" class="underline-link">← Back to Full Portfolio</a>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">Instagram</a>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
 
 </body>
 </html>
