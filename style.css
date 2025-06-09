@@ -116,18 +116,7 @@ section {
 .btn, .btn-gradient {
   display: inline-block;
   padding: 12px 24px;
-  background: linear-gradient(90deg,
-    #005789 0%,
-    #005789 20%,
-    #7AC9D0 20%,
-    #7AC9D0 40%,
-    #009490 40%,
-    #009490 60%,
-    #F89D2A 60%,
-    #F89D2A 80%,
-    #E2542B 80%,
-    #E2542B 100%
-  );
+  background-color: #E2542B;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -138,7 +127,7 @@ section {
 }
 
 .btn:hover, .btn-gradient:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.15);
   transform: scale(1.05);
 }
 
@@ -161,20 +150,7 @@ section {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg,
-    #005789 0%,
-    #005789 20%,
-    #7AC9D0 20%,
-    #7AC9D0 40%,
-    #009490 40%,
-    #009490 60%,
-    #F89D2A 60%,
-    #F89D2A 80%,
-    #E2542B 80%,
-    #E2542B 100%
-  );
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #E2542B;
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -204,17 +180,29 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Scroll to Top Button */
 .scroll-to-top {
   display: none;
   position: fixed;
   right: 20px;
   bottom: 20px;
-  background: #333;
+  background-color: #E2542B;
   color: #fff;
-  padding: 10px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   font-size: 1.5rem;
   text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /* Full Portfolio Grid */
