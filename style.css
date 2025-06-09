@@ -116,19 +116,24 @@ section {
 .btn, .btn-gradient {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #E2542B;
-  color: #fff;
-  text-decoration: none;
+  background: transparent;
+  color: #E2542B;
   font-weight: bold;
+  text-decoration: none;
+  border: 2px solid;
+  border-image: linear-gradient(90deg, 
+    #005789, #7AC9D0, #009490, #F89D2A, #E2542B
+  ) 1;
   border-radius: 8px;
   transition: all 0.3s ease;
-  border: none;
   cursor: pointer;
 }
 
 .btn:hover, .btn-gradient:hover {
-  filter: brightness(1.15);
-  transform: scale(1.05);
+  background: linear-gradient(90deg, 
+    #005789, #7AC9D0, #009490, #F89D2A, #E2542B
+  );
+  color: #fff;
 }
 
 /* About Section */
