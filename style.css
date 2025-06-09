@@ -1,148 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Go Create Good Things</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* General styles */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #fff;
+  color: #333;
+}
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
-      </a>
-    </div>
-    <div class="slogan" id="rotating-slogan">Craft Meaningful Brands</div>
-    <nav>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </header>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-  <!-- Hero Section -->
-  <section class="hero fade-in">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
-    <h1>Go Create Good Things</h1>
-    <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">View Portfolio</button>
-  </section>
+header .logo img {
+  height: 60px;
+  width: auto;
+}
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio fade-in">
-  <a href="project1.html" class="project">
-    <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
-    <div class="project-info">
-      <h3>Diamond Court Tennis Club</h3>
-      <p>Brand identity, website, and social assets for an elite tennis club.</p>
-    </div>
-  </a>
-  <a href="project2.html" class="project">
-    <img src="images/project2-cover.jpg" alt="Cover for Web Design">
-    <div class="project-info">
-      <h3>Web Design</h3>
-      <p>Responsive website for a creative agency.</p>
-    </div>
-  </a>
-  <a href="project3.html" class="project">
-    <img src="images/project3-cover.jpg" alt="Cover for Packaging Design">
-    <div class="project-info">
-      <h3>Packaging Design</h3>
-      <p>Minimalist packaging for an organic brand.</p>
-    </div>
-  </a>
-</section>
+header .slogan {
+  font-family: 'DM Serif Text', serif;
+  font-size: 1.5rem;
+  text-align: center;
+  flex: 1;
+}
 
-<!-- About Section -->
-<section id="about" class="about fade-in">
-  <div class="about-container">
-    <div class="about-image hover-glow">
-      <img src="images/your-photo.png" alt="Brady Hudson Photo">
-    </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
-        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="gradient-text">go create good things</span>.
-      </p>
-    </div>
-  </div>
-</section>
+nav {
+  display: flex;
+  gap: 20px;
+}
 
-<!-- Contact Section -->
-<section id="contact" class="contact fade-in">
-  <h2>Contact Me</h2>
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
 
-<!-- Footer -->
-<footer>
-  &copy; 2025 Go Create Good Things | Follow me 
-  <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-</footer>
+nav a:hover {
+  text-decoration: underline;
+}
 
-<!-- Scroll to Top Button -->
-<a href="#" class="scroll-to-top">↑</a>
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
 
-<!-- Scripts -->
-<script>
-  const scrollBtn = document.querySelector(".scroll-to-top");
+.hero-logo {
+  width: 150px;
+  height: auto;
+  animation: pulse 4s infinite;
+}
 
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 300) {
-      scrollBtn.style.display = "block";
-    } else {
-      scrollBtn.style.display = "none";
-    }
-  });
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+h1 {
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
 
-  const phrases = [
-    "Kerning Enthusiast.",
-    "Pixel Perfectionist.",
-    "Unpaid Therapist for Fonts.",
-    "404 Error: Idea Not Found.",
-    "Design Now, Sleep Later.",
-    "Ctrl + Z My Life.",
-    "Fonts Speak Louder Than Words.",
-    "Helvetica Whisperer.",
-    "Grid Systems Rule Everything Around Me.",
-    "Saving the World, One Pixel at a Time.",
-    "Pantone 448C Fan Club President.",
-    "Running on Coffee and Deadlines.",
-    "Designers Do It on Layers.",
-    "Whitespace is My Happy Place.",
-    "Eat. Sleep. Design. Repeat.",
-    "Comic Sans: Not Even Once.",
-    "Exporting Artboards Since 2010.",
-    "Proofreading... No Thanks.",
-    "Will Work for Exposure.",
-    "Alignment Issues Give Me Nightmares."
-  ];
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+}
 
-  const sloganEl = document.getElementById('rotating-slogan');
-  let index = 0;
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-  setInterval(() => {
-    sloganEl.classList.remove('fade-in-text');
-    void sloganEl.offsetWidth;
-    sloganEl.classList.add('fade-in-text');
-    sloganEl.textContent = phrases[index];
-    index = (index + 1) % phrases.length;
-  }, 8000);
-</script>
+.project {
+  display: block;
+  text-align: center;
+  margin-bottom: 40px;
+  text-decoration: none;
+  color: inherit;
+}
 
-</body>
-</html>
+.project img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.project-info {
+  margin-top: 10px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 250px;
+  border-radius: 50%;
+}
+
+.about-text {
+  max-width: 600px;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  font-size: 0.9rem;
+}
+
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-text {
+  animation: fadeInText 1s;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
