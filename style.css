@@ -39,7 +39,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: #005C99; /* dark blue accent */
   font-weight: 500;
 }
 
@@ -53,7 +53,7 @@ nav a:hover {
 }
 
 .hero-logo {
-  width: 300px; /* Doubled size */
+  width: 300px; /* doubled */
   height: auto;
   animation: pulse 4s infinite;
 }
@@ -67,6 +67,7 @@ nav a:hover {
 h1 {
   font-size: 2.5rem;
   margin-top: 20px;
+  color: #005C99; /* dark blue */
 }
 
 section {
@@ -115,7 +116,7 @@ section {
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  background: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); /* gradient */
+  background: linear-gradient(45deg, #005C99, #00A896, #F4A300, #F77F00, #D62828);
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -147,7 +148,7 @@ section {
 }
 
 .gradient-text {
-  background: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background: linear-gradient(45deg, #005C99, #00A896, #F4A300, #F77F00, #D62828);
   -webkit-background-clip: text;
   color: transparent;
   font-weight: bold;
@@ -174,7 +175,7 @@ input, textarea {
 .btn-gradient {
   display: inline-block;
   padding: 12px 24px;
-  background: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); /* gradient */
+  background: linear-gradient(45deg, #005C99, #00A896, #F4A300, #F77F00, #D62828);
   color: #fff;
   text-decoration: none;
   font-weight: bold;
