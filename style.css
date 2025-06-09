@@ -13,6 +13,14 @@ body {
   line-height: 1.6;
 }
 
+.section-white {
+  background-color: #ffffff;
+}
+
+.section-cream {
+  background-color: #fff8f0;
+}
+
 /* Header */
 header {
   display: flex;
