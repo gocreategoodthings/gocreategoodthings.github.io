@@ -13,41 +13,6 @@ body {
   line-height: 1.6;
 }
 
-/* Placeholders */
-.image-placeholder {
-  width: 280px;
-  height: 280px;
-  background-color: #f0f0f0;
-  border: 2px dashed #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 1rem;
-  border-radius: 50%;
-}
-
-.project-placeholder {
-  width: 100%;
-  height: 200px;
-  background-color: #f0f0f0;
-  border: 2px dashed #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 1rem;
-  border-radius: 12px;
-}
-
-/* Contact Background */
-.contact-background {
-  background-image: url('images/contact-background.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 /* Header */
 header {
   display: flex;
@@ -87,7 +52,7 @@ nav a:hover {
   color: #E2542B;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   text-align: center;
   padding: 100px 20px 60px;
@@ -98,6 +63,23 @@ nav a:hover {
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeUp 2s forwards;
+}
+
+/* Floating Logo Animation */
+@keyframes floatExpand {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.float-logo {
+  animation: floatExpand 4s ease-in-out infinite;
 }
 
 h1 {
@@ -113,10 +95,24 @@ h1 {
   text-align: center;
 }
 
+/* Full Portfolio Page Centering */
+.full-portfolio-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-portfolio-page h1 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+/* Portfolio Grid */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  justify-items: center;
 }
 
 @media (max-width: 1024px) {
@@ -131,12 +127,28 @@ h1 {
   }
 }
 
+/* Portfolio Items */
 .portfolio-item {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
+  width: 100%;
 }
 
+.project-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #f0f0f0;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+/* Portfolio Overlay */
 .portfolio-overlay {
   position: absolute;
   top: 0;
@@ -162,6 +174,7 @@ h1 {
   margin: 0;
 }
 
+/* View All Link */
 .view-all-link {
   text-align: center;
   margin: 60px 0;
@@ -212,6 +225,19 @@ h1 {
   max-width: 600px;
 }
 
+.image-placeholder {
+  width: 280px;
+  height: 280px;
+  background-color: #f0f0f0;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+  border-radius: 50%;
+}
+
 .highlight-text {
   color: #E2542B;
   font-weight: bold;
@@ -221,6 +247,14 @@ h1 {
 .contact {
   padding: 80px 20px;
   text-align: center;
+}
+
+/* Contact Background */
+.contact-background {
+  background-image: url('images/contact-background.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .contact-card {
@@ -308,7 +342,7 @@ footer a:hover {
   transform: scale(1.1);
 }
 
-/* Animations */
+/* Fade Up Animation */
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
