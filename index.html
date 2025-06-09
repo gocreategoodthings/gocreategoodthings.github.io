@@ -21,7 +21,6 @@
         <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
       </a>
     </div>
-    <div class="slogan" id="rotating-slogan">Craft Meaningful Brands</div>
     <nav>
       <a href="#portfolio" class="nav-link">Portfolio</a>
       <a href="#about" class="nav-link">About</a>
@@ -30,43 +29,40 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero fade-in">
+  <section class="hero">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
     <h1>Go Create Good Things</h1>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio fade-in">
+  <section id="portfolio" class="portfolio fade-up">
     <a href="project1.html" class="project">
-      <img src="images/project1-cover.jpg" alt="Cover for Diamond Court Tennis Club">
-      <div class="project-info">
-        <h3>Diamond Court Tennis Club</h3>
-        <p>Brand identity, website, and social assets for an elite tennis club.</p>
-      </div>
+      <img src="images/project1-cover.jpg" alt="Project 1">
     </a>
     <a href="project2.html" class="project">
-      <img src="images/project2-cover.jpg" alt="Cover for Web Design">
-      <div class="project-info">
-        <h3>Web Design</h3>
-        <p>Responsive website for a creative agency.</p>
-      </div>
+      <img src="images/project2-cover.jpg" alt="Project 2">
     </a>
     <a href="project3.html" class="project">
-      <img src="images/project3-cover.jpg" alt="Cover for Packaging Design">
-      <div class="project-info">
-        <h3>Packaging Design</h3>
-        <p>Minimalist packaging for an organic brand.</p>
-      </div>
+      <img src="images/project3-cover.jpg" alt="Project 3">
+    </a>
+    <a href="project4.html" class="project">
+      <img src="images/project4-cover.jpg" alt="Project 4">
+    </a>
+    <a href="project5.html" class="project">
+      <img src="images/project5-cover.jpg" alt="Project 5">
+    </a>
+    <a href="project6.html" class="project">
+      <img src="images/project6-cover.jpg" alt="Project 6">
     </a>
   </section>
 
   <!-- View Full Portfolio Button -->
-  <div class="view-all-button">
+  <div class="view-all-button fade-up">
     <a href="portfolio.html" class="btn">View Full Portfolio</a>
   </div>
 
   <!-- About Section -->
-  <section id="about" class="about fade-in">
+  <section id="about" class="about fade-up">
     <div class="about-container">
       <div class="about-image hover-glow">
         <img src="images/your-photo.png" alt="Brady Hudson Photo">
@@ -75,27 +71,26 @@
         <h2>About Me</h2>
         <p>
           I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
-          Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="gradient-text">go create good things</span>.
+          Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="highlight-text">go create good things</span>.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact fade-in">
+  <section id="contact" class="contact fade-up">
     <h2>Contact Me</h2>
     <form>
       <input type="text" placeholder="Name" required>
       <input type="email" placeholder="Email" required>
       <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit" class="btn-gradient">Send Message</button>
+      <button type="submit" class="btn">Send Message</button>
     </form>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Go Create Good Things | Follow me 
-    <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">Instagram</a>
   </footer>
 
   <!-- Scroll to Top Button -->
@@ -107,7 +102,7 @@
 
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
-        scrollBtn.style.display = "block";
+        scrollBtn.style.display = "flex";
       } else {
         scrollBtn.style.display = "none";
       }
@@ -117,30 +112,6 @@
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    const phrases = [
-      "Kerning Enthusiast.",
-      "Pixel Perfectionist.",
-      "Unpaid Therapist for Fonts.",
-      "404 Error: Idea Not Found.",
-      "Design Now, Sleep Later.",
-      "Ctrl + Z My Life.",
-      "Fonts Speak Louder Than Words.",
-      "Helvetica Whisperer.",
-      "Grid Systems Rule Everything Around Me.",
-      "Saving the World, One Pixel at a Time."
-    ];
-
-    const sloganEl = document.getElementById('rotating-slogan');
-    let index = 0;
-
-    setInterval(() => {
-      sloganEl.classList.remove('fade-in-text');
-      void sloganEl.offsetWidth;
-      sloganEl.classList.add('fade-in-text');
-      sloganEl.textContent = phrases[index];
-      index = (index + 1) % phrases.length;
-    }, 8000);
   </script>
 
 </body>
