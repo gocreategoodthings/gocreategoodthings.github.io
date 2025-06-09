@@ -14,9 +14,6 @@
 </head>
 <body>
 
-  <!-- Page Fade In -->
-  <div id="page-fade"></div>
-
   <!-- Header -->
   <header id="header">
     <div class="logo">
@@ -33,28 +30,28 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo animate-hero">
-    <h1 id="hero-text">Go Create Good Things</h1>
+    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
+    <h1>Go Create Good Things</h1>
   </section>
 
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio fade-up">
-    <a href="project1.html" class="project magnetic">
+    <a href="project1.html" class="project">
       <img src="images/project1-cover.jpg" alt="Project 1">
     </a>
-    <a href="project2.html" class="project magnetic">
+    <a href="project2.html" class="project">
       <img src="images/project2-cover.jpg" alt="Project 2">
     </a>
-    <a href="project3.html" class="project magnetic">
+    <a href="project3.html" class="project">
       <img src="images/project3-cover.jpg" alt="Project 3">
     </a>
-    <a href="project4.html" class="project magnetic">
+    <a href="project4.html" class="project">
       <img src="images/project4-cover.jpg" alt="Project 4">
     </a>
-    <a href="project5.html" class="project magnetic">
+    <a href="project5.html" class="project">
       <img src="images/project5-cover.jpg" alt="Project 5">
     </a>
-    <a href="project6.html" class="project magnetic">
+    <a href="project6.html" class="project">
       <img src="images/project6-cover.jpg" alt="Project 6">
     </a>
   </section>
@@ -67,7 +64,7 @@
   <!-- About Section -->
   <section id="about" class="about fade-up">
     <div class="about-container">
-      <div class="about-image hover-glow">
+      <div class="about-image">
         <img src="images/your-photo.png" alt="Brady Hudson Photo">
       </div>
       <div class="about-text">
@@ -101,7 +98,7 @@
 
   <!-- Scripts -->
   <script>
-    // Scroll to top
+    // Scroll to top button and sticky header
     const scrollBtn = document.querySelector(".scroll-to-top");
     const header = document.getElementById("header");
 
@@ -122,32 +119,6 @@
     scrollBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Page load fade in
-    window.onload = () => {
-      document.getElementById('page-fade').style.opacity = 0;
-    };
-
-    // Parallax on Hero Text
-    const heroText = document.getElementById('hero-text');
-    window.addEventListener('scroll', () => {
-      let offset = window.scrollY;
-      heroText.style.transform = `translateY(${offset * 0.3}px)`;
-    });
-
-    // Magnetic hover effect
-    const magnetics = document.querySelectorAll('.magnetic');
-    magnetics.forEach((el) => {
-      el.addEventListener('mousemove', function(e) {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.03)`;
-      });
-      el.addEventListener('mouseleave', function() {
-        el.style.transform = `translate(0px, 0px) scale(1)`;
-      });
     });
   </script>
 
