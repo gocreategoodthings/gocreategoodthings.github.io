@@ -3,18 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Portfolio | Go Create Good Things</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header id="header">
     <div class="logo">
       <a href="index.html">
@@ -22,72 +15,57 @@
       </a>
     </div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
     </nav>
   </header>
 
-  <!-- Full Portfolio Grid -->
-  <section class="portfolio-page fade-up">
-    <h1>My Portfolio</h1>
+  <section class="portfolio fade-up full-portfolio-page">
+    <h1>Portfolio</h1>
     <div class="portfolio-grid">
-      <a href="project1.html" class="portfolio-item">
-        <img src="images/diamondcourt-hero.jpg" alt="Diamond Court Tennis Club">
+      <div class="portfolio-item">
+        <div class="project-placeholder">Project 1 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Diamond Court Tennis Club</h3>
         </div>
-      </a>
-      <a href="project2.html" class="portfolio-item">
-        <img src="images/project2-hero.jpg" alt="Project 2">
+      </div>
+      <div class="portfolio-item">
+        <div class="project-placeholder">Project 2 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 2 Title</h3>
         </div>
-      </a>
-      <a href="project3.html" class="portfolio-item">
-        <img src="images/project3-hero.jpg" alt="Project 3">
+      </div>
+      <div class="portfolio-item">
+        <div class="project-placeholder">Project 3 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 3 Title</h3>
         </div>
-      </a>
-      <a href="project4.html" class="portfolio-item">
-        <img src="images/project4-hero.jpg" alt="Project 4">
+      </div>
+      <div class="portfolio-item">
+        <div class="project-placeholder">Project 4 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 4 Title</h3>
         </div>
-      </a>
-      <a href="project5.html" class="portfolio-item">
-        <img src="images/project5-hero.jpg" alt="Project 5">
+      </div>
+      <div class="portfolio-item">
+        <div class="project-placeholder">Project 5 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 5 Title</h3>
         </div>
-      </a>
-      <a href="project6.html" class="portfolio-item">
-        <img src="images/project6-hero.jpg" alt="Project 6">
+      </div>
+      <div class="portfolio-item">
+        <div class="project-placeholder">Project 6 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 6 Title</h3>
         </div>
-      </a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">Instagram</a>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    const header = document.getElementById("header");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-  </script>
 
 </body>
 </html>
