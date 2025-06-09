@@ -13,12 +13,12 @@ body {
   line-height: 1.6;
 }
 
-.section-white {
-  background-color: #ffffff;
-}
-
-.section-cream {
-  background-color: #fff8f0;
+/* Contact Background Design */
+.contact-background {
+  background-image: url('images/contact-background.svg'); /* Placeholder for custom background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Header */
