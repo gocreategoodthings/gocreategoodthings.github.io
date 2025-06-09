@@ -53,7 +53,7 @@ nav a:hover {
 }
 
 .hero-logo {
-  width: 150px;
+  width: 300px; /* Doubled size */
   height: auto;
   animation: pulse 4s infinite;
 }
@@ -67,13 +67,6 @@ nav a:hover {
 h1 {
   font-size: 2.5rem;
   margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  margin-top: 20px;
-  cursor: pointer;
 }
 
 section {
@@ -113,7 +106,7 @@ section {
   margin-top: 10px;
 }
 
-/* View All Button */
+/* View Full Portfolio Button */
 .view-all-button {
   text-align: center;
   margin: 40px 0;
@@ -122,15 +115,17 @@ section {
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #333;
+  background: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); /* gradient */
   color: #fff;
   text-decoration: none;
   font-weight: bold;
   border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #555;
+  filter: brightness(1.2);
+  transform: scale(1.05);
 }
 
 /* About Section */
@@ -155,8 +150,11 @@ section {
   background: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
   -webkit-background-clip: text;
   color: transparent;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
+/* Contact Form */
 .contact form {
   display: flex;
   flex-direction: column;
@@ -167,16 +165,31 @@ section {
 
 input, textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-button[type="submit"] {
-  background-color: #333;
+.btn-gradient {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82); /* gradient */
   color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
   border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.btn-gradient:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
