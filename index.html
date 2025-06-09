@@ -15,7 +15,7 @@
 <body>
 
   <!-- Header -->
-  <header>
+  <header id="header">
     <div class="logo">
       <a href="index.html">
         <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
@@ -56,9 +56,9 @@
     </a>
   </section>
 
-  <!-- View Full Portfolio Button -->
-  <div class="view-all-button fade-up">
-    <a href="portfolio.html" class="btn">View Full Portfolio</a>
+  <!-- View Full Portfolio Text -->
+  <div class="view-all-link fade-up">
+    <a href="portfolio.html" class="underline-link">View Full Portfolio</a>
   </div>
 
   <!-- About Section -->
@@ -99,12 +99,19 @@
   <!-- Scripts -->
   <script>
     const scrollBtn = document.querySelector(".scroll-to-top");
+    const header = document.getElementById("header");
 
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
         scrollBtn.style.display = "flex";
       } else {
         scrollBtn.style.display = "none";
+      }
+
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
       }
     });
 
