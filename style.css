@@ -62,17 +62,38 @@ nav a:hover {
   width: 220px;
   margin-bottom: 20px;
   opacity: 0;
-  animation: heroEntrance 1.5s ease forwards;
+  animation: logoEntrance 2s ease forwards, float 6s ease-in-out infinite;
+  transition: animation 0.3s ease;
 }
 
-@keyframes heroEntrance {
+.hero-logo:hover {
+  animation: logoEntrance 2s ease forwards, float 3s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes logoEntrance {
   0% {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2) rotate(360deg);
   }
   100% {
-    opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
