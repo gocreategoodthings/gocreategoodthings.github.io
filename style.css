@@ -61,7 +61,6 @@ nav a:hover {
 .hero-logo {
   width: 220px;
   margin-bottom: 20px;
-  opacity: 0;
   animation: fadeUp 2s forwards;
 }
 
