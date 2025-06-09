@@ -53,7 +53,7 @@ nav a:hover {
 }
 
 .hero-logo {
-  width: 300px; /* doubled */
+  width: 300px;
   height: auto;
   animation: pulse 4s infinite;
 }
@@ -67,7 +67,7 @@ nav a:hover {
 h1 {
   font-size: 2.5rem;
   margin-top: 20px;
-  color: #005C99; /* dark blue */
+  color: #005C99;
 }
 
 section {
@@ -113,18 +113,26 @@ section {
   margin: 40px 0;
 }
 
-.btn {
+.btn, .btn-gradient {
   display: inline-block;
   padding: 12px 24px;
-  background: linear-gradient(45deg, #005C99, #00A896, #F4A300, #F77F00, #D62828);
+  background: linear-gradient(90deg, 
+    #005C99 0%, 
+    #00A896 35%, 
+    #F4A300 65%, 
+    #F77F00 80%, 
+    #D62828 100%
+  );
   color: #fff;
   text-decoration: none;
   font-weight: bold;
   border-radius: 8px;
   transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover, .btn-gradient:hover {
   filter: brightness(1.2);
   transform: scale(1.05);
 }
@@ -148,7 +156,13 @@ section {
 }
 
 .gradient-text {
-  background: linear-gradient(45deg, #005C99, #00A896, #F4A300, #F77F00, #D62828);
+  background: linear-gradient(90deg, 
+    #005C99 0%, 
+    #00A896 35%, 
+    #F4A300 65%, 
+    #F77F00 80%, 
+    #D62828 100%
+  );
   -webkit-background-clip: text;
   color: transparent;
   font-weight: bold;
@@ -170,24 +184,6 @@ input, textarea {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-}
-
-.btn-gradient {
-  display: inline-block;
-  padding: 12px 24px;
-  background: linear-gradient(45deg, #005C99, #00A896, #F4A300, #F77F00, #D62828);
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-gradient:hover {
-  filter: brightness(1.2);
-  transform: scale(1.05);
 }
 
 /* Footer */
