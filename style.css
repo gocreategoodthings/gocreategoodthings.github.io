@@ -254,6 +254,8 @@ h1 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: scroll; /* makes sure it doesn't try to parallax */
+  min-height: 600px; /* makes sure the SVG has space to show */
 }
 
 .contact-card {
