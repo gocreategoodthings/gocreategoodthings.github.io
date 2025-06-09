@@ -80,20 +80,19 @@ h1 {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-/* Responsive for Portfolio */
 @media (max-width: 1024px) {
   .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .portfolio-grid {
-    grid-template-columns: 1fr; /* 1 column on mobile */
+    grid-template-columns: 1fr;
   }
 }
 
@@ -194,12 +193,24 @@ h1 {
 }
 
 /* Contact Section */
+.contact {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
 .contact form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 600px;
-  margin: auto;
 }
 
 input, textarea {
