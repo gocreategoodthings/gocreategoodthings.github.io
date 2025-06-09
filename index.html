@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Go Create Good Things</title>
+  <title>Go Create Good Things | Brady Hudson Portfolio</title>
+  <meta name="description" content="Brady Hudson's portfolio. Go create good things — intentional design, branding, and digital experiences.">
+  <link rel="icon" href="images/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -18,7 +20,7 @@
   <header id="header">
     <div class="logo">
       <a href="index.html">
-        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
+        <img src="images/GCGT_Logo-Placeholder.png" alt="GCGT Logo">
       </a>
     </div>
     <nav>
@@ -29,28 +31,28 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero fade-up section-white">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo">
+  <section class="hero fade-up">
+    <img src="images/GCGT_Logo-Placeholder.png" alt="GCGT Logo" class="hero-logo">
     <h1>Go Create Good Things</h1>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio fade-up section-cream">
+  <section id="portfolio" class="portfolio fade-up">
     <div class="portfolio-grid">
       <a href="project1.html" class="portfolio-item">
-        <img src="images/diamondcourt-hero.jpg" alt="Diamond Court Tennis Club">
+        <img src="images/portfolio-placeholder1.jpg" alt="Project 1 Placeholder">
         <div class="portfolio-overlay">
           <h3>Diamond Court Tennis Club</h3>
         </div>
       </a>
       <a href="project2.html" class="portfolio-item">
-        <img src="images/project2-hero.jpg" alt="Project 2">
+        <img src="images/portfolio-placeholder2.jpg" alt="Project 2 Placeholder">
         <div class="portfolio-overlay">
           <h3>Project 2 Title</h3>
         </div>
       </a>
       <a href="project3.html" class="portfolio-item">
-        <img src="images/project3-hero.jpg" alt="Project 3">
+        <img src="images/portfolio-placeholder3.jpg" alt="Project 3 Placeholder">
         <div class="portfolio-overlay">
           <h3>Project 3 Title</h3>
         </div>
@@ -62,10 +64,10 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about fade-up section-white">
+  <section id="about" class="about fade-up">
     <div class="about-container">
       <div class="about-image">
-        <img src="images/your-photo.png" alt="Brady Hudson Photo">
+        <img src="images/about-placeholder.jpg" alt="About Brady Hudson">
       </div>
       <div class="about-text">
         <h2>About Me</h2>
@@ -78,13 +80,19 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact fade-up section-cream">
+  <section id="contact" class="contact fade-up contact-background">
     <h2>Contact Me</h2>
     <div class="contact-card">
       <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your Name" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Your Email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+
         <button type="submit" class="btn">Send Message</button>
       </form>
     </div>
