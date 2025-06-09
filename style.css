@@ -63,14 +63,9 @@ nav a:hover {
   margin-bottom: 20px;
   opacity: 0;
   animation: logoEntrance 2s ease forwards, float 6s ease-in-out infinite;
-  transition: animation 0.3s ease;
+  animation-delay: 0s, 2s; /* First: entrance, then: float after 2s */
 }
 
-.hero-logo:hover {
-  animation: logoEntrance 2s ease forwards, float 3s ease-in-out infinite;
-}
-
-/* Keyframes */
 @keyframes logoEntrance {
   0% {
     opacity: 0;
@@ -78,10 +73,10 @@ nav a:hover {
   }
   50% {
     opacity: 1;
-    transform: scale(2) rotate(360deg);
+    transform: scale(2) rotate(720deg); /* BIG spin */
   }
   100% {
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg); /* Shrink to normal size */
   }
 }
 
@@ -345,39 +340,6 @@ footer a:hover {
   width: 100%;
 }
 
-/* Animations */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  nav {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 500px) {
-  h1 {
-    font-size: 2rem;
-  }
-  .hero-logo {
-    width: 180px;
-  }
-}
-
 /* Portfolio Page */
 .portfolio-page {
   padding: 60px 20px;
@@ -439,10 +401,38 @@ footer a:hover {
   margin: 0;
 }
 
-/* Responsive tweaks if needed */
+/* Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  nav {
+    gap: 20px;
+  }
+}
+
 @media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .hero-logo {
+    width: 180px;
+  }
   .portfolio-page h1 {
     font-size: 2rem;
   }
 }
-
