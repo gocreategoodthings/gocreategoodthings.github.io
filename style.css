@@ -258,12 +258,18 @@ h1 {
   text-align: center;
 }
 
+@keyframes floatWaves {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 10%; }
+  100% { background-position: 0% 0%; }
+}
+
 .contact-background {
-  background-image: url('/images/fingerprint-footer-background.png');
+  background-image: url('/images/animated-contact-background.png');
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-position: center;
+  animation: floatWaves 30s ease-in-out infinite;
   min-height: 600px;
 }
 
