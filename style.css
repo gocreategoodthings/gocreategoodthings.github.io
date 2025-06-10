@@ -271,20 +271,31 @@ h1 {
   background-color: #fff; /* fallback */
 }
 
-.contact-background::before {
-  content: "";
+.contact-background {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+}
+
+.contact-waves {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/images/animated-contact-background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: floatWaveLayer 10s ease-in-out infinite alternate;
+  width: 120%;
+  opacity: 0.85;
   z-index: 0;
-  opacity: 0.9;
+  animation: waveDrift 14s ease-in-out infinite;
+}
+
+@keyframes waveDrift {
+  0% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(-20px) translateY(10px); }
+  100% { transform: translateX(0px) translateY(0px); }
 }
 
 .contact-card {
