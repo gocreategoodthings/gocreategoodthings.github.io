@@ -56,7 +56,7 @@ nav a:hover {
 .rotating-text {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.2rem;
-  color: #0077b6; /* Your logo blue */
+  color: #0077b6;
   margin: 0 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -105,7 +105,6 @@ h1 {
   text-align: center;
 }
 
-/* Full Portfolio Page Centering */
 .full-portfolio-page {
   display: flex;
   flex-direction: column;
@@ -117,7 +116,6 @@ h1 {
   margin-bottom: 40px;
 }
 
-/* Portfolio Grid */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -137,7 +135,6 @@ h1 {
   }
 }
 
-/* Portfolio Items */
 .portfolio-item {
   position: relative;
   overflow: hidden;
@@ -183,7 +180,6 @@ h1 {
   margin: 0;
 }
 
-/* View All Link */
 .view-all-link {
   text-align: center;
   margin: 60px 0;
@@ -222,6 +218,7 @@ h1 {
   gap: 60px;
   align-items: center;
   justify-content: center;
+  padding: 60px 20px;
 }
 
 .about-image {
@@ -254,8 +251,8 @@ h1 {
 
 /* Contact Section */
 .contact-section {
-  padding: 8rem 2rem;
-  background-color: #ffffff;
+  padding: 8rem 1.5rem;
+  background: #fff;
   display: flex;
   justify-content: center;
 }
@@ -293,7 +290,7 @@ h1 {
 }
 
 .contact-card button {
-  background-color: #ff6a3d; /* GCGT orange tone */
+  background-color: #ff6a3d;
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -305,34 +302,6 @@ h1 {
 
 .contact-card button:hover {
   background-color: #e2552a;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 16px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  background-color: #E2542B;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer */
@@ -377,7 +346,7 @@ footer a:hover {
   transform: scale(1.1);
 }
 
-/* Smooth scroll offset */
+/* Scroll Margin Offset */
 section {
   scroll-margin-top: 100px;
 }
