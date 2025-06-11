@@ -40,9 +40,18 @@
   </div>
 </section>
 
-<section class="back-button-wrap">
-  <a href="portfolio.html" class="btn back-link">← Back to Portfolio</a>
-</section>
+<script>
+  const referrer = document.referrer;
+  const backBtn = document.getElementById('dynamic-back-btn');
+
+  if (referrer.includes('portfolio.html')) {
+    backBtn.textContent = '← Back to Portfolio';
+    backBtn.setAttribute('href', 'portfolio.html');
+  } else {
+    backBtn.textContent = '← Back to Homepage';
+    backBtn.setAttribute('href', 'index.html');
+  }
+</script>
 
 <footer>
   &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
