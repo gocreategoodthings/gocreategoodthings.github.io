@@ -9,54 +9,68 @@
 </head>
 <body>
 
-<header id="header">
-  <div class="logo">
-    <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="project-hero fade-up reveal delay-1">
-  <div class="project-container">
-  <img src="images/project1-thumb.png" alt="Project 1 Hero" class="project-hero-image">
-    <h1 class="project-title">Project 1</h1>
-    <p class="project-subtitle">This is a placeholder for Project 1. Final content coming soon.</p>
-  </div>
-</section>
-
-<section class="project-gallery reveal delay-2">
-  <div class="project-container">
-    <div class="project-image-row">
-      <img src="images/project1-thumb.png" alt="Placeholder 1">
-      <img src="images/project2-thumb.png" alt="Placeholder 2">
-      <img src="images/project3-thumb.png" alt="Placeholder 3">
+  <header id="header">
+    <div class="logo">
+      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
     </div>
-  </div>
-</section>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="back-button-wrap">
-  <a href="portfolio.html" class="btn back-link">← Back to Portfolio</a>
-</section>
+  <section class="project-hero fade-up reveal delay-1">
+    <div class="project-container">
+      <img src="images/project1-hero.png" alt="..." class="project-hero-image">
+      <h1 class="project-title">Project 1</h1>
+      <p class="project-subtitle">Full rebrand and digital presence for an elite client...</p>
+    </div>
+  </section>
 
-<footer>
-  &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-</footer>
+  <section class="project-gallery reveal delay-2">
+    <div class="project-container">
+      <div class="project-image-row">
+        <img src="images/project1-image1.png" alt="...">
+        <img src="images/project1-image2.png" alt="...">
+        <img src="images/project1-image3.png" alt="...">
+      </div>
+    </div>
+  </section>
 
-<script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  revealEls.forEach(el => observer.observe(el));
-</script>
+  <!-- Dynamic Back Button -->
+  <section class="back-button-wrap">
+    <a href="#" id="dynamic-back-btn" class="btn back-link">← Back</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+  </footer>
+
+  <script>
+    // Reveal animation
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Dynamic Back Button
+    const referrer = document.referrer;
+    const backBtn = document.getElementById('dynamic-back-btn');
+
+    if (referrer.includes('portfolio.html')) {
+      backBtn.textContent = '← Back to Portfolio';
+      backBtn.setAttribute('href', 'portfolio.html');
+    } else {
+      backBtn.textContent = '← Back to Homepage';
+      backBtn.setAttribute('href', 'index.html');
+    }
+  </script>
 
 </body>
 </html>
