@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project 4 | Go Create Good Things</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="logo">
+    <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="project-hero fade-up reveal delay-1">
+  <div class="project-container">
+    <img src="images/project1-thumb.png" alt="Project 4 Hero" class="project-hero-image">
+    <h1 class="project-title">Project 4 Coming Soon</h1>
+    <p class="project-subtitle">This project will be added soon. Placeholder for layout testing and design preview.</p>
+  </div>
+</section>
+
+<section class="project-gallery reveal delay-2">
+  <div class="project-container">
+    <div class="project-image-row">
+      <img src="images/project1-thumb.png" alt="Placeholder 1">
+      <img src="images/project2-thumb.png" alt="Placeholder 2">
+      <img src="images/project3-thumb.png" alt="Placeholder 3">
+    </div>
+  </div>
+</section>
+
+<section class="back-button-wrap">
+  <a href="portfolio.html" class="btn back-link">← Back to Portfolio</a>
+</section>
+
+<footer>
+  &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
