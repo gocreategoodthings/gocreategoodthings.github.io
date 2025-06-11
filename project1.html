@@ -7,6 +7,18 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+  <script>
+  const referrer = document.referrer;
+  const backBtn = document.getElementById('dynamic-back-btn');
+
+  if (referrer.includes('portfolio.html')) {
+    backBtn.textContent = '← Back to Portfolio';
+    backBtn.setAttribute('href', 'portfolio.html');
+  } else {
+    backBtn.textContent = '← Back to Homepage';
+    backBtn.setAttribute('href', 'index.html');
+  }
+</script>
 <body>
 
   <header id="header">
