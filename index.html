@@ -8,20 +8,18 @@
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
 
+  <!-- Grain Overlay + Floating Background -->
+  <div class="grain-overlay"></div>
+  <div class="floating-bg"></div>
+
   <!-- Header -->
-  <header id="header" class="reveal delay-1">
+  <header id="header">
     <div class="logo">
-      <a href="index.html">
-        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
-      </a>
+      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
     </div>
     <div class="rotating-text" id="rotating-text">Hi, I'm Brady.</div>
     <nav>
@@ -31,57 +29,55 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero fade-up reveal delay-1">
+  <!-- Hero -->
+  <section class="hero fade-up">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo">
     <h1>Go Create Good Things</h1>
   </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio fade-up">
+  <div class="section-divider"></div>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="portfolio fade-up reveal delay-1">
     <div class="portfolio-grid">
-      <a href="project1.html" class="portfolio-item reveal delay-1">
+      <a href="project1.html" class="portfolio-item">
         <div class="project-placeholder">Project 1 Coming Soon</div>
-        <div class="portfolio-overlay">
-          <h3>Diamond Court Tennis Club</h3>
-        </div>
+        <div class="portfolio-overlay"><h3>Diamond Court Tennis Club</h3></div>
       </a>
-      <a href="project2.html" class="portfolio-item reveal delay-2">
+      <a href="project2.html" class="portfolio-item">
         <div class="project-placeholder">Project 2 Coming Soon</div>
-        <div class="portfolio-overlay">
-          <h3>Project 2 Title</h3>
-        </div>
+        <div class="portfolio-overlay"><h3>Project 2 Title</h3></div>
       </a>
-      <a href="project3.html" class="portfolio-item reveal delay-3">
+      <a href="project3.html" class="portfolio-item">
         <div class="project-placeholder">Project 3 Coming Soon</div>
-        <div class="portfolio-overlay">
-          <h3>Project 3 Title</h3>
-        </div>
+        <div class="portfolio-overlay"><h3>Project 3 Title</h3></div>
       </a>
     </div>
-    <div class="view-all-link fade-up reveal delay-4">
+    <div class="view-all-link fade-up">
       <a href="portfolio.html" class="underline-link">View Full Portfolio →</a>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about fade-up reveal delay-2">
-    <div class="about-container">
-      <div class="about-image reveal delay-2">
-        <div class="image-placeholder">About Photo Coming Soon</div>
-      </div>
-      <div class="about-text reveal delay-3">
-        <h2>About Me</h2>
-        <p>
-          I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
-          Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="highlight-text">go create good things</span>.
-        </p>
-      </div>
+  <div class="section-divider"></div>
+
+  <!-- About -->
+  <section id="about" class="about-container fade-up reveal delay-2">
+    <div class="about-image">
+      <div class="image-placeholder">About Photo Coming Soon</div>
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
+        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="highlight-text">go create good things</span>.
+      </p>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section fade-up reveal delay-4">
+  <div class="section-divider"></div>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section fade-up reveal delay-3">
     <div class="contact-card">
       <h2>Let’s Connect</h2>
       <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
@@ -95,31 +91,28 @@
   </section>
 
   <!-- Footer -->
-  <footer class="reveal delay-5">
+  <footer>
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- Scripts -->
+  <!-- JavaScript -->
   <script>
     const rotatingTexts = [
       "Hi, I'm Brady.",
       "Designing stuff your mom would probably like.",
-      "Making branding look effortless (’s not).",
+      "Making branding look effortless (it’s not).",
       "Currently rebranding my coffee addiction.",
       "Strategizing like it’s a board game.",
       "Good design? I thought you said good vibes.",
       "Ctrl + S before I crash. Every time."
     ];
-
     let currentText = 0;
     const rotatingTextEl = document.getElementById('rotating-text');
-
     function changeText() {
       rotatingTextEl.classList.remove('fade-in');
       rotatingTextEl.classList.add('fade-out');
-
       setTimeout(() => {
         currentText = (currentText + 1) % rotatingTexts.length;
         rotatingTextEl.textContent = rotatingTexts[currentText];
@@ -127,52 +120,37 @@
         rotatingTextEl.classList.add('fade-in');
       }, 500);
     }
-
     rotatingTextEl.classList.add('fade-in');
     setInterval(changeText, 4000);
 
     const scrollBtn = document.querySelector(".scroll-to-top");
     const header = document.getElementById("header");
-
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        scrollBtn.style.display = "flex";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
+      scrollBtn.style.display = window.pageYOffset > 300 ? "flex" : "none";
+      header.classList.toggle("scrolled", window.scrollY > 10);
     });
-
     scrollBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  </script>
 
-  <!-- Scroll Reveal Animation Script -->
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-
-    const revealObserver = new IntersectionObserver((entries) => {
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
 
-    revealEls.forEach(el => {
-      revealObserver.observe(el);
+    const heroLogo = document.querySelector('.hero-logo');
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY * 0.2;
+      if (heroLogo) {
+        heroLogo.style.transform = `translateY(${offset}px) scale(1.05)`;
+      }
     });
   </script>
-
 </body>
 </html>
