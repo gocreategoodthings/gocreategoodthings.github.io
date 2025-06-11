@@ -90,18 +90,16 @@
     <img src="images/animated-contact-background.png" alt="Contact Background Waves" class="contact-waves">
 
     <!-- Contact Content Card -->
-    <div class="contact-card">
-      <h2>Contact Me</h2>
-      <form>
-        <label for="name">Name</label>
-        <input id="name" type="text" placeholder="Your Name" required>
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="Your Email" required>
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </div>
+  <section id="contact" class="contact-section">
+  <div class="contact-card">
+    <h2>Let’s Connect</h2>
+    <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
+    <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
 </section>
 
