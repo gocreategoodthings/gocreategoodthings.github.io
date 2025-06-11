@@ -20,34 +20,30 @@
   </nav>
 </header>
 
-<!-- HERO + TITLE + SUBTITLE -->
 <section class="project-hero fade-up reveal delay-1">
   <div class="project-container">
-    <div class="project-hero-image project-placeholder">Project 1</div>
+    <div class="project-hero-placeholder">Project 1</div>
     <h1 class="project-title">Project 1</h1>
     <p class="project-subtitle">This is a placeholder for Project 1. Final content coming soon.</p>
   </div>
 </section>
 
-<!-- IMAGE PLACEHOLDERS -->
 <section class="project-gallery reveal delay-2">
   <div class="project-container">
     <div class="project-image-row">
-      <div class="project-placeholder">Placeholder Image 1</div>
-      <div class="project-placeholder">Placeholder Image 2</div>
-      <div class="project-placeholder">Placeholder Image 3</div>
+      <div class="project-thumb animated-thumb">Placeholder 1</div>
+      <div class="project-thumb animated-thumb">Placeholder 2</div>
+      <div class="project-thumb animated-thumb">Placeholder 3</div>
     </div>
   </div>
 </section>
 
-<!-- DYNAMIC BACK BUTTON -->
 <section class="back-button-wrap">
-  <a href="#" id="dynamic-back-btn" class="btn back-link">← Back</a>
+  <a href="portfolio.html" class="btn back-link">← Back to Portfolio</a>
 </section>
 
 <footer>
-  &copy; 2025 Go Create Good Things | 
-  <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+  &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
 </footer>
 
 <script>
@@ -60,19 +56,6 @@
     });
   }, { threshold: 0.1 });
   revealEls.forEach(el => observer.observe(el));
-</script>
-
-<script>
-  const referrer = document.referrer;
-  const backBtn = document.getElementById('dynamic-back-btn');
-
-  if (referrer.includes('portfolio.html')) {
-    backBtn.textContent = '← Back to Portfolio';
-    backBtn.setAttribute('href', 'portfolio.html');
-  } else {
-    backBtn.textContent = '← Back to Homepage';
-    backBtn.setAttribute('href', 'index.html');
-  }
 </script>
 
 </body>
