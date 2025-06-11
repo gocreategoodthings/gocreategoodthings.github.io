@@ -253,70 +253,58 @@ h1 {
 }
 
 /* Contact Section */
-.contact {
-  padding: 80px 20px;
+.contact-section {
+  padding: 8rem 2rem;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card {
+  max-width: 600px;
+  width: 100%;
+  background: #f9f9f9;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
-@keyframes floatWaves {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 10%; }
-  100% { background-position: 0% 0%; }
+.contact-card h2 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.contact-background {
-  position: relative;
-  overflow: hidden;
-  min-height: 600px;
-  background-color: #fff; /* fallback */
+.contact-card p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #666;
 }
 
-.contact-background {
-  position: relative;
-  overflow: hidden;
-  min-height: 600px;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 20px;
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  font-size: 1rem;
 }
 
-.contact-waves {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  opacity: 0.85;
-  z-index: 0;
-  animation: waveDrift 14s ease-in-out infinite;
+.contact-card button {
+  background-color: #ff6a3d; /* GCGT orange tone */
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@keyframes waveDrift {
-  0% { transform: translateX(0px) translateY(0px); }
-  50% { transform: translateX(-20px) translateY(10px); }
-  100% { transform: translateX(0px) translateY(0px); }
-}
-
-.contact-card {
-  position: relative;
-  z-index: 2; /* make sure it sits above the background layer */
-  background-color: white;
-}
-
-.contact-card {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 40px 30px;
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.contact-card button:hover {
+  background-color: #e2552a;
 }
 
 input, textarea {
