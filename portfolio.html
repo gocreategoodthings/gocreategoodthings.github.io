@@ -2,75 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Selected Work | Go Create Good Things</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header id="header">
-    <div class="logo">
-      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </header>
+<header id="header">
+  <div class="logo">
+    <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
 
-  <section class="full-portfolio-page fade-up reveal">
-    <h1>Selected Work</h1>
+<section class="full-portfolio-page fade-up reveal delay-1">
+  <h1>Selected Work</h1>
+  <div class="portfolio-grid">
+    <!-- Project 1 -->
+    <a href="project1.html" class="portfolio-card">
+      <img src="images/project1-hero.png" alt="Project 1">
+      <div class="card-overlay"><h3>Diamond Court</h3></div>
+    </a>
 
-    <div class="portfolio-grid">
-      <!-- First 3 Projects (live) -->
-      <a href="project1.html" class="portfolio-card reveal delay-1">
-        <img src="images/project1-thumb.png" alt="Project 1 Thumbnail">
-        <div class="card-overlay"><h3>Diamond Court Tennis Club</h3></div>
-      </a>
-      <a href="project2.html" class="portfolio-card reveal delay-2">
-        <img src="images/project2-thumb.png" alt="Project 2 Thumbnail">
-        <div class="card-overlay"><h3>Project 2 Title</h3></div>
-      </a>
-      <a href="project3.html" class="portfolio-card reveal delay-3">
-        <img src="images/project3-thumb.png" alt="Project 3 Thumbnail">
-        <div class="card-overlay"><h3>Project 3 Title</h3></div>
-      </a>
+    <!-- Project 2 -->
+    <a href="project2.html" class="portfolio-card">
+      <img src="images/project2-hero.png" alt="Project 2">
+      <div class="card-overlay"><h3>Urban Chapel</h3></div>
+    </a>
 
-      <!-- 3 Placeholder Projects -->
-      <div class="portfolio-card placeholder-card reveal delay-4">
-        <div class="project-placeholder">Project 4 Coming Soon</div>
-      </div>
-      <div class="portfolio-card placeholder-card reveal delay-5">
-        <div class="project-placeholder">Project 5 Coming Soon</div>
-      </div>
-      <div class="portfolio-card placeholder-card reveal delay-6">
-        <div class="project-placeholder">Project 6 Coming Soon</div>
-      </div>
+    <!-- Project 3 -->
+    <a href="project3.html" class="portfolio-card">
+      <img src="images/project3-hero.png" alt="Project 3">
+      <div class="card-overlay"><h3>Harvest Supply</h3></div>
+    </a>
+
+    <!-- Placeholder Project 4 -->
+    <div class="placeholder-card">
+      <div class="project-placeholder">Project Placeholder</div>
     </div>
 
-    <!-- Back to Home Button -->
-    <div style="margin-top: 60px;">
-      <a href="index.html" class="btn">← Back to Homepage</a>
+    <!-- Placeholder Project 5 -->
+    <div class="placeholder-card">
+      <div class="project-placeholder">Project Placeholder</div>
     </div>
-  </section>
 
-  <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-  </footer>
+    <!-- Placeholder Project 6 -->
+    <div class="placeholder-card">
+      <div class="project-placeholder">Project Placeholder</div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-  </script>
+<!-- Back to Homepage Button -->
+<div class="view-all-link">
+  <a href="index.html" class="btn">← Back to Homepage</a>
+</div>
+
+<footer>
+  &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
