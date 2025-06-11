@@ -17,16 +17,13 @@
 <body>
 
   <!-- Header -->
-  <header id="header">
+  <header id="header" class="reveal delay-1">
     <div class="logo">
       <a href="index.html">
         <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
       </a>
     </div>
-
-    <!-- Rotating Text -->
     <div class="rotating-text" id="rotating-text">Hi, I'm Brady.</div>
-
     <nav>
       <a href="#portfolio" class="nav-link">Portfolio</a>
       <a href="#about" class="nav-link">About</a>
@@ -35,7 +32,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero fade-up">
+  <section class="hero fade-up reveal delay-1">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo">
     <h1>Go Create Good Things</h1>
   </section>
@@ -43,37 +40,37 @@
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio fade-up">
     <div class="portfolio-grid">
-      <a href="project1.html" class="portfolio-item">
+      <a href="project1.html" class="portfolio-item reveal delay-1">
         <div class="project-placeholder">Project 1 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Diamond Court Tennis Club</h3>
         </div>
       </a>
-      <a href="project2.html" class="portfolio-item">
+      <a href="project2.html" class="portfolio-item reveal delay-2">
         <div class="project-placeholder">Project 2 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 2 Title</h3>
         </div>
       </a>
-      <a href="project3.html" class="portfolio-item">
+      <a href="project3.html" class="portfolio-item reveal delay-3">
         <div class="project-placeholder">Project 3 Coming Soon</div>
         <div class="portfolio-overlay">
           <h3>Project 3 Title</h3>
         </div>
       </a>
     </div>
-    <div class="view-all-link fade-up">
+    <div class="view-all-link fade-up reveal delay-4">
       <a href="portfolio.html" class="underline-link">View Full Portfolio →</a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about fade-up">
+  <section id="about" class="about fade-up reveal delay-2">
     <div class="about-container">
-      <div class="about-image">
+      <div class="about-image reveal delay-2">
         <div class="image-placeholder">About Photo Coming Soon</div>
       </div>
-      <div class="about-text">
+      <div class="about-text reveal delay-3">
         <h2>About Me</h2>
         <p>
           I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
@@ -84,7 +81,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact-section fade-up">
+  <section id="contact" class="contact-section fade-up reveal delay-4">
     <div class="contact-card">
       <h2>Let’s Connect</h2>
       <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
@@ -98,7 +95,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="reveal delay-5">
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
@@ -109,7 +106,7 @@
     const rotatingTexts = [
       "Hi, I'm Brady.",
       "Designing stuff your mom would probably like.",
-      "Making branding look effortless (it’s not).",
+      "Making branding look effortless (’s not).",
       "Currently rebranding my coffee addiction.",
       "Strategizing like it’s a board game.",
       "Good design? I thought you said good vibes.",
@@ -156,23 +153,26 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
-<script>
-  const revealEls = document.querySelectorAll('.reveal');
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target); // animate only once
-      }
+  <!-- Scroll Reveal Animation Script -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
     });
-  }, {
-    threshold: 0.1
-  });
 
-  revealEls.forEach(el => {
-    revealObserver.observe(el);
-  });
-</script>
+    revealEls.forEach(el => {
+      revealObserver.observe(el);
+    });
+  </script>
+
 </body>
 </html>
