@@ -608,3 +608,21 @@ section {
   padding-top: 40px;
   padding-bottom: 60px;
 }
+
+/* Button Style (matches homepage) */
+.btn {
+  display: inline-block;
+  background-color: #E2542B;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #c64721;
+  transform: scale(1.05);
+}
