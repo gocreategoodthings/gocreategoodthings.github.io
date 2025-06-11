@@ -9,80 +9,71 @@
 </head>
 <body>
 
-  <header id="header">
-    <div class="logo">
-      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
+<header id="header">
+  <div class="logo">
+    <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO + TITLE + SUBTITLE -->
+<section class="project-hero fade-up reveal delay-1">
+  <div class="project-container">
+    <div class="project-hero-image project-placeholder">Project 1</div>
+    <h1 class="project-title">Project 1</h1>
+    <p class="project-subtitle">This is a placeholder for Project 1. Final content coming soon.</p>
+  </div>
+</section>
+
+<!-- IMAGE PLACEHOLDERS -->
+<section class="project-gallery reveal delay-2">
+  <div class="project-container">
+    <div class="project-image-row">
+      <div class="project-placeholder">Placeholder Image 1</div>
+      <div class="project-placeholder">Placeholder Image 2</div>
+      <div class="project-placeholder">Placeholder Image 3</div>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </header>
+  </div>
+</section>
 
-  <main class="project-page">
+<!-- DYNAMIC BACK BUTTON -->
+<section class="back-button-wrap">
+  <a href="#" id="dynamic-back-btn" class="btn back-link">← Back</a>
+</section>
 
-    <!-- Hero Placeholder -->
-    <div class="project-hero placeholder-card">
-      <div class="project-placeholder">Project 1</div>
-    </div>
+<footer>
+  &copy; 2025 Go Create Good Things | 
+  <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+</footer>
 
-    <!-- Title & Description -->
-    <section class="project-content reveal delay-1">
-      <div class="project-container">
-        <h1 class="project-title">Project 1</h1>
-        <p class="project-subtitle">This is a placeholder for Project 1. Final content coming soon.</p>
-      </div>
-    </section>
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
 
-    <!-- Image Placeholders -->
-    <section class="project-gallery reveal delay-2">
-      <div class="project-container">
-        <div class="project-image-row">
-          <div class="project-placeholder">Placeholder Image 1</div>
-          <div class="project-placeholder">Placeholder Image 2</div>
-          <div class="project-placeholder">Placeholder Image 3</div>
-        </div>
-      </div>
-    </section>
+<script>
+  const referrer = document.referrer;
+  const backBtn = document.getElementById('dynamic-back-btn');
 
-    <!-- Dynamic Back Button -->
-    <section class="back-button-wrap">
-      <a href="#" id="dynamic-back-btn" class="btn back-link">← Back</a>
-    </section>
-
-  </main>
-
-  <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-  </footer>
-
-  <!-- Scroll Reveal Script -->
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-  </script>
-
-  <!-- Dynamic Back Button Script -->
-  <script>
-    const referrer = document.referrer;
-    const backBtn = document.getElementById('dynamic-back-btn');
-
-    if (referrer.includes('portfolio.html')) {
-      backBtn.textContent = '← Back to Portfolio';
-      backBtn.setAttribute('href', 'portfolio.html');
-    } else {
-      backBtn.textContent = '← Back to Homepage';
-      backBtn.setAttribute('href', 'index.html');
-    }
-  </script>
+  if (referrer.includes('portfolio.html')) {
+    backBtn.textContent = '← Back to Portfolio';
+    backBtn.setAttribute('href', 'portfolio.html');
+  } else {
+    backBtn.textContent = '← Back to Homepage';
+    backBtn.setAttribute('href', 'index.html');
+  }
+</script>
 
 </body>
 </html>
