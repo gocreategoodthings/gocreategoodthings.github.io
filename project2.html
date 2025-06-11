@@ -1,72 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project 2 Title Here</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 2 Title Here | Go Create Good Things</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header id="header">
     <div class="logo">
-      <a href="index.html">
-        <img src="images/GCGT_Logo-07.png" alt="GCGT Logo">
-      </a>
+      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
     </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Image -->
-  <img src="images/project2-hero.jpg" alt="Project 2 Hero" class="project-hero">
-
-  <!-- Project Details -->
-  <div class="project-page">
+  <section class="project-hero fade-up reveal delay-1">
+    <img src="images/project2-hero.png" alt="Project 2 Hero" class="project-hero-image">
     <h1 class="project-title">Project 2 Title Here</h1>
-    <p class="project-description">
+    <p class="project-subtitle">
       Brief description about what this project covers. You can describe the project scope, deliverables, and any unique features here.
     </p>
+  </section>
 
-    <!-- Project Gallery -->
-    <div class="project-gallery">
-      <img src="images/project2-1.jpg" alt="Project 2 Image 1">
-      <img src="images/project2-2.jpg" alt="Project 2 Image 2">
-      <img src="images/project2-3.jpg" alt="Project 2 Image 3">
+  <section class="project-gallery reveal delay-2">
+    <div class="project-image-row">
+      <img src="images/project2-image1.png" alt="Project 2 Image 1">
+      <img src="images/project2-image2.png" alt="Project 2 Image 2">
+      <img src="images/project2-image3.png" alt="Project 2 Image 3">
     </div>
+  </section>
 
-    <!-- Back to Portfolio Link -->
-    <div class="back-link">
-      <a href="portfolio.html" class="underline-link">← Back to Full Portfolio</a>
-    </div>
-  </div>
+  <section class="back-button-wrap">
+    <a href="portfolio.html" class="btn back-link">← Back to Full Portfolio</a>
+  </section>
 
-  <!-- Footer -->
   <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">Instagram</a>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    const header = document.getElementById("header");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
   </script>
 
 </body>
