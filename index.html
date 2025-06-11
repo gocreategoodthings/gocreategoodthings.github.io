@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Go Create Good Things | Brady Hudson Portfolio</title>
   <meta name="description" content="Brady Hudson's portfolio. Go create good things — intentional design, branding, and digital experiences.">
   <link rel="icon" href="images/favicon.png" type="image/png">
@@ -84,24 +84,18 @@
   </section>
 
   <!-- Contact Section -->
-<section id="contact" class="contact fade-up">
-  <div class="contact-background">
-    <!-- Animated Waves Image -->
-    <img src="images/animated-contact-background.png" alt="Contact Background Waves" class="contact-waves">
-
-    <!-- Contact Content Card -->
-  <section id="contact" class="contact-section">
-  <div class="contact-card">
-    <h2>Let’s Connect</h2>
-    <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
-    <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
+  <section id="contact" class="contact-section fade-up">
+    <div class="contact-card">
+      <h2>Let’s Connect</h2>
+      <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
+      <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -134,16 +128,12 @@
         rotatingTextEl.textContent = rotatingTexts[currentText];
         rotatingTextEl.classList.remove('fade-out');
         rotatingTextEl.classList.add('fade-in');
-      }, 500); // 500ms fade out
+      }, 500);
     }
 
-    // Initial fade-in
     rotatingTextEl.classList.add('fade-in');
-
-    // Change text every 4 seconds
     setInterval(changeText, 4000);
 
-    // Scroll to Top Button
     const scrollBtn = document.querySelector(".scroll-to-top");
     const header = document.getElementById("header");
 
