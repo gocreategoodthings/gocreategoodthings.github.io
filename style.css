@@ -682,3 +682,11 @@ section {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+/* Back Button Hover Style */
+.back-link:hover {
+  background-color: #e2542b;
+  color: white;
+  border-color: #e2542b;
+  transition: all 0.3s ease;
+}
