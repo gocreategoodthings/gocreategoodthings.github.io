@@ -47,30 +47,6 @@
 </footer>
 
 <script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  revealEls.forEach(el => observer.observe(el));
-
-  const backBtn = document.getElementById('dynamicBackLink');
-  if (backBtn) {
-    const referrer = document.referrer;
-    if (referrer.includes('portfolio.html')) {
-      backBtn.setAttribute('href', 'portfolio.html');
-      backBtn.textContent = '← Back to Portfolio';
-    } else {
-      backBtn.setAttribute('href', 'index.html');
-      backBtn.textContent = '← Back to Homepage';
-    }
-  }
-</script>
-
-  <script>
   // Reveal animation
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -95,5 +71,6 @@
     }
   }
 </script>
+
 </body>
 </html>
