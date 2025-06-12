@@ -47,33 +47,6 @@
 </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-
-    const backLink = document.getElementById('dynamicBackLink');
-    const referrer = document.referrer;
-    if (backLink) {
-      if (referrer.includes('index.html') || referrer === '' || referrer === window.location.origin + '/') {
-        backLink.textContent = '← Back to Homepage';
-        backLink.setAttribute('href', 'index.html');
-      } else {
-        backLink.textContent = '← Back to Portfolio';
-        backLink.setAttribute('href', 'portfolio.html');
-      }
-    }
-  });
-</script>
-
-  <script>
-  // Reveal animation
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -84,7 +57,6 @@
   }, { threshold: 0.1 });
   revealEls.forEach(el => observer.observe(el));
 
-  // Dynamic back button routing
   const backBtn = document.getElementById('dynamicBackLink');
   if (backBtn) {
     const referrer = document.referrer;
@@ -97,5 +69,6 @@
     }
   }
 </script>
+
 </body>
 </html>
