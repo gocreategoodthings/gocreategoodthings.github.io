@@ -556,10 +556,11 @@ section {
 
 .project-hero-image {
   width: 100%;
-  max-height: 400px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   margin-bottom: 30px;
   border-radius: 12px;
+  background-color: #f0f0f0;
 }
 
 .project-title {
