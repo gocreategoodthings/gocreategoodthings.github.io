@@ -39,7 +39,7 @@
 </section>
 
 <section class="back-button-wrap">
-  <a href="portfolio.html" class="btn back-link">← Back to Portfolio</a>
+  <a id="dynamicBackLink" class="btn back-link">← Back</a>
 </section>
 
 <footer>
@@ -56,21 +56,7 @@
     });
   }, { threshold: 0.1 });
   revealEls.forEach(el => observer.observe(el));
-</script>
 
-  <script>
-  // Reveal animation
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  revealEls.forEach(el => observer.observe(el));
-
-  // Dynamic back button routing
   const backBtn = document.getElementById('dynamicBackLink');
   if (backBtn) {
     const referrer = document.referrer;
