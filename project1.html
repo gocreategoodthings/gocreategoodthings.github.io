@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project 1 | Go Create Good Things</title>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,47 +28,48 @@
   </div>
 </section>
 
+<section class="project-gallery reveal delay-2">
+  <div class="project-container">
+    <div class="project-image-row">
+      <div class="project-placeholder">Placeholder Image 1</div>
+      <div class="project-placeholder">Placeholder Image 2</div>
+      <div class="project-placeholder">Placeholder Image 3</div>
+    </div>
+  </div>
+</section>
+
 <section class="back-button-wrap">
   <a id="dynamicBackLink" class="btn back-link">← Back</a>
 </section>
 
 <section class="project-content reveal">
-  <!-- Row 1 -->
   <div class="project-row">
     <div class="project-image-container">
       <img src="images/project1-mockup.png" alt="Project Image" class="project-image" />
     </div>
     <div class="project-text">
       <h2>Project Title</h2>
-      <p>
-        This is where you describe the project: What was the goal? What did you design? What impact did it have? Feel free to mention tools, timeline, or role.
-      </p>
+      <p>This is where you describe the project: What was the goal? What did you design? What impact did it have? Feel free to mention tools, timeline, or role.</p>
     </div>
   </div>
 
-  <!-- Row 2 (Reversed Layout Example) -->
   <div class="project-row reverse">
     <div class="project-text">
       <h2>Highlight Section</h2>
-      <p>
-        Use this second row to show off mockups, user research, motion pieces, or another step in your process. The layout flips to keep visual rhythm fresh.
-      </p>
+      <p>Use this second row to show off mockups, user research, motion pieces, or another step in your process. The layout flips to keep visual rhythm fresh.</p>
     </div>
     <div class="project-image-container">
       <img src="images/project1-secondary.png" alt="Secondary Image" class="project-image" />
     </div>
   </div>
 
-  <!-- Row 3 (Optional Third Section) -->
   <div class="project-row">
     <div class="project-image-container">
       <img src="images/project1-extra.png" alt="Tertiary Image" class="project-image" />
     </div>
     <div class="project-text">
       <h2>Result / Reflection</h2>
-      <p>
-        Summarize the project outcome here — what did you learn? What made it meaningful? Anything you'd do differently next time? Wrap it clean.
-      </p>
+      <p>Summarize the project outcome here — what did you learn? What made it meaningful? Anything you'd do differently next time? Wrap it clean.</p>
     </div>
   </div>
 </section>
@@ -79,7 +80,6 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Scroll animations
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -90,7 +90,6 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Dynamic back link behavior
     const backLink = document.getElementById('dynamicBackLink');
     const referrer = document.referrer;
     if (backLink) {
