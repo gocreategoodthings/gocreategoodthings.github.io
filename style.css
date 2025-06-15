@@ -156,7 +156,7 @@ nav a:hover::after {
 h1 {
   font-size: 3.5rem;
   margin-top: 20px;
-  background: linear-gradient(90deg, #E2542B, #FF6A3D);
+background: linear-gradient(90deg, #00B4D8, #0077B6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
