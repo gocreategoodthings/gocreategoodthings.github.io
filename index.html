@@ -84,132 +84,12 @@
 
   <a href="#" class="scroll-to-top">↑</a>
 
-  <script>
-    const toggleBtn = document.getElementById('menu-toggle');
-    const overlay = document.getElementById('nav-overlay');
-    const closeBtn = document.getElementById('close-btn');
-
-    toggleBtn.addEventListener('click', () => {
-      const oldWave = document.querySelector('.wave');
-      if (oldWave) oldWave.remove();
-
-      const wave = document.createElement('div');
-      wave.classList.add('wave');
-      overlay.insertBefore(wave, overlay.firstChild);
-
-      overlay.classList.add('show');
-    });
-
-    closeBtn.addEventListener('click', () => {
-      overlay.classList.remove('show');
-    });
-
-    document.querySelectorAll('.nav-content a').forEach(link => {
-      link.addEventListener('click', () => {
-        overlay.classList.remove('show');
-      });
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        overlay.classList.remove('show');
-      }
-    });
-
-    const heroMsg = document.getElementById('hero-message');
-    const messages = [
-      "Hi, I'm Brady.",
-      "I'm always looking for ways to",
-      '<span class="highlight-gradient">Go Create Good Things</span>'
-    ];
-    let msgIndex = 0;
-
-    setTimeout(() => {
-      heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 4000);
-    }, 1000);
-
-    function showNextLine() {
-      heroMsg.classList.remove('fade-in');
-      heroMsg.classList.add('fade-out');
-      setTimeout(() => {
-        msgIndex++;
-        if (msgIndex < messages.length) {
-          heroMsg.innerHTML = messages[msgIndex];
-          heroMsg.classList.remove('fade-out');
-          heroMsg.classList.add('fade-in');
-          if (msgIndex < messages.length - 1) {
-            setTimeout(showNextLine, 4000);
-          }
-        }
-      }, 500);
-    }
-
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-  </script>
 <script>
-  function createBubble() {
-    const bubble = document.createElement('div');
-    bubble.classList.add('bubble');
-    bubble.style.left = `${Math.random() * 100}%`;
-    bubble.style.animationDuration = `${2 + Math.random() * 3}s`;
-document.querySelector('.bubble-container').appendChild(bubble);
-
-    setTimeout(() => {
-      bubble.remove();
-    }, 4000);
-  }
-
-  let bubbleInterval;
-
-  const overlay = document.getElementById('nav-overlay');
   const toggleBtn = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('nav-overlay');
   const closeBtn = document.getElementById('close-btn');
 
-  toggleBtn.addEventListener('click', () => {
-    overlay.classList.add('show');
-    bubbleInterval = setInterval(createBubble, 300);
-  });
-
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('show');
-    clearInterval(bubbleInterval);
-  });
-
-  document.querySelectorAll('.nav-content a').forEach(link => {
-    link.addEventListener('click', () => {
-      overlay.classList.remove('show');
-      clearInterval(bubbleInterval);
-    });
-  });
-
-<!-- New script for bubble logic -->
-<script>
-  function createBubble() {
-    const bubble = document.createElement('div');
-    bubble.classList.add('bubble');
-    bubble.style.left = `${Math.random() * 100}%`;
-    bubble.style.width = `${8 + Math.random() * 12}px`;
-    bubble.style.height = bubble.style.width;
-    bubble.style.animationDuration = `${2 + Math.random() * 3}s`;
-    document.querySelector('.bubble-container').appendChild(bubble);
-    setTimeout(() => bubble.remove(), 4000);
-  }
-
-  let bubbleInterval;
-
-  const overlay = document.getElementById('nav-overlay');
-  const toggleBtn = document.getElementById('menu-toggle');
-  const closeBtn = document.getElementById('close-btn');
-
+  // Wave animation
   toggleBtn.addEventListener('click', () => {
     const oldWave = document.querySelector('.wave');
     if (oldWave) oldWave.remove();
@@ -226,6 +106,68 @@ document.querySelector('.bubble-container').appendChild(bubble);
     overlay.classList.remove('show');
     clearInterval(bubbleInterval);
   });
+
+  document.querySelectorAll('.nav-content a').forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.classList.remove('show');
+      clearInterval(bubbleInterval);
+    });
+  });
+
+  // Hero message animation
+  const heroMsg = document.getElementById('hero-message');
+  const messages = [
+    "Hi, I'm Brady.",
+    "I'm always looking for ways to",
+    '<span class="highlight-gradient">Go Create Good Things</span>'
+  ];
+  let msgIndex = 0;
+
+  setTimeout(() => {
+    heroMsg.classList.add('fade-in');
+    setTimeout(showNextLine, 4000);
+  }, 1000);
+
+  function showNextLine() {
+    heroMsg.classList.remove('fade-in');
+    heroMsg.classList.add('fade-out');
+    setTimeout(() => {
+      msgIndex++;
+      if (msgIndex < messages.length) {
+        heroMsg.innerHTML = messages[msgIndex];
+        heroMsg.classList.remove('fade-out');
+        heroMsg.classList.add('fade-in');
+        if (msgIndex < messages.length - 1) {
+          setTimeout(showNextLine, 4000);
+        }
+      }
+    }, 500);
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Bubbles
+  function createBubble() {
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.width = `${8 + Math.random() * 12}px`;
+    bubble.style.height = bubble.style.width;
+    bubble.style.animationDuration = `${2 + Math.random() * 3}s`;
+    document.querySelector('.bubble-container').appendChild(bubble);
+    setTimeout(() => bubble.remove(), 4000);
+  }
+
+  let bubbleInterval;
 </script>
 
 </body>
