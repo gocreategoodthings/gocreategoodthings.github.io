@@ -155,5 +155,41 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
   </script>
+<script>
+  function createBubble() {
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.animationDuration = `${2 + Math.random() * 3}s`;
+document.querySelector('.bubble-container').appendChild(bubble);
+
+    setTimeout(() => {
+      bubble.remove();
+    }, 4000);
+  }
+
+  let bubbleInterval;
+
+  const overlay = document.getElementById('nav-overlay');
+  const toggleBtn = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('close-btn');
+
+  toggleBtn.addEventListener('click', () => {
+    overlay.classList.add('show');
+    bubbleInterval = setInterval(createBubble, 300);
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    clearInterval(bubbleInterval);
+  });
+
+  document.querySelectorAll('.nav-content a').forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.classList.remove('show');
+      clearInterval(bubbleInterval);
+    });
+  });
+</script>
 </body>
 </html>
