@@ -74,6 +74,8 @@ header {
   transform: translateX(100%);
   animation: waveSlideIn 0.8s ease forwards;
   z-index: 1;
+  /* TEMP: test visibility */
+  /* border: 2px solid red; */
 }
 
 @keyframes waveSlideIn {
