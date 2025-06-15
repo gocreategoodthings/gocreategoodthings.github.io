@@ -2,99 +2,241 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio | Go Create Good Things</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Create Good Things | Brady Hudson Portfolio</title>
+  <meta name="description" content="Brady Hudson's portfolio. Go create good things — intentional design, branding, and digital experiences." />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Work Sans', sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #111;
+    }
+    h1, h2, h3 {
+      font-family: 'Unbounded', sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      z-index: 10;
+    }
+    .logo img {
+      height: 64px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.1) translateY(-2px);
+    }
+    .menu-toggle {
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 30;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .hero-logo {
+      width: 320px;
+      max-width: 90vw;
+      animation: zoomFloat 1.8s ease forwards;
+    }
+    @keyframes zoomFloat {
+      0% { transform: scale(0.6); opacity: 0; }
+      60% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(1.2); }
+    }
+    .float-logo {
+      will-change: transform;
+      transition: transform 0.3s ease-out;
+    }
+    .hero-message {
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: 1.3;
+      min-height: 3.2em;
+      margin-top: 2rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .hero-message.fade-in { opacity: 1; transform: translateY(0); }
+    .fade-out { opacity: 0; transform: translateY(-10px); }
+    .highlight-gradient {
+      background: linear-gradient(to right, #fff, #d6ae49);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/realwave.jpg') center/cover no-repeat;
+      display: none;
+      z-index: 20;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .nav-overlay.show { display: block; }
+    .nav-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: white;
+      backdrop-filter: brightness(0.8);
+    }
+    .nav-content a {
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      margin: 1rem 0;
+    }
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </header>
 
-<header id="header">
-  <div class="logo">
-    <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="index.html#contact">Contact</a>
+  <nav class="nav-overlay" id="nav-overlay">
+    <div class="nav-content">
+      <div class="close-btn" id="close-btn">&times;</div>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
-</header>
 
-<section class="full-portfolio-page">
-  <h1>Portfolio</h1>
+  <section class="hero">
+    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo" id="hero-logo">
+    <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
+  </section>
 
- <div class="portfolio-grid">
-
-  <!-- Project 1 -->
-  <a href="project1.html" class="portfolio-card">
-    <img src="images/project1-thumb.png" alt="Project 1 Thumbnail">
-    <div class="card-overlay">
-      <h3>Project 1</h3>
+  <section class="portfolio reveal">
+    <div class="portfolio-grid">
+      <a href="project1.html" class="portfolio-item">
+        <div class="project-placeholder">Project 1</div>
+        <div class="portfolio-overlay"><h3>Project 1 Title</h3></div>
+      </a>
+      <a href="project2.html" class="portfolio-item">
+        <div class="project-placeholder">Project 2</div>
+        <div class="portfolio-overlay"><h3>Project 2 Title</h3></div>
+      </a>
+      <a href="project3.html" class="portfolio-item">
+        <div class="project-placeholder">Project 3</div>
+        <div class="portfolio-overlay"><h3>Project 3 Title</h3></div>
+      </a>
     </div>
-  </a>
-
-  <!-- Project 2 -->
-  <a href="project2.html" class="portfolio-card">
-    <img src="images/project2-thumb.png" alt="Project 2 Thumbnail">
-    <div class="card-overlay">
-      <h3>Project 2</h3>
+    <div class="view-all-link reveal">
+      <a href="portfolio.html" class="underline-link">View Full Portfolio →</a>
     </div>
-  </a>
+  </section>
 
-  <!-- Project 3 -->
-  <a href="project3.html" class="portfolio-card">
-    <img src="images/project3-thumb.png" alt="Project 3 Thumbnail">
-    <div class="card-overlay">
-      <h3>Project 3</h3>
+  <section id="about" class="about-container reveal">
+    <div class="about-image">
+      <div class="image-placeholder">About Photo Coming Soon</div>
     </div>
-  </a>
-
-  <!-- Project 4 (Placeholder) -->
-  <a href="project4.html" class="portfolio-card">
-    <img src="images/project4-thumb.png" alt="Project 4 Thumbnail">
-    <div class="card-overlay">
-      <h3>Project 4</h3>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
+        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="highlight-gradient">go create good things</span>.
+      </p>
     </div>
-  </a>
+  </section>
 
-  <!-- Project 5 (Placeholder) -->
-  <a href="project5.html" class="portfolio-card">
-    <img src="images/project5-thumb.png" alt="Project 5 Thumbnail">
-    <div class="card-overlay">
-      <h3>Project 5</h3>
+  <section id="contact" class="contact-section reveal">
+    <div class="contact-card">
+      <h2>Let’s Connect</h2>
+      <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
+      <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-  </a>
+  </section>
 
-  <!-- Project 6 (Placeholder) -->
-  <a href="project6.html" class="portfolio-card">
-    <img src="images/project6-thumb.png" alt="Project 6 Thumbnail">
-    <div class="card-overlay">
-      <h3>Project 6</h3>
-    </div>
-  </a>
+  <footer>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+  </footer>
 
-</div>
+  <a href="#" class="scroll-to-top">↑</a>
 
-  <div class="view-all-link" style="margin-top: 80px;">
-    <a href="index.html" class="underline-link">← Back to Homepage</a>
-  </div>
-</section>
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const overlay = document.getElementById('nav-overlay');
+    const closeBtn = document.getElementById('close-btn');
 
-<footer>
-  &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-</footer>
+    toggleBtn.onclick = () => overlay.classList.add('show');
+    closeBtn.onclick = () => overlay.classList.remove('show');
 
-<script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  revealEls.forEach(el => observer.observe(el));
-</script>
+    const heroMsg = document.getElementById('hero-message');
+    const messages = [
+      "Hi, I'm Brady.",
+      "I'm always looking for ways to",
+      '<span class="highlight-gradient">Go Create Good Things</span>'
+    ];
+    let msgIndex = 0;
 
+    setTimeout(() => {
+      heroMsg.classList.add('fade-in');
+      setTimeout(showNextLine, 4000);
+    }, 1000);
+
+    function showNextLine() {
+      heroMsg.classList.remove('fade-in');
+      heroMsg.classList.add('fade-out');
+      setTimeout(() => {
+        msgIndex++;
+        if (msgIndex < messages.length) {
+          heroMsg.innerHTML = messages[msgIndex];
+          heroMsg.classList.remove('fade-out');
+          heroMsg.classList.add('fade-in');
+          if (msgIndex < messages.length - 1) {
+            setTimeout(showNextLine, 4000);
+          }
+        }
+      }, 500);
+    }
+
+    // Scroll animation
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
