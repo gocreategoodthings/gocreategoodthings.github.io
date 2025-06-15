@@ -11,7 +11,6 @@
   <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
-
   <!-- Grain Overlay + Floating Background -->
   <div class="grain-overlay"></div>
   <div class="floating-bg"></div>
@@ -21,17 +20,24 @@
     <div class="logo">
       <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
     </div>
-    <nav>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
   </header>
+
+  <!-- Fullscreen Wave Menu -->
+  <div id="waveMenu" class="wave-menu">
+    <div class="close-btn" id="closeMenu">&times;</div>
+    <ul>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="wave-bg"></div>
+  </div>
 
   <!-- Hero -->
   <section class="hero fade-up">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo">
-    <h1>Go Create Good Things</h1>
+    <h1 id="rotatingTitle"></h1>
   </section>
 
   <div class="section-divider"></div>
@@ -95,7 +101,7 @@
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
-  <a href="#" class="scroll-to-top">↑</a>
+  <a href="#" class="scroll-to-top">&uarr;</a>
 
   <!-- Scripts -->
   <script>
@@ -105,7 +111,6 @@
       scrollBtn.style.display = window.pageYOffset > 300 ? "flex" : "none";
       header.classList.toggle("scrolled", window.scrollY > 10);
     });
-
     scrollBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -127,6 +132,38 @@
       if (heroLogo) {
         heroLogo.style.transform = `translateY(${offset}px) scale(1.05)`;
       }
+    });
+
+    // Rotating Title Logic
+    const rotatingTitle = document.getElementById("rotatingTitle");
+    const titles = ["Hi, I'm Brady", "I'm always looking for ways to", "Go Create Good Things"];
+    let titleIndex = 0;
+
+    function showTitle() {
+      rotatingTitle.textContent = titles[titleIndex];
+      rotatingTitle.classList.remove("fade-in");
+      rotatingTitle.classList.add("fade-out");
+      setTimeout(() => {
+        rotatingTitle.classList.remove("fade-out");
+        rotatingTitle.classList.add("fade-in");
+      }, 50);
+
+      titleIndex++;
+      if (titleIndex < titles.length) {
+        setTimeout(showTitle, 2500);
+      }
+    }
+    setTimeout(showTitle, 1000);
+
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const waveMenu = document.getElementById('waveMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    hamburger.addEventListener('click', () => {
+      waveMenu.classList.add('open');
+    });
+    closeMenu.addEventListener('click', () => {
+      waveMenu.classList.remove('open');
     });
   </script>
 </body>
