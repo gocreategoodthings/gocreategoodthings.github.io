@@ -29,13 +29,32 @@ header {
   position: relative;
 }
 
-.logo img {
-  height: 64px;
+.logo img,
+.hero-logo img {
+  height: 96px;
   transition: transform 0.3s ease;
+  animation: zoomInSmooth 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  will-change: transform;
+  transform-origin: center;
 }
 
-.logo img:hover {
+.logo img:hover,
+.hero-logo img:hover {
   transform: scale(1.1) translateY(-2px);
+}
+
+@keyframes zoomInSmooth {
+  0% {
+    transform: scale(1.6) translateY(-20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 .menu-toggle {
@@ -99,19 +118,12 @@ header {
   text-decoration: none;
   margin: 1rem 0;
   transition: opacity 0.3s ease;
+  position: relative;
 }
 
 .nav-content a:hover {
   opacity: 0.7;
-}
-
-/* Glowing Hover for Nav Links */
-.nav-content a {
-  position: relative;
-  color: #fff;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  color: #00e5ff;
 }
 
 .nav-content a::after {
@@ -125,10 +137,6 @@ header {
   background: #00e5ff;
   box-shadow: 0 0 8px #00e5ff, 0 0 12px #00e5ff;
   transition: width 0.4s ease;
-}
-
-.nav-content a:hover {
-  color: #00e5ff;
 }
 
 .nav-content a:hover::after {
@@ -149,27 +157,6 @@ header {
 .hero {
   text-align: center;
   padding: 6rem 2rem 4rem;
-}
-
-.hero-logo {
-  animation: zoomInSmooth 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-  will-change: transform;
-  transform-origin: center;
-  display: inline-block;
-}
-
-@keyframes zoomInSmooth {
-  0% {
-    transform: scale(1.6) translateY(-20px);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
 }
 
 .hero-message {
@@ -407,6 +394,11 @@ footer a:hover {
   z-index: 40;
 }
 
+.scroll-to-top:hover {
+  background: #b48b33;
+}
+
+/* PROJECT PAGES */
 .project-hero {
   padding: 5rem 2rem 2rem;
   text-align: center;
@@ -555,8 +547,4 @@ footer a:hover {
     transform: translateY(-120vh) scale(0.5);
     opacity: 0;
   }
-}
-
-.scroll-to-top:hover {
-  background: #b48b33;
 }
