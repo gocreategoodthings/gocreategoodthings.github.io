@@ -34,23 +34,18 @@ header {
   transition: transform 0.3s ease;
 }
 
-.logo img:hover {
-  transform: scale(1.1) translateY(-2px);
-}
-
 .menu-toggle {
   font-size: 1.8rem;
   cursor: pointer;
   background: none;
   border: none;
   z-index: 30;
-  color: #111;
+  color: #002855;
   transition: transform 0.3s ease;
 }
 
 .menu-toggle:hover {
-  color: #00e5ff;
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* NAV OVERLAY */
@@ -60,8 +55,9 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   display: none;
+  background: #0b1d26;
+  overflow: hidden;
   z-index: 20;
 }
 
@@ -69,61 +65,60 @@ header {
   display: block;
 }
 
-.wave {
-  position: absolute;
-  top: 0;
-  right: -100%;
-  width: 160%;
-  height: 100%;
-  background: #0b1d26;
-  clip-path: ellipse(80% 100% at 100% 50%);
-  z-index: 1;
-}
-
-.wave-in {
-  animation: waveSlideIn 0.6s ease forwards;
-}
-
-.wave-out {
-  animation: waveSlideOut 0.6s ease forwards;
-}
-
-@keyframes waveSlideIn {
-  from { right: -100%; }
-  to   { right: 0; }
-}
-
-@keyframes waveSlideOut {
-  from { right: 0; }
-  to   { right: -100%; }
-}
-
-/* BUBBLE BACKGROUND */
 .bubble-container {
   position: absolute;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   z-index: 0;
-  pointer-events: none;
+  overflow: hidden;
 }
 
 .bubble {
   position: absolute;
-  bottom: -50px;
-  background: rgba(0, 229, 255, 0.1);
+  bottom: -100px;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 207, 207, 0.3);
   border-radius: 50%;
-  animation: rise 6s ease-in infinite;
+  animation: floatUp linear infinite;
+  filter: blur(3px);
 }
 
-@keyframes rise {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh);
   }
-  100% {
-    transform: translateY(-120vh) scale(0.4);
-    opacity: 0;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 160%;
+  height: 100%;
+  background: #0b1d26;
+  clip-path: ellipse(80% 100% at 100% 50%);
+  transform: translateX(100%);
+  z-index: 1;
+}
+
+.wave.wave-in {
+  animation: waveSlideIn 0.8s ease forwards;
+}
+
+.wave.wave-out {
+  animation: waveSlideOut 0.6s ease forwards;
+}
+
+@keyframes waveSlideIn {
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes waveSlideOut {
+  to {
+    transform: translateX(100%);
   }
 }
 
@@ -136,7 +131,6 @@ header {
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: white;
   padding-top: 2rem;
 }
 
@@ -145,32 +139,15 @@ header {
   color: white;
   text-decoration: none;
   margin: 1rem 0;
+  transition: all 0.3s ease;
   position: relative;
-  transition: all 0.4s ease;
 }
 
 .nav-content a:hover {
-  color: #00e5ff;
-  text-shadow: 0 0 6px #00e5ff;
+  text-shadow: 0 0 8px #00cfcf;
 }
 
-.nav-content a::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0%;
-  height: 2px;
-  background: #00e5ff;
-  box-shadow: 0 0 8px #00e5ff;
-  transition: width 0.4s ease;
-}
-
-.nav-content a:hover::after {
-  width: 100%;
-}
-
+/* CLOSE BUTTON */
 .close-btn {
   position: absolute;
   top: 1.5rem;
@@ -184,24 +161,25 @@ header {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 8rem 2rem 5rem;
-}
-
-.hero-logo {
-  width: 360px;
-  max-width: 95vw;
-  display: block;
+  padding: 10rem 2rem 6rem;
 }
 
 .logo-float-wrapper {
   display: flex;
   justify-content: center;
-  animation: floatLoop 3.5s ease-in-out infinite;
+  animation: floatLoop 4s ease-in-out infinite;
+}
+
+.hero-logo {
+  width: 380px;
+  max-width: 95vw;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 @keyframes floatLoop {
   0%, 100% { transform: translateY(0); }
-  50%     { transform: translateY(-10px); }
+  50%     { transform: translateY(-12px); }
 }
 
 .hero-message {
@@ -221,14 +199,13 @@ header {
   transform: translateY(0);
 }
 
-.fade-out {
+.hero-message.fade-out {
   opacity: 0;
   transform: translateY(-10px);
 }
 
-.epic-final {
-  font-size: 2.6rem;
-  font-weight: 700;
+.highlight-gradient,
+.epic {
   background: linear-gradient(to right, #00cfcf, #002855);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -312,7 +289,7 @@ header {
   bottom: -2px;
   width: 100%;
   height: 2px;
-  background: #d6ae49;
+  background: #00cfcf;
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: right;
@@ -353,10 +330,9 @@ header {
 
 /* CONTACT */
 .contact-section {
-  background: #062029;
+  background: #e6f7f7;
   padding: 4rem 2rem;
   text-align: center;
-  color: white;
 }
 
 .contact-card {
@@ -392,7 +368,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: #008f8f;
+  background: #008b8b;
 }
 
 /* FOOTER */
@@ -400,14 +376,12 @@ footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: #ccc;
-  background: #fff;
+  color: #666;
 }
 
 footer a {
-  color: #111;
+  color: #002855;
   text-decoration: none;
-  font-weight: 500;
 }
 
 footer a:hover {
@@ -423,15 +397,13 @@ footer a:hover {
   text-decoration: none;
   background: #00cfcf;
   color: #fff;
-  padding: 0.65rem 0.8rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 50%;
   display: none;
   transition: background 0.3s ease;
   z-index: 40;
-  justify-content: center;
-  align-items: center;
 }
 
 .scroll-to-top:hover {
-  background: #007a7a;
+  background: #008b8b;
 }
