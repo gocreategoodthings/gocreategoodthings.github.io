@@ -128,9 +128,65 @@
   <div class="section-divider"></div>
 
   <!-- Portfolio -->
-  <!-- (Your existing portfolio, about, contact, footer sections go here — unchanged) -->
+  <section class="portfolio">
+    <div class="portfolio-grid reveal delay-2">
+      <a href="project1.html" class="portfolio-item">
+        <div class="project-placeholder">Project 1</div>
+        <div class="portfolio-overlay"><h3>Project 1 Title</h3></div>
+      </a>
+      <a href="project2.html" class="portfolio-item">
+        <div class="project-placeholder">Project 2</div>
+        <div class="portfolio-overlay"><h3>Project 2 Title</h3></div>
+      </a>
+      <a href="project3.html" class="portfolio-item">
+        <div class="project-placeholder">Project 3</div>
+        <div class="portfolio-overlay"><h3>Project 3 Title</h3></div>
+      </a>
+    </div>
 
-  <!-- Scroll-to-Top -->
+    <div class="view-all-link reveal delay-3">
+      <a href="portfolio.html" class="underline-link">View Full Portfolio →</a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- About -->
+  <section id="about" class="about-container fade-up reveal delay-2">
+    <div class="about-image">
+      <div class="image-placeholder">About Photo Coming Soon</div>
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
+        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="highlight-text">go create good things</span>.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section fade-up reveal delay-3">
+    <div class="contact-card">
+      <h2>Let’s Connect</h2>
+      <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
+      <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+  </footer>
+
+  <!-- Scroll to Top -->
   <a href="#" class="scroll-to-top">↑</a>
 
   <!-- JavaScript -->
@@ -162,15 +218,17 @@
             heroMsg.textContent = messages[msgIndex];
             heroMsg.classList.remove('fade-out');
             heroMsg.classList.add('fade-in');
-            setTimeout(showNextLine, 4000); // Delay for next line
+            if (msgIndex < messages.length - 1) {
+              setTimeout(showNextLine, 4000);
+            }
           }
-        }, 600); // Match fade duration
+        }, 600);
       }
 
       heroMsg.classList.add('fade-in');
       setTimeout(showNextLine, 4000);
 
-      // Scroll-to-top
+      // Scroll to top
       const scrollBtn = document.querySelector(".scroll-to-top");
       window.addEventListener("scroll", () => {
         scrollBtn.style.display = window.pageYOffset > 300 ? "flex" : "none";
@@ -179,6 +237,17 @@
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+
+      // Reveal animations
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      revealElements.forEach(el => observer.observe(el));
     });
   </script>
 
