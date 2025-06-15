@@ -90,14 +90,17 @@ header {
   overflow: hidden;
 }
 
-.bubble-container::before {
-  content: '';
+.bubble-container {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 300%;
   height: 300%;
-  background: radial-gradient(circle, rgba(0, 207, 207, 0.15) 20%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 207, 207, 0.1) 20%, transparent 70%);
   animation: bubbleFloat 18s linear infinite;
+  z-index: 0;
   pointer-events: none;
+  opacity: 0.8;
 }
 
 @keyframes bubbleFloat {
