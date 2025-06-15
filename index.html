@@ -17,12 +17,13 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
+    <div class="wave" id="wave"></div>
     <div class="bubble-container" id="bubble-container"></div>
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </div>
   </nav>
 
@@ -83,59 +84,47 @@
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
-  <a href="#" class="scroll-to-top">↑</a>
-
-  <!-- Optional sound for menu open -->
-  <audio id="swoosh-sound" preload="auto">
-    <source src="sounds/swoosh.mp3" type="audio/mp3" />
-  </audio>
+  <a href="#" class="scroll-to-top" id="scrollToTopBtn">↑</a>
 
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
-    const swoosh = document.getElementById('swoosh-sound');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const wave = document.getElementById('wave');
+    const bubbleContainer = document.getElementById('bubble-container');
 
-    toggleBtn.addEventListener('click', () => {
-      // Remove old wave
-      const oldWave = document.querySelector('.wave');
-      if (oldWave) oldWave.remove();
-
-      // Add new wave
-      const wave = document.createElement('div');
-      wave.classList.add('wave');
-      overlay.insertBefore(wave, overlay.firstChild);
-
+    function openMenu() {
+      wave.classList.remove('wave-out');
+      wave.classList.add('wave-in');
       overlay.classList.add('show');
-      bubbleInterval = setInterval(createBubble, 350);
+      bubbleContainer.style.display = 'block';
+    }
 
-      // Play sound
-      if (swoosh) {
-        swoosh.currentTime = 0;
-        swoosh.play();
-      }
-    });
-
-    closeBtn.addEventListener('click', () => {
-      overlay.classList.remove('show');
-      clearInterval(bubbleInterval);
-    });
-
-    document.querySelectorAll('.nav-content a').forEach(link => {
-      link.addEventListener('click', () => {
+    function closeMenu() {
+      wave.classList.remove('wave-in');
+      wave.classList.add('wave-out');
+      setTimeout(() => {
         overlay.classList.remove('show');
-        clearInterval(bubbleInterval);
-      });
-    });
+        bubbleContainer.style.display = 'none';
+      }, 600);
+    }
+
+    toggleBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        overlay.classList.remove('show');
-        clearInterval(bubbleInterval);
-      }
+      if (e.key === 'Escape') closeMenu();
     });
 
-    // Hero rotating messages
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    scrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Hero text rotation
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
@@ -158,44 +147,18 @@
           heroMsg.innerHTML = messages[msgIndex];
           heroMsg.classList.remove('fade-out');
           heroMsg.classList.add('fade-in');
-          if (msgIndex < messages.length - 1) {
-            setTimeout(showNextLine, 4000);
-          }
         }
       }, 500);
     }
 
-    // Reveal animations
+    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
-
-    // Bubbles
-    function createBubble() {
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      bubble.style.left = `${Math.random() * 100}%`;
-      const size = 8 + Math.random() * 14;
-      bubble.style.width = `${size}px`;
-      bubble.style.height = `${size}px`;
-      bubble.style.animationDuration = `${3 + Math.random() * 4}s`;
-      document.getElementById('bubble-container').appendChild(bubble);
-      setTimeout(() => bubble.remove(), 8000);
-    }
-
-    let bubbleInterval;
-
-    // Scroll-to-top button
-    const scrollBtn = document.querySelector(".scroll-to-top");
-    window.addEventListener("scroll", () => {
-      scrollBtn.style.display = window.scrollY > 400 ? "block" : "none";
-    });
   </script>
 </body>
 </html>
