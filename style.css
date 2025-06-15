@@ -122,30 +122,28 @@ header {
 }
 
 .hero-logo {
-  width: 400px;
+  width: 420px;
   max-width: 95vw;
   opacity: 0;
   animation:
-    zoomIn 2.4s ease-out forwards,
+    zoomInSmooth 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards,
     float 6s ease-in-out infinite;
-  animation-delay: 0.2s, 2.4s;
+  animation-delay: 0.3s, 2s;
   transform-origin: center;
 }
 
-@keyframes zoomIn {
+@keyframes zoomInSmooth {
   0% {
-    transform: scale(0.6);
+    transform: scale(0.5);
     opacity: 0;
-  }
-  30% {
-    transform: scale(1.2);
-    opacity: 1;
   }
   60% {
     transform: scale(1.4);
+    opacity: 1;
   }
   100% {
-    transform: scale(1.25);
+    transform: scale(1.2);
+    opacity: 1;
   }
 }
 
