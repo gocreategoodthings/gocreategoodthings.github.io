@@ -17,7 +17,7 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
-    <div class="bubble-container"></div>
+    <div class="bubble-container" id="bubble-container"></div>
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
       <a href="portfolio.html">Portfolio</a>
@@ -99,25 +99,30 @@
       overlay.insertBefore(wave, overlay.firstChild);
 
       overlay.classList.add('show');
-      createBubbles();
+
+      bubbleInterval = setInterval(createBubble, 350);
     });
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
+      clearInterval(bubbleInterval);
     });
 
     document.querySelectorAll('.nav-content a').forEach(link => {
       link.addEventListener('click', () => {
         overlay.classList.remove('show');
+        clearInterval(bubbleInterval);
       });
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         overlay.classList.remove('show');
+        clearInterval(bubbleInterval);
       }
     });
 
+    // Hero Message Animation
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
@@ -147,21 +152,7 @@
       }, 500);
     }
 
-    function createBubbles() {
-      const container = document.querySelector('.bubble-container');
-      if (!container) return;
-      container.innerHTML = '';
-      for (let i = 0; i < 30; i++) {
-        const bubble = document.createElement('div');
-        bubble.classList.add('bubble');
-        bubble.style.left = Math.random() * 100 + '%';
-        bubble.style.width = bubble.style.height = Math.random() * 20 + 10 + 'px';
-        bubble.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        bubble.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(bubble);
-      }
-    }
-
+    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -171,6 +162,27 @@
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
+
+    // Bubbles
+    function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.style.left = `${Math.random() * 100}%`;
+      const size = 10 + Math.random() * 15;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.animationDuration = `${4 + Math.random() * 6}s`;
+      document.getElementById('bubble-container').appendChild(bubble);
+      setTimeout(() => bubble.remove(), 10000);
+    }
+
+    let bubbleInterval;
+
+    // Scroll-to-top visibility
+    const scrollBtn = document.querySelector(".scroll-to-top");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 400 ? "block" : "none";
+    });
   </script>
 </body>
 </html>
