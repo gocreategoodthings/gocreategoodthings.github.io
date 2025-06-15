@@ -17,7 +17,7 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
-    <div class="bubble-container"></div> <!-- ✅ Bubbles container -->
+    <div class="bubble-container" id="bubble-container"></div> <!-- ✅ Bubble container -->
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
       <a href="portfolio.html">Portfolio</a>
@@ -33,6 +33,7 @@
     <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
   </section>
 
+  <!-- Portfolio Section -->
   <section class="portfolio reveal">
     <div class="portfolio-grid">
       <a href="project1.html" class="portfolio-item">
@@ -53,6 +54,7 @@
     </div>
   </section>
 
+  <!-- About Section -->
   <section id="about" class="about-container reveal">
     <div class="about-image">
       <div class="image-placeholder">About Photo Coming Soon</div>
@@ -66,6 +68,7 @@
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="contact-section reveal">
     <div class="contact-card">
       <h2>Let’s Connect</h2>
@@ -85,10 +88,12 @@
 
   <a href="#" class="scroll-to-top">↑</a>
 
+  <!-- ✅ SCRIPT -->
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
+    const bubbleContainer = document.getElementById('bubble-container');
 
     toggleBtn.addEventListener('click', () => {
       const oldWave = document.querySelector('.wave');
@@ -97,37 +102,40 @@
       const wave = document.createElement('div');
       wave.classList.add('wave');
       overlay.insertBefore(wave, overlay.firstChild);
-
       overlay.classList.add('show');
 
-      // Bubble generation
-      const bubbleContainer = document.querySelector('.bubble-container');
+      // ✅ Generate bubbles on menu open
       bubbleContainer.innerHTML = '';
       for (let i = 0; i < 25; i++) {
         const bubble = document.createElement('div');
-        bubble.classList.add('bubble');
+        bubble.className = 'bubble';
         bubble.style.left = `${Math.random() * 100}%`;
-        bubble.style.animationDuration = `${4 + Math.random() * 6}s`;
+        bubble.style.animationDuration = `${3 + Math.random() * 4}s`;
+        bubble.style.opacity = Math.random().toFixed(2);
         bubbleContainer.appendChild(bubble);
       }
     });
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
+      bubbleContainer.innerHTML = '';
     });
 
     document.querySelectorAll('.nav-content a').forEach(link => {
       link.addEventListener('click', () => {
         overlay.classList.remove('show');
+        bubbleContainer.innerHTML = '';
       });
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         overlay.classList.remove('show');
+        bubbleContainer.innerHTML = '';
       }
     });
 
+    // HERO TEXT ROTATION
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
@@ -150,13 +158,14 @@
           heroMsg.innerHTML = messages[msgIndex];
           heroMsg.classList.remove('fade-out');
           heroMsg.classList.add('fade-in');
-        }
-        if (msgIndex < messages.length - 1) {
-          setTimeout(showNextLine, 4000);
+          if (msgIndex < messages.length - 1) {
+            setTimeout(showNextLine, 4000);
+          }
         }
       }, 500);
     }
 
+    // REVEAL ON SCROLL
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
