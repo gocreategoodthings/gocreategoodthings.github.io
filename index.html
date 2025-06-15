@@ -17,6 +17,7 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
+    <div class="bubble-container"></div> <!-- ✅ Bubbles container -->
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
       <a href="portfolio.html">Portfolio</a>
@@ -25,12 +26,12 @@
     </div>
   </nav>
 
-<section class="hero">
-  <div class="logo-float-wrapper">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo" id="hero-logo">
-  </div>
-  <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
-</section>
+  <section class="hero">
+    <div class="logo-float-wrapper">
+      <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo" id="hero-logo">
+    </div>
+    <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
+  </section>
 
   <section class="portfolio reveal">
     <div class="portfolio-grid">
@@ -98,6 +99,17 @@
       overlay.insertBefore(wave, overlay.firstChild);
 
       overlay.classList.add('show');
+
+      // Bubble generation
+      const bubbleContainer = document.querySelector('.bubble-container');
+      bubbleContainer.innerHTML = '';
+      for (let i = 0; i < 25; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.animationDuration = `${4 + Math.random() * 6}s`;
+        bubbleContainer.appendChild(bubble);
+      }
     });
 
     closeBtn.addEventListener('click', () => {
@@ -129,25 +141,21 @@
       setTimeout(showNextLine, 4000);
     }, 1000);
 
-function showNextLine() {
-  heroMsg.classList.remove('fade-in');
-  heroMsg.classList.add('fade-out');
-  setTimeout(() => {
-    msgIndex++;
-    if (msgIndex < messages.length) {
-      heroMsg.innerHTML = messages[msgIndex];
-      heroMsg.classList.remove('fade-out');
-      heroMsg.classList.add('fade-in');
-
-      if (msgIndex < messages.length - 1) {
-        setTimeout(showNextLine, 4000);
-      } else {
-        // ✅ Start logo float after final message fades in
-        document.getElementById('hero-logo').classList.add('floating');
-      }
+    function showNextLine() {
+      heroMsg.classList.remove('fade-in');
+      heroMsg.classList.add('fade-out');
+      setTimeout(() => {
+        msgIndex++;
+        if (msgIndex < messages.length) {
+          heroMsg.innerHTML = messages[msgIndex];
+          heroMsg.classList.remove('fade-out');
+          heroMsg.classList.add('fade-in');
+        }
+        if (msgIndex < messages.length - 1) {
+          setTimeout(showNextLine, 4000);
+        }
+      }, 500);
     }
-  }, 500);
-}
 
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
