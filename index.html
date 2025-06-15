@@ -17,8 +17,8 @@
   </header>
 
 <nav class="nav-overlay" id="nav-overlay">
-<div class="bubble-container"></div>
   <div class="nav-content">
+    <div class="bubble-container"></div> <!-- moved inside nav-content -->
     <div class="close-btn" id="close-btn">&times;</div>
     <a href="portfolio.html">Portfolio</a>
     <a href="#about">About</a>
@@ -94,9 +94,17 @@
       const oldWave = document.querySelector('.wave');
       if (oldWave) oldWave.remove();
 
-      const wave = document.createElement('div');
-      wave.classList.add('wave');
-      overlay.insertBefore(wave, overlay.firstChild);
+// Create wave element
+const wave = document.createElement('div');
+wave.classList.add('wave');
+
+// Create bubbles element
+const bubbles = document.createElement('div');
+bubbles.classList.add('bubble-container');
+
+// Insert bubbles first, then wave, so wave overlays but nav-content stays on top
+overlay.insertBefore(bubbles, overlay.firstChild);
+overlay.insertBefore(wave, overlay.firstChild);
 
       overlay.classList.add('show');
     });
