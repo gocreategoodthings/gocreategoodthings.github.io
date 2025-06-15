@@ -30,20 +30,18 @@ header {
 }
 
 .logo img {
-  height: 64px;
+  height: 72px;
   transition: transform 0.3s ease;
 }
 
-.logo img:hover {
-  transform: scale(1.1) translateY(-2px);
-}
-
+/* NAV TOGGLE */
 .menu-toggle {
   font-size: 1.8rem;
   cursor: pointer;
   background: none;
   border: none;
   z-index: 30;
+  color: #111;
   transition: color 0.3s ease;
 }
 
@@ -58,16 +56,22 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   display: none;
   z-index: 20;
-  background: #0b1d26;
+  overflow: hidden;
 }
 
 .nav-overlay.show {
   display: block;
+  animation: fadeIn 0.3s ease forwards;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* WAVE EFFECT */
 .wave {
   position: absolute;
   top: 0;
@@ -81,9 +85,32 @@ header {
 }
 
 @keyframes waveSlideIn {
-  to {
-    right: 0;
-  }
+  to { right: 0; }
+}
+
+/* BUBBLES */
+.bubble-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bubble-container::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,207,207,0.3) 2%, transparent 70%) repeat;
+  background-size: 80px 80px;
+  animation: bubbleDrift 40s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes bubbleDrift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
 }
 
 /* NAV CONTENT */
@@ -104,58 +131,11 @@ header {
   color: white;
   text-decoration: none;
   margin: 1rem 0;
-  transition: all 0.3s ease;
-  position: relative;
+  transition: text-shadow 0.3s ease;
 }
 
 .nav-content a:hover {
-  text-shadow: 0 0 6px #00f7ff;
-}
-
-.nav-content a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: #00f7ff;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: right;
-}
-
-.nav-content a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.bubble-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.bubble {
-  position: absolute;
-  bottom: -20px;
-  border-radius: 50%;
-  background: rgba(0, 247, 255, 0.1);
-  box-shadow: 0 0 8px rgba(0, 247, 255, 0.3);
-  animation: bubbleRise ease-in infinite;
-}
-
-@keyframes bubbleRise {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(-100vh) scale(1.5);
-    opacity: 0;
-  }
+  text-shadow: 0 0 12px #00cfcf;
 }
 
 .close-btn {
@@ -168,27 +148,27 @@ header {
   z-index: 3;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
   text-align: center;
   padding: 10rem 2rem 6rem;
 }
 
-.hero-logo {
-  width: 380px;
-  max-width: 95vw;
-  display: block;
-}
-
 .logo-float-wrapper {
   display: flex;
   justify-content: center;
-  animation: floatLoop 3s ease-in-out infinite;
+  animation: floatLoop 3.5s ease-in-out infinite;
 }
 
 @keyframes floatLoop {
   0%, 100% { transform: translateY(0); }
   50%     { transform: translateY(-10px); }
+}
+
+.hero-logo {
+  width: 400px;
+  max-width: 95vw;
+  transition: transform 0.4s ease;
 }
 
 .hero-message {
@@ -217,23 +197,6 @@ header {
   background: linear-gradient(to right, #00cfcf, #002855);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.go-big {
-  font-size: 2.5rem;
-  font-weight: bold;
-  animation: popUp 0.8s ease;
-}
-
-@keyframes popUp {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
 }
 
 /* SCROLL REVEAL */
@@ -295,7 +258,7 @@ header {
   transform: translateY(0);
 }
 
-/* VIEW ALL */
+/* VIEW ALL LINK */
 .view-all-link {
   margin-top: 3rem;
 }
@@ -314,7 +277,13 @@ header {
   bottom: -2px;
   width: 100%;
   height: 2px;
-  background: #d6ae49;
+  background: #00cfcf;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+.underline-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -337,22 +306,17 @@ header {
   border-radius: 12px;
 }
 
-.image-placeholder {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
 .about-text p {
   max-width: 600px;
   margin-top: 1rem;
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
 .contact-section {
-  background: #02242d;
+  background: #0b1d26;
+  color: white;
   padding: 4rem 2rem;
   text-align: center;
-  color: white;
 }
 
 .contact-card {
@@ -396,11 +360,11 @@ footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: #ccc;
+  color: #eee;
 }
 
 footer a {
-  color: #fff;
+  color: #00cfcf;
   text-decoration: none;
 }
 
@@ -415,9 +379,9 @@ footer a:hover {
   right: 2rem;
   font-size: 1.5rem;
   text-decoration: none;
-  background: #00cfcf;
+  background: #d6ae49;
   color: #fff;
-  padding: 0.6rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 50%;
   display: none;
   transition: background 0.3s ease;
@@ -425,5 +389,5 @@ footer a:hover {
 }
 
 .scroll-to-top:hover {
-  background: #008c8c;
+  background: #b48b33;
 }
