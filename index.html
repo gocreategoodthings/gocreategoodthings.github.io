@@ -127,21 +127,25 @@
       setTimeout(showNextLine, 4000);
     }, 1000);
 
-    function showNextLine() {
-      heroMsg.classList.remove('fade-in');
-      heroMsg.classList.add('fade-out');
-      setTimeout(() => {
-        msgIndex++;
-        if (msgIndex < messages.length) {
-          heroMsg.innerHTML = messages[msgIndex];
-          heroMsg.classList.remove('fade-out');
-          heroMsg.classList.add('fade-in');
-          if (msgIndex < messages.length - 1) {
-            setTimeout(showNextLine, 4000);
-          }
-        }
-      }, 500);
+function showNextLine() {
+  heroMsg.classList.remove('fade-in');
+  heroMsg.classList.add('fade-out');
+  setTimeout(() => {
+    msgIndex++;
+    if (msgIndex < messages.length) {
+      heroMsg.innerHTML = messages[msgIndex];
+      heroMsg.classList.remove('fade-out');
+      heroMsg.classList.add('fade-in');
+
+      if (msgIndex < messages.length - 1) {
+        setTimeout(showNextLine, 4000);
+      } else {
+        // ✅ Start logo float after final message fades in
+        document.getElementById('hero-logo').classList.add('floating');
+      }
     }
+  }, 500);
+}
 
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
