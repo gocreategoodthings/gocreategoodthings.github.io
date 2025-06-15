@@ -17,13 +17,12 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
-    <div class="wave" id="wave"></div>
-    <div class="bubble-container" id="bubble-container"></div>
+    <div class="bubble-container"></div>
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
-      <a href="portfolio.html" class="nav-link">Portfolio</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
@@ -84,58 +83,56 @@
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
-  <a href="#" class="scroll-to-top" id="scrollToTopBtn">↑</a>
+  <a href="#" class="scroll-to-top" id="scroll-to-top">↑</a>
 
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const wave = document.getElementById('wave');
-    const bubbleContainer = document.getElementById('bubble-container');
+    let wave;
 
-    function openMenu() {
-      wave.classList.remove('wave-out');
-      wave.classList.add('wave-in');
+    toggleBtn.addEventListener('click', () => {
+      if (document.querySelector('.wave')) document.querySelector('.wave').remove();
+
+      wave = document.createElement('div');
+      wave.className = 'wave wave-in';
+      overlay.insertBefore(wave, overlay.firstChild);
+
       overlay.classList.add('show');
-      bubbleContainer.style.display = 'block';
-    }
+    });
 
-    function closeMenu() {
-      wave.classList.remove('wave-in');
-      wave.classList.add('wave-out');
-      setTimeout(() => {
+    function closeOverlay() {
+      if (wave) {
+        wave.classList.remove('wave-in');
+        wave.classList.add('wave-out');
+        setTimeout(() => {
+          overlay.classList.remove('show');
+          wave.remove();
+        }, 600);
+      } else {
         overlay.classList.remove('show');
-        bubbleContainer.style.display = 'none';
-      }, 600);
+      }
     }
 
-    toggleBtn.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
-    navLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+    closeBtn.addEventListener('click', closeOverlay);
+    document.querySelectorAll('.nav-content a').forEach(link => {
+      link.addEventListener('click', closeOverlay);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeOverlay();
     });
 
-    const scrollBtn = document.getElementById('scrollToTopBtn');
-    scrollBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Hero text rotation
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
       "I'm always looking for ways to",
-      '<span class="highlight-gradient">Go Create Good Things</span>'
+      '<span class="highlight-gradient epic-final">Go Create Good Things</span>'
     ];
     let msgIndex = 0;
 
     setTimeout(() => {
       heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 4000);
+      setTimeout(showNextLine, 3500);
     }, 1000);
 
     function showNextLine() {
@@ -148,17 +145,31 @@
           heroMsg.classList.remove('fade-out');
           heroMsg.classList.add('fade-in');
         }
-      }, 500);
+        if (msgIndex < messages.length - 1) {
+          setTimeout(showNextLine, 3500);
+        }
+      }, 600);
     }
 
-    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        scrollTopBtn.style.display = 'flex';
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
