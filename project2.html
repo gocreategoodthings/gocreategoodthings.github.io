@@ -9,16 +9,22 @@
 </head>
 <body>
 
-<header id="header">
+<header>
   <div class="logo">
-    <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
+    <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo" /></a>
   </div>
-  <nav>
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+</header>
+
+<nav class="nav-overlay" id="nav-overlay">
+  <div class="nav-content">
+    <div class="close-btn" id="close-btn">&times;</div>
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
+    <a href="index.html#about">About</a>
     <a href="index.html#contact">Contact</a>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <section class="project-hero reveal delay-1">
   <div class="project-container">
@@ -104,5 +110,37 @@
   });
 </script>
 
+  <script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('nav-overlay');
+  const closeBtn = document.getElementById('close-btn');
+
+  toggleBtn.addEventListener('click', () => {
+    const oldWave = document.querySelector('.wave');
+    if (oldWave) oldWave.remove();
+
+    const wave = document.createElement('div');
+    wave.classList.add('wave');
+    overlay.insertBefore(wave, overlay.firstChild);
+
+    overlay.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+
+  document.querySelectorAll('.nav-content a').forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.classList.remove('show');
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      overlay.classList.remove('show');
+    }
+  });
+</script>
 </body>
 </html>
