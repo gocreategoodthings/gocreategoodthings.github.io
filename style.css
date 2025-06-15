@@ -138,39 +138,62 @@ header {
 .hero {
   text-align: center;
   padding: 6rem 2rem 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-logo {
   display: inline-block;
-  animation: cinematicZoom 1.8s cubic-bezier(0.25, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
+  animation: identityZoom 2s ease-out forwards;
+  will-change: transform;
   transform-origin: center;
-  text-align: center;
-  opacity: 0;
-  animation-delay: 0.2s;
+  position: relative;
+}
+
+.hero-logo::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseRing 2.5s infinite ease-out;
+  z-index: -1;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
 }
 
 .hero-logo img {
-  height: 140px;
+  height: 180px;
   max-width: 100%;
   transition: transform 0.4s ease;
 }
 
 .hero-logo img:hover {
-  transform: scale(1.1);
+  transform: translateY(-3px) scale(1.05);
 }
 
-@keyframes cinematicZoom {
+@keyframes identityZoom {
   0% {
-    transform: scale(3.4);
-    opacity: 0;
+    transform: scale(1);
   }
-  40% {
-    opacity: 1;
+  30% {
+    transform: scale(3.5);
   }
   100% {
     transform: scale(1);
-    opacity: 1;
   }
 }
 
@@ -413,7 +436,7 @@ footer a:hover {
   background: #b48b33;
 }
 
-/* Bubbles */
+/* BUBBLES */
 .bubble-container {
   position: absolute;
   bottom: 0;
