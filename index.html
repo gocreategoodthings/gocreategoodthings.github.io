@@ -91,22 +91,80 @@
     </div>
   </nav>
 
-  <script>
-    const toggleBtn = document.getElementById('menu-toggle');
-    const overlay = document.getElementById('nav-overlay');
-    const closeBtn = document.getElementById('close-btn');
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('nav-overlay');
+  const closeBtn = document.getElementById('close-btn');
 
-    toggleBtn.addEventListener('click', () => {
-      overlay.classList.add('show');
-      const wave = overlay.querySelector('.wave');
-      wave.style.animation = 'none';
-      void wave.offsetWidth;
-      wave.style.animation = null;
-    });
+  toggleBtn.addEventListener('click', () => {
+    // Clear any old waves
+    const oldWave = overlay.querySelector('.wave');
+    if (oldWave) oldWave.remove();
 
-    closeBtn.addEventListener('click', () => {
+    // Create new wave element
+    const wave = document.createElement('div');
+    wave.className = 'wave';
+    overlay.prepend(wave);
+
+    // Show overlay
+    overlay.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+
+  document.querySelectorAll('.nav-content a').forEach(link => {
+    link.addEventListener('click', () => {
       overlay.classList.remove('show');
     });
-  </script>
-</body>
-</html>
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      overlay.classList.remove('show');
+    }
+  });
+
+  // Hero animation
+  const heroMsg = document.getElementById('hero-message');
+  const messages = [
+    "Hi, I'm Brady.",
+    "I'm always looking for ways to",
+    '<span class="highlight-gradient">Go Create Good Things</span>'
+  ];
+  let msgIndex = 0;
+
+  setTimeout(() => {
+    heroMsg.classList.add('fade-in');
+    setTimeout(showNextLine, 4000);
+  }, 1000);
+
+  function showNextLine() {
+    heroMsg.classList.remove('fade-in');
+    heroMsg.classList.add('fade-out');
+    setTimeout(() => {
+      msgIndex++;
+      if (msgIndex < messages.length) {
+        heroMsg.innerHTML = messages[msgIndex];
+        heroMsg.classList.remove('fade-out');
+        heroMsg.classList.add('fade-in');
+        if (msgIndex < messages.length - 1) {
+          setTimeout(showNextLine, 4000);
+        }
+      }
+    }, 500);
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
