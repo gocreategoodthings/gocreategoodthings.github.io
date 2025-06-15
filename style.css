@@ -106,7 +106,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('images/realwave.jpg') center/cover no-repeat;
+background: url('images/realwave.jpg') center/cover no-repeat;
   display: none;
   z-index: 20;
   animation: fadeIn 1s ease-in-out;
