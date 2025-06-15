@@ -7,11 +7,8 @@
   <meta name="description" content="Brady Hudson's portfolio. Go create good things — intentional design, branding, and digital experiences." />
   <link rel="icon" href="images/favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Work Sans', sans-serif;
       margin: 0;
@@ -21,14 +18,11 @@
     h1, h2, h3 {
       font-family: 'Unbounded', sans-serif;
     }
-
-    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      position: relative;
       background: white;
       z-index: 10;
     }
@@ -46,8 +40,6 @@
       border: none;
       z-index: 30;
     }
-
-    /* Hero */
     .hero {
       text-align: center;
       padding: 6rem 2rem;
@@ -58,17 +50,9 @@
       animation: zoomFloat 1.8s ease forwards;
     }
     @keyframes zoomFloat {
-      0% {
-        transform: scale(0.6);
-        opacity: 0;
-      }
-      60% {
-        transform: scale(1.5);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.2);
-      }
+      0% { transform: scale(0.6); opacity: 0; }
+      60% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(1.2); }
     }
     .float-logo {
       will-change: transform;
@@ -85,76 +69,39 @@
       transform: translateY(20px);
       transition: all 0.6s ease;
     }
-    .hero-message.fade-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fade-out {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
+    .hero-message.fade-in { opacity: 1; transform: translateY(0); }
+    .fade-out { opacity: 0; transform: translateY(-10px); }
     .highlight-gradient {
-      background: linear-gradient(to right, #fff799, #ffd859);
+      background: linear-gradient(to right, #0B4A74, #00A9A3, #FDBA21, #F85B2B);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    /* Animated Wave Nav */
     .nav-overlay {
       position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 20;
-      background: none;
-      overflow: hidden;
-      display: none;
-    }
-    .nav-overlay.show {
-      display: block;
-    }
-    .wave-bg {
-      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('images/wave-bg.svg') center/cover no-repeat;
-      animation: waveMove 8s infinite linear;
-      z-index: -1;
+      background: url('images/realwave.jpg') center/cover no-repeat;
+      display: none;
+      z-index: 20;
+      animation: fadeIn 1s ease-in-out;
     }
-    @keyframes waveMove {
-      from { background-position: 0 0; }
-      to { background-position: 1000px 0; }
-    }
+    .nav-overlay.show { display: block; }
     .nav-content {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100%;
-      position: relative;
-      z-index: 2;
       color: white;
+      backdrop-filter: brightness(0.8);
     }
     .nav-content a {
       font-size: 2rem;
       color: white;
       text-decoration: none;
       margin: 1rem 0;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: navLinkWave 0.6s forwards;
-    }
-    .nav-content a:nth-child(1) { animation-delay: 0.2s; }
-    .nav-content a:nth-child(2) { animation-delay: 0.4s; }
-    .nav-content a:nth-child(3) { animation-delay: 0.6s; }
-    @keyframes navLinkWave {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
     .close-btn {
       position: absolute;
@@ -164,6 +111,8 @@
       color: white;
       cursor: pointer;
     }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -175,7 +124,6 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
-    <div class="wave-bg"></div>
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
       <a href="portfolio.html">Portfolio</a>
@@ -193,6 +141,7 @@
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
+
     toggleBtn.onclick = () => overlay.classList.add('show');
     closeBtn.onclick = () => overlay.classList.remove('show');
 
