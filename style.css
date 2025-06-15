@@ -122,11 +122,12 @@ header {
 }
 
 .hero-logo {
-  width: 320px;
-  max-width: 90vw;
+  width: 380px; /* bumped up from 320px */
+  max-width: 95vw;
   opacity: 0;
-  animation: zoomIn 1s ease-out forwards, float 4s ease-in-out infinite;
-  animation-delay: 0s, 1s;
+  animation: zoomIn 1.2s ease-out forwards, float 6s ease-in-out infinite;
+  animation-delay: 0s, 1.2s;
+  transform-origin: center;
 }
 
 /* Initial zoom-in animation */
@@ -142,9 +143,20 @@ header {
 }
 
 /* Gentle float loop */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35); /* zooms in more than before */
+    opacity: 1;
+  }
+}
+
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); } /* slightly more movement */
   100% { transform: translateY(0); }
 }
 
