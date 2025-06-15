@@ -133,6 +133,15 @@ header {
   100% { transform: scale(1.2); }
 }
 
+@keyframes floatLoop {
+  0%, 100% { transform: translateY(0); }
+  50%     { transform: translateY(-5px); }
+}
+
+.hero-logo.floating {
+  animation: floatLoop 5s ease-in-out infinite;
+}
+
 .float-logo {
   will-change: transform;
   transition: transform 0.3s ease-out;
