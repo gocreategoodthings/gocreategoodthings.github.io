@@ -125,8 +125,10 @@ header {
   width: 380px;
   max-width: 95vw;
   opacity: 0;
-  animation: zoomIn 1.6s ease-out forwards, float 6s ease-in-out infinite;
-  animation-delay: 0s, 1.6s;
+  animation:
+    zoomIn 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+    float 6s ease-in-out infinite;
+  animation-delay: 0.3s, 2.1s;
   transform-origin: center;
 }
 
