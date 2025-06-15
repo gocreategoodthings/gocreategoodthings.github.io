@@ -118,7 +118,7 @@ header {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 6rem 2rem 4rem;
+  padding: 10rem 2rem 6rem; /* was 6rem 2rem 4rem */
 }
 
 .hero-logo {
@@ -161,7 +161,7 @@ header {
 }
 
 .highlight-gradient {
-  background: linear-gradient(to right, #fff, #d6ae49);
+  background: linear-gradient(to right, #00cfcf, #002855);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
