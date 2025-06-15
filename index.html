@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Go Create Good Things | Brady Hudson Portfolio</title>
   <link rel="icon" href="images/favicon.png" type="image/png" />
-  <link rel="preload" as="image" href="images/GCGT_Logo-07.png" />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -18,7 +17,6 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
-    <div class="bubble-container"></div>
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
       <a href="portfolio.html">Portfolio</a>
@@ -28,35 +26,30 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-logo">
-      <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" />
-    </div>
+    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo" id="hero-logo">
     <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
   </section>
 
-  <!-- Portfolio Section -->
   <section class="portfolio reveal">
     <div class="portfolio-grid">
       <a href="project1.html" class="portfolio-item">
-        <img src="images/project1-thumb.png" alt="Project 1" class="project-thumb" />
-        <div class="portfolio-overlay"><h3>Project 1</h3></div>
+        <div class="project-placeholder">Project 1</div>
+        <div class="portfolio-overlay"><h3>Project 1 Title</h3></div>
       </a>
       <a href="project2.html" class="portfolio-item">
-        <img src="images/project2-thumb.png" alt="Project 2" class="project-thumb" />
-        <div class="portfolio-overlay"><h3>Project 2</h3></div>
+        <div class="project-placeholder">Project 2</div>
+        <div class="portfolio-overlay"><h3>Project 2 Title</h3></div>
       </a>
       <a href="project3.html" class="portfolio-item">
-        <img src="images/project3-thumb.png" alt="Project 3" class="project-thumb" />
-        <div class="portfolio-overlay"><h3>Project 3</h3></div>
+        <div class="project-placeholder">Project 3</div>
+        <div class="portfolio-overlay"><h3>Project 3 Title</h3></div>
       </a>
     </div>
-
     <div class="view-all-link reveal">
       <a href="portfolio.html" class="underline-link">View Full Portfolio →</a>
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about" class="about-container reveal">
     <div class="about-image">
       <div class="image-placeholder">About Photo Coming Soon</div>
@@ -70,7 +63,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="contact-section reveal">
     <div class="contact-card">
       <h2>Let’s Connect</h2>
@@ -84,14 +76,12 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
   <a href="#" class="scroll-to-top">↑</a>
 
-  <!-- JS (unchanged from your version) -->
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
@@ -104,20 +94,24 @@
       const wave = document.createElement('div');
       wave.classList.add('wave');
       overlay.insertBefore(wave, overlay.firstChild);
+
       overlay.classList.add('show');
-      bubbleInterval = setInterval(createBubble, 200);
     });
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
-      clearInterval(bubbleInterval);
     });
 
     document.querySelectorAll('.nav-content a').forEach(link => {
       link.addEventListener('click', () => {
         overlay.classList.remove('show');
-        clearInterval(bubbleInterval);
       });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        overlay.classList.remove('show');
+      }
     });
 
     const heroMsg = document.getElementById('hero-message');
@@ -158,19 +152,6 @@
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
-
-    function createBubble() {
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      bubble.style.left = `${Math.random() * 100}%`;
-      bubble.style.width = `${8 + Math.random() * 12}px`;
-      bubble.style.height = bubble.style.width;
-      bubble.style.animationDuration = `${2 + Math.random() * 3}s`;
-      document.querySelector('.bubble-container').appendChild(bubble);
-      setTimeout(() => bubble.remove(), 4000);
-    }
-
-    let bubbleInterval;
   </script>
 </body>
 </html>
