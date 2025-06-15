@@ -122,29 +122,21 @@ header {
 }
 
 .hero-logo {
-  width: 320px;
-  max-width: 90vw;
-  animation: zoomFloat 1.8s ease forwards;
-}
-
-@keyframes zoomFloat {
-  0% { transform: scale(0.6); opacity: 0; }
-  60% { transform: scale(1.5); opacity: 1; }
-  100% { transform: scale(1.2); } /* ← make sure this matches what you want */
+  width: 360px;
+  max-width: 95vw;
+  display: block;
+  margin: 0 auto;
+  animation: floatLoop 5s ease-in-out infinite;
+  transition: transform 0.4s ease;
 }
 
 @keyframes floatLoop {
   0%, 100% { transform: translateY(0); }
-  50%     { transform: translateY(-5px); }
+  50%     { transform: translateY(-6px); }
 }
 
-.hero-logo.floating {
-  animation: floatLoop 5s ease-in-out infinite;
-  animation-delay: 0.2s;
-}
-
-.float-logo {
-  will-change: transform;
+.hero-logo:hover {
+  transform: rotate(3deg) scale(1.02);
 }
 
 .hero-message {
