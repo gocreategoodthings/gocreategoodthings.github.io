@@ -105,6 +105,36 @@ header {
   opacity: 0.7;
 }
 
+/* Glowing Hover for Nav Links */
+.nav-content a {
+  position: relative;
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-content a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: #00e5ff;
+  box-shadow: 0 0 8px #00e5ff, 0 0 12px #00e5ff;
+  transition: width 0.4s ease;
+}
+
+.nav-content a:hover {
+  color: #00e5ff;
+}
+
+.nav-content a:hover::after {
+  width: 100%;
+}
+
 .close-btn {
   position: absolute;
   top: 1.5rem;
