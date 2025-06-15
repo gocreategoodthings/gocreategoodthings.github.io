@@ -161,7 +161,7 @@ header {
 }
 
 .highlight-gradient {
-  background: linear-gradient(to right, #fff, #d6ae49);
+  background: linear-gradient(to right, #00cfcf, #002855);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
