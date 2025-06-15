@@ -17,14 +17,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
       background: white;
       z-index: 10;
     }
 
     .logo img {
-      height: 40px;
+      height: 44px;
       transition: transform 0.3s ease;
     }
 
@@ -65,30 +63,56 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .hero.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .hero-logo {
-      max-width: 160px;
-      margin-bottom: 2rem;
+      width: 200px;
+      max-width: 80vw;
+      animation: zoomFloat 1.6s ease forwards;
+    }
+
+    @keyframes zoomFloat {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.25);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.05);
+      }
     }
 
     .hero-message {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 600;
       line-height: 1.3;
       min-height: 3.2em;
       position: relative;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .fade-in {
+    .hero-message.fade-in {
       opacity: 1;
-      transition: opacity 0.6s ease-in;
+      transform: translateY(0);
     }
 
     .fade-out {
       opacity: 0;
-      transition: opacity 0.6s ease-out;
+      transition: opacity 0.4s ease-out;
     }
 
     .scroll-to-top {
@@ -120,8 +144,8 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo">
+  <section class="hero" id="hero">
+    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo" id="hero-logo">
     <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
   </section>
 
@@ -199,7 +223,13 @@
         navMenu.classList.toggle('show');
       });
 
-      // Rotating Hero Message (1-time)
+      // Animate hero entrance
+      const hero = document.getElementById('hero');
+      setTimeout(() => {
+        hero.classList.add('visible');
+      }, 400); // global delay for hero fade-in
+
+      // Rotating Hero Message (1-time with delay)
       const messages = [
         "Hi, I'm Brady.",
         "I'm always looking for ways to",
@@ -207,6 +237,12 @@
       ];
       const heroMsg = document.getElementById('hero-message');
       let msgIndex = 0;
+
+      setTimeout(() => {
+        heroMsg.classList.add('fade-in');
+
+        setTimeout(showNextLine, 4000);
+      }, 1000); // 1s delay before first line
 
       function showNextLine() {
         heroMsg.classList.remove('fade-in');
@@ -218,15 +254,13 @@
             heroMsg.textContent = messages[msgIndex];
             heroMsg.classList.remove('fade-out');
             heroMsg.classList.add('fade-in');
+
             if (msgIndex < messages.length - 1) {
               setTimeout(showNextLine, 4000);
             }
           }
         }, 600);
       }
-
-      heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 4000);
 
       // Scroll to top
       const scrollBtn = document.querySelector(".scroll-to-top");
