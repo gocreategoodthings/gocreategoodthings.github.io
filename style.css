@@ -126,17 +126,17 @@ header {
   max-width: 95vw;
   display: block;
   margin: 0 auto;
-  animation: floatLoop 5s ease-in-out infinite;
-  transition: transform 0.4s ease;
+  animation: floatLoop 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
 
 @keyframes floatLoop {
   0%, 100% { transform: translateY(0); }
-  50%     { transform: translateY(-6px); }
+  50%     { transform: translateY(-12px); }
 }
 
 .hero-logo:hover {
-  transform: rotate(3deg) scale(1.02);
+  transform: translateY(-12px) rotate(3deg) scale(1.03);
 }
 
 .hero-message {
