@@ -16,15 +16,15 @@
     <button class="menu-toggle" id="menu-toggle">☰</button>
   </header>
 
-<nav class="nav-overlay" id="nav-overlay">
-  <div class="nav-content">
-    <div class="bubble-container"></div> <!-- moved inside nav-content -->
-    <div class="close-btn" id="close-btn">&times;</div>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+  <nav class="nav-overlay" id="nav-overlay">
+    <div class="bubble-container"></div>
+    <div class="nav-content">
+      <div class="close-btn" id="close-btn">&times;</div>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
   <section class="hero">
     <div class="logo-float-wrapper">
@@ -80,7 +80,7 @@
   </section>
 
   <footer>
-    <p>© 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a></p>
+    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
   <a href="#" class="scroll-to-top">↑</a>
@@ -94,40 +94,27 @@
       const oldWave = document.querySelector('.wave');
       if (oldWave) oldWave.remove();
 
-// Create wave element
-const wave = document.createElement('div');
-wave.classList.add('wave');
-
-// Create bubbles element
-const bubbles = document.createElement('div');
-bubbles.classList.add('bubble-container');
-
-// Insert bubbles first, then wave, so wave overlays but nav-content stays on top
-overlay.insertBefore(bubbles, overlay.firstChild);
-overlay.insertBefore(wave, overlay.firstChild);
+      const wave = document.createElement('div');
+      wave.classList.add('wave');
+      overlay.insertBefore(wave, overlay.firstChild);
 
       overlay.classList.add('show');
+      createBubbles();
     });
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
-      const wave = document.querySelector('.wave');
-      if (wave) wave.remove();
     });
 
     document.querySelectorAll('.nav-content a').forEach(link => {
       link.addEventListener('click', () => {
         overlay.classList.remove('show');
-        const wave = document.querySelector('.wave');
-        if (wave) wave.remove();
       });
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         overlay.classList.remove('show');
-        const wave = document.querySelector('.wave');
-        if (wave) wave.remove();
       }
     });
 
@@ -141,8 +128,8 @@ overlay.insertBefore(wave, overlay.firstChild);
 
     setTimeout(() => {
       heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 3500);
-    }, 800);
+      setTimeout(showNextLine, 4000);
+    }, 1000);
 
     function showNextLine() {
       heroMsg.classList.remove('fade-in');
@@ -160,6 +147,21 @@ overlay.insertBefore(wave, overlay.firstChild);
       }, 500);
     }
 
+    function createBubbles() {
+      const container = document.querySelector('.bubble-container');
+      if (!container) return;
+      container.innerHTML = '';
+      for (let i = 0; i < 30; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        bubble.style.left = Math.random() * 100 + '%';
+        bubble.style.width = bubble.style.height = Math.random() * 20 + 10 + 'px';
+        bubble.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        bubble.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(bubble);
+      }
+    }
+
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -169,11 +171,6 @@ overlay.insertBefore(wave, overlay.firstChild);
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
-
-    const scrollBtn = document.querySelector('.scroll-to-top');
-    window.addEventListener('scroll', () => {
-      scrollBtn.style.display = window.scrollY > 100 ? 'block' : 'none';
-    });
   </script>
 </body>
 </html>
