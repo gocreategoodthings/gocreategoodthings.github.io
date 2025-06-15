@@ -80,10 +80,10 @@
   </section>
 
   <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
+    <p>© 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a></p>
   </footer>
 
-  <a href="#" class="scroll-to-top" id="scrollTop">↑</a>
+  <a href="#" class="scroll-to-top">↑</a>
 
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
@@ -97,37 +97,43 @@
       const wave = document.createElement('div');
       wave.classList.add('wave');
       overlay.insertBefore(wave, overlay.firstChild);
+
       overlay.classList.add('show');
     });
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
+      const wave = document.querySelector('.wave');
+      if (wave) wave.remove();
     });
 
     document.querySelectorAll('.nav-content a').forEach(link => {
       link.addEventListener('click', () => {
         overlay.classList.remove('show');
+        const wave = document.querySelector('.wave');
+        if (wave) wave.remove();
       });
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         overlay.classList.remove('show');
+        const wave = document.querySelector('.wave');
+        if (wave) wave.remove();
       }
     });
 
-    // Hero Message Animation
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
       "I'm always looking for ways to",
-      '<span class="highlight-gradient animate-drop">Go Create Good Things</span>'
+      '<span class="highlight-gradient">Go Create Good Things</span>'
     ];
     let msgIndex = 0;
 
     setTimeout(() => {
       heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 4000);
+      setTimeout(showNextLine, 3500);
     }, 800);
 
     function showNextLine() {
@@ -139,22 +145,13 @@
           heroMsg.innerHTML = messages[msgIndex];
           heroMsg.classList.remove('fade-out');
           heroMsg.classList.add('fade-in');
+          if (msgIndex < messages.length - 1) {
+            setTimeout(showNextLine, 4000);
+          }
         }
       }, 500);
     }
 
-    // Scroll To Top Button
-    const scrollTopBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-      scrollTopBtn.style.display = window.scrollY > 100 ? 'block' : 'none';
-    });
-
-    scrollTopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Reveal animations
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -164,6 +161,11 @@
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
+
+    const scrollBtn = document.querySelector('.scroll-to-top');
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 100 ? 'block' : 'none';
+    });
   </script>
 </body>
 </html>
