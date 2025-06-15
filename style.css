@@ -14,6 +14,11 @@ body {
   scroll-behavior: smooth;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 h1, h2, h3 {
   font-family: 'Unbounded', sans-serif;
 }
@@ -56,6 +61,7 @@ header {
   overflow: hidden;
   display: none;
   z-index: 20;
+  background: #0b1d26;
 }
 
 .nav-overlay.show {
@@ -130,28 +136,49 @@ header {
 .nav-content a {
   font-size: 2rem;
   color: white;
-  text-decoration: none;
   margin: 1rem 0;
-  transition: opacity 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-content a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #00cfcf, #002855);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .nav-content a:hover {
-  opacity: 0.7;
-  text-decoration: underline;
-  text-decoration-color: #00cfcf;
-  text-underline-offset: 4px;
+  color: #00e5ff;
+  text-shadow: 0 0 8px #00cfcf, 0 0 20px #00cfcf;
+}
+
+.nav-content a:hover::after {
+  transform: scaleX(1);
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
 }
 
 /* HERO */
 .hero {
   text-align: center;
   padding: 10rem 2rem 6rem;
-}
-
-.hero-logo {
-  width: 380px;
-  max-width: 95vw;
-  display: block;
 }
 
 .logo-float-wrapper {
@@ -161,9 +188,19 @@ header {
   transition: transform 0.4s ease;
 }
 
+.hero-logo {
+  width: 380px;
+  max-width: 95vw;
+  display: block;
+}
+
 @keyframes floatLoop {
   0%, 100% { transform: translateY(0); }
   50%     { transform: translateY(-12px); }
+}
+
+.hero-logo:hover {
+  transform: translateY(-12px) rotate(3deg) scale(1.03);
 }
 
 .hero-message {
@@ -206,11 +243,117 @@ header {
   transform: translateY(0);
 }
 
-/* CONTACT */
-.contact-section {
-  background: #f9f9f9;
+/* PORTFOLIO */
+.portfolio {
   padding: 4rem 2rem;
   text-align: center;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  background: #f3f3f3;
+  padding: 4rem 1rem;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.02);
+}
+
+.project-placeholder {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(17, 17, 17, 0.85);
+  color: #fff;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  transform: translateY(0);
+}
+
+/* VIEW ALL */
+.view-all-link {
+  margin-top: 3rem;
+}
+
+.underline-link {
+  color: #111;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+.underline-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #d6ae49;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+.underline-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ABOUT */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  align-items: center;
+}
+
+.about-image {
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  border-radius: 12px;
+}
+
+.image-placeholder {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.about-text p {
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+/* CONTACT */
+.contact-section {
+  background: #0b1d26;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
 }
 
 .contact-card {
@@ -235,7 +378,7 @@ input, textarea {
 }
 
 button[type="submit"] {
-  background: #111;
+  background: #00cfcf;
   color: #fff;
   padding: 0.75rem;
   font-size: 1rem;
@@ -246,7 +389,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: #333;
+  background: #008c8c;
 }
 
 /* FOOTER */
@@ -254,11 +397,11 @@ footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #ccc;
 }
 
 footer a {
-  color: #111;
+  color: #fff;
   text-decoration: none;
 }
 
