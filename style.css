@@ -19,12 +19,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-  text-decoration-color: #00cfcf;
-  text-underline-offset: 3px;
-}
-
 h1, h2, h3 {
   font-family: 'Unbounded', sans-serif;
 }
@@ -163,7 +157,7 @@ header {
 
 .nav-content a:hover {
   color: #00e5ff;
-  text-shadow: 0 0 4px #00cfcf, 0 0 6px #00cfcf;
+  text-shadow: 0 0 2px #00cfcf, 0 0 4px #00cfcf;
 }
 
 .nav-content a:hover::after {
@@ -304,8 +298,8 @@ header {
 .underline-link {
   color: #111;
   font-weight: 500;
-  text-decoration: none;
   position: relative;
+  text-decoration: none;
 }
 
 .underline-link::after {
@@ -423,15 +417,16 @@ footer a:hover {
   right: 2rem;
   font-size: 1.5rem;
   text-decoration: none;
-  background: #d6ae49;
-  color: #fff;
+  background: #00cfcf;
+  color: white;
   padding: 0.5rem 0.75rem;
   border-radius: 50%;
   display: none;
   transition: background 0.3s ease;
-  z-index: 40;
+  z-index: 999;
+  box-shadow: 0 0 6px rgba(0, 207, 207, 0.4);
 }
 
 .scroll-to-top:hover {
-  background: #b48b33;
+  background: #008c8c;
 }
