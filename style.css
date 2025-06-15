@@ -80,6 +80,34 @@ header {
   }
 }
 
+/* BUBBLES */
+.bubble-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -10%;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: bubbleRise linear infinite;
+}
+
+@keyframes bubbleRise {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-120vh) scale(1.5);
+  }
+}
+
 /* NAV CONTENT */
 .nav-content {
   position: relative;
@@ -130,7 +158,7 @@ header {
 .logo-float-wrapper {
   display: flex;
   justify-content: center;
-  animation: floatLoop 3s ease-in-out infinite;
+  animation: floatLoop 4s ease-in-out infinite;
 }
 
 @keyframes floatLoop {
@@ -285,7 +313,8 @@ header {
 
 /* CONTACT */
 .contact-section {
-  background: #f9f9f9;
+  background: #002533; /* dark sea blue */
+  color: white;
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -312,8 +341,8 @@ input, textarea {
 }
 
 button[type="submit"] {
-  background: #111;
-  color: #fff;
+  background: #00cfcf; /* turquoise */
+  color: #002533;
   padding: 0.75rem;
   font-size: 1rem;
   border: none;
@@ -323,7 +352,8 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: #333;
+  background: #d6ae49; /* gold */
+  color: white;
 }
 
 /* FOOTER */
@@ -361,31 +391,4 @@ footer a:hover {
 
 .scroll-to-top:hover {
   background: #b48b33;
-}
-
-/* NAV BUBBLES */
-.bubble-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.bubble-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 40%, rgba(255,255,255,0.08), transparent 30%),
-              radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05), transparent 30%);
-  animation: moveBubbles 10s ease-in-out infinite alternate;
-}
-
-@keyframes moveBubbles {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    transform: translateY(-20px) scale(1.05);
-  }
 }
