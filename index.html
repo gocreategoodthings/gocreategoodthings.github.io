@@ -83,14 +83,13 @@
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
-  <a href="#" class="scroll-to-top" id="scrollBtn">↑</a>
+  <a href="#" class="scroll-to-top" id="scrollTop">↑</a>
 
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
 
-    // Show wave animation
     toggleBtn.addEventListener('click', () => {
       const oldWave = document.querySelector('.wave');
       if (oldWave) oldWave.remove();
@@ -98,62 +97,38 @@
       const wave = document.createElement('div');
       wave.classList.add('wave');
       overlay.insertBefore(wave, overlay.firstChild);
-
       overlay.classList.add('show');
-      bubbleInterval = setInterval(createBubble, 300);
     });
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
-      clearInterval(bubbleInterval);
-      removeWave();
     });
 
     document.querySelectorAll('.nav-content a').forEach(link => {
       link.addEventListener('click', () => {
         overlay.classList.remove('show');
-        clearInterval(bubbleInterval);
-        removeWave();
       });
     });
-
-    function removeWave() {
-      const wave = document.querySelector('.wave');
-      if (wave) wave.remove();
-    }
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         overlay.classList.remove('show');
-        clearInterval(bubbleInterval);
-        removeWave();
       }
     });
 
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-
-    // Hero message rotation
+    // Hero Message Animation
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
       "I'm always looking for ways to",
-      "<span class='highlight-gradient go-big'>Go Create Good Things</span>"
+      '<span class="highlight-gradient animate-drop">Go Create Good Things</span>'
     ];
     let msgIndex = 0;
 
     setTimeout(() => {
       heroMsg.classList.add('fade-in');
       setTimeout(showNextLine, 4000);
-    }, 1000);
+    }, 800);
 
     function showNextLine() {
       heroMsg.classList.remove('fade-in');
@@ -168,29 +143,27 @@
       }, 500);
     }
 
-    // Scroll-to-top behavior
-    const scrollBtn = document.getElementById('scrollBtn');
+    // Scroll To Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
-      scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+      scrollTopBtn.style.display = window.scrollY > 100 ? 'block' : 'none';
     });
 
-    scrollBtn.addEventListener('click', (e) => {
+    scrollTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Bubbles
-    function createBubble() {
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      bubble.style.left = `${Math.random() * 100}%`;
-      bubble.style.width = bubble.style.height = `${8 + Math.random() * 16}px`;
-      bubble.style.animationDuration = `${3 + Math.random() * 2}s`;
-      document.querySelector('.bubble-container').appendChild(bubble);
-      setTimeout(() => bubble.remove(), 5000);
-    }
-
-    let bubbleInterval;
+    // Reveal animations
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
