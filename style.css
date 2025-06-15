@@ -118,24 +118,24 @@ header {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 10rem 2rem 6rem; /* was 6rem 2rem 4rem */
-}
-
-.hero-logo {
-  width: 380px;
-  max-width: 95vw;
-  display: block;
+  padding: 10rem 2rem 6rem;
 }
 
 .logo-float-wrapper {
   display: flex;
   justify-content: center;
   animation: floatLoop 3s ease-in-out infinite;
+}
+
+.hero-logo {
+  width: 380px;
+  max-width: 95vw;
+  display: block;
   transition: transform 0.4s ease;
 }
 
-.logo-float-wrapper:hover {
-  animation: spin 0.6s linear forwards;
+.logo-float-wrapper:hover .hero-logo {
+  animation: spin 0.8s linear;
 }
 
 @keyframes floatLoop {
@@ -144,12 +144,8 @@ header {
 }
 
 @keyframes spin {
-  from { transform: translateY(-12px) rotate(0deg); }
-  to   { transform: translateY(-12px) rotate(360deg); }
-}
-
-.hero-logo:hover {
-  transform: translateY(-12px) rotate(3deg) scale(1.03);
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 .hero-message {
