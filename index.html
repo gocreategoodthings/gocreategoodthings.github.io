@@ -99,7 +99,7 @@
       overlay.insertBefore(wave, overlay.firstChild);
 
       overlay.classList.add('show');
-      createBubbles(); // 🫧 Bubble animation added
+      createBubbles();
     });
 
     closeBtn.addEventListener('click', () => {
@@ -147,11 +147,10 @@
       }, 500);
     }
 
-    // 🫧 Bubble Generator Function
     function createBubbles() {
       const container = document.querySelector('.bubble-container');
       if (!container) return;
-      container.innerHTML = ''; // Clear old ones
+      container.innerHTML = '';
       for (let i = 0; i < 30; i++) {
         const bubble = document.createElement('div');
         bubble.classList.add('bubble');
