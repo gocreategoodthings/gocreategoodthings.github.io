@@ -190,6 +190,43 @@ document.querySelector('.bubble-container').appendChild(bubble);
       clearInterval(bubbleInterval);
     });
   });
+
+<!-- New script for bubble logic -->
+<script>
+  function createBubble() {
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.width = `${8 + Math.random() * 12}px`;
+    bubble.style.height = bubble.style.width;
+    bubble.style.animationDuration = `${2 + Math.random() * 3}s`;
+    document.querySelector('.bubble-container').appendChild(bubble);
+    setTimeout(() => bubble.remove(), 4000);
+  }
+
+  let bubbleInterval;
+
+  const overlay = document.getElementById('nav-overlay');
+  const toggleBtn = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('close-btn');
+
+  toggleBtn.addEventListener('click', () => {
+    const oldWave = document.querySelector('.wave');
+    if (oldWave) oldWave.remove();
+
+    const wave = document.createElement('div');
+    wave.classList.add('wave');
+    overlay.insertBefore(wave, overlay.firstChild);
+
+    overlay.classList.add('show');
+    bubbleInterval = setInterval(createBubble, 200);
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    clearInterval(bubbleInterval);
+  });
 </script>
+
 </body>
 </html>
