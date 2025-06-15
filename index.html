@@ -17,7 +17,8 @@
   </header>
 
   <nav class="nav-overlay" id="nav-overlay">
-    <div class="bubble-container"></div>
+    <div class="bubble-container" id="bubble-container"></div>
+    <div class="wave" id="wave"></div>
     <div class="nav-content">
       <div class="close-btn" id="close-btn">&times;</div>
       <a href="portfolio.html">Portfolio</a>
@@ -28,7 +29,7 @@
 
   <section class="hero">
     <div class="logo-float-wrapper">
-      <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo" id="hero-logo">
+      <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo" id="hero-logo" />
     </div>
     <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
   </section>
@@ -71,8 +72,8 @@
       <h2>Let’s Connect</h2>
       <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
       <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
         <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
       </form>
@@ -83,56 +84,73 @@
     &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
   </footer>
 
-  <a href="#" class="scroll-to-top" id="scroll-to-top">↑</a>
+  <a href="#" class="scroll-to-top" id="scrollBtn">↑</a>
 
   <script>
+    // NAV WAVE + BUBBLES
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
-    let wave;
+    const wave = document.getElementById('wave');
+    const bubbleContainer = document.getElementById('bubble-container');
 
     toggleBtn.addEventListener('click', () => {
-      if (document.querySelector('.wave')) document.querySelector('.wave').remove();
-
-      wave = document.createElement('div');
-      wave.className = 'wave wave-in';
-      overlay.insertBefore(wave, overlay.firstChild);
-
       overlay.classList.add('show');
+      wave.classList.add('wave-in');
+      setTimeout(() => wave.classList.remove('wave-in'), 800);
+      generateBubbles();
     });
 
-    function closeOverlay() {
-      if (wave) {
-        wave.classList.remove('wave-in');
-        wave.classList.add('wave-out');
-        setTimeout(() => {
-          overlay.classList.remove('show');
-          wave.remove();
-        }, 600);
-      } else {
+    closeBtn.addEventListener('click', () => {
+      wave.classList.add('wave-out');
+      setTimeout(() => {
         overlay.classList.remove('show');
+        wave.classList.remove('wave-out');
+        bubbleContainer.innerHTML = '';
+      }, 600);
+    });
+
+    function generateBubbles() {
+      bubbleContainer.innerHTML = '';
+      for (let i = 0; i < 30; i++) {
+        const b = document.createElement('div');
+        b.className = 'bubble';
+        b.style.left = `${Math.random() * 100}%`;
+        b.style.animationDuration = `${2 + Math.random() * 4}s`;
+        b.style.opacity = 0.2 + Math.random() * 0.4;
+        bubbleContainer.appendChild(b);
       }
     }
 
-    closeBtn.addEventListener('click', closeOverlay);
     document.querySelectorAll('.nav-content a').forEach(link => {
-      link.addEventListener('click', closeOverlay);
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeOverlay();
+      link.addEventListener('click', () => {
+        wave.classList.add('wave-out');
+        setTimeout(() => {
+          overlay.classList.remove('show');
+          wave.classList.remove('wave-out');
+          bubbleContainer.innerHTML = '';
+        }, 600);
+      });
     });
 
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeBtn.click();
+      }
+    });
+
+    // HERO MESSAGE
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
       "I'm always looking for ways to",
-      '<span class="highlight-gradient epic-final">Go Create Good Things</span>'
+      '<span class="highlight-gradient epic">Go Create Good Things</span>'
     ];
     let msgIndex = 0;
 
     setTimeout(() => {
       heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 3500);
+      setTimeout(showNextLine, 3000);
     }, 1000);
 
     function showNextLine() {
@@ -145,30 +163,22 @@
           heroMsg.classList.remove('fade-out');
           heroMsg.classList.add('fade-in');
         }
-        if (msgIndex < messages.length - 1) {
-          setTimeout(showNextLine, 3500);
-        }
-      }, 600);
+      }, 400);
     }
 
+    // SCROLL REVEAL
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Scroll to top button
-    const scrollTopBtn = document.getElementById('scroll-to-top');
+    // SCROLL TO TOP BUTTON
+    const scrollBtn = document.getElementById('scrollBtn');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 200) {
-        scrollTopBtn.style.display = 'flex';
-      } else {
-        scrollTopBtn.style.display = 'none';
-      }
+      scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
     });
   </script>
 </body>
