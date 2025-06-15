@@ -85,22 +85,35 @@
 
   <a href="#" class="scroll-to-top">↑</a>
 
+  <!-- Optional sound for menu open -->
+  <audio id="swoosh-sound" preload="auto">
+    <source src="sounds/swoosh.mp3" type="audio/mp3" />
+  </audio>
+
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
+    const swoosh = document.getElementById('swoosh-sound');
 
     toggleBtn.addEventListener('click', () => {
+      // Remove old wave
       const oldWave = document.querySelector('.wave');
       if (oldWave) oldWave.remove();
 
+      // Add new wave
       const wave = document.createElement('div');
       wave.classList.add('wave');
       overlay.insertBefore(wave, overlay.firstChild);
 
       overlay.classList.add('show');
-
       bubbleInterval = setInterval(createBubble, 350);
+
+      // Play sound
+      if (swoosh) {
+        swoosh.currentTime = 0;
+        swoosh.play();
+      }
     });
 
     closeBtn.addEventListener('click', () => {
@@ -122,7 +135,7 @@
       }
     });
 
-    // Hero Message Animation
+    // Hero rotating messages
     const heroMsg = document.getElementById('hero-message');
     const messages = [
       "Hi, I'm Brady.",
@@ -152,7 +165,7 @@
       }, 500);
     }
 
-    // Scroll reveal
+    // Reveal animations
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -168,17 +181,17 @@
       const bubble = document.createElement('div');
       bubble.classList.add('bubble');
       bubble.style.left = `${Math.random() * 100}%`;
-      const size = 10 + Math.random() * 15;
+      const size = 8 + Math.random() * 14;
       bubble.style.width = `${size}px`;
       bubble.style.height = `${size}px`;
-      bubble.style.animationDuration = `${4 + Math.random() * 6}s`;
+      bubble.style.animationDuration = `${3 + Math.random() * 4}s`;
       document.getElementById('bubble-container').appendChild(bubble);
-      setTimeout(() => bubble.remove(), 10000);
+      setTimeout(() => bubble.remove(), 8000);
     }
 
     let bubbleInterval;
 
-    // Scroll-to-top visibility
+    // Scroll-to-top button
     const scrollBtn = document.querySelector(".scroll-to-top");
     window.addEventListener("scroll", () => {
       scrollBtn.style.display = window.scrollY > 400 ? "block" : "none";
