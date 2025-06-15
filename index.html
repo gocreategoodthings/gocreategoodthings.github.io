@@ -5,165 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Go Create Good Things | Brady Hudson Portfolio</title>
   <meta name="description" content="Brady Hudson's portfolio. Go create good things — intentional design, branding, and digital experiences.">
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
-  <!-- Grain Overlay + Floating Background -->
   <div class="grain-overlay"></div>
   <div class="floating-bg"></div>
 
-  <!-- Header -->
+  <!-- Header + Hamburger -->
   <header id="header">
     <div class="logo">
       <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo"></a>
     </div>
-    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </header>
 
-  <!-- Fullscreen Wave Menu -->
-  <div id="waveMenu" class="wave-menu">
-    <div class="close-btn" id="closeMenu">&times;</div>
-    <ul>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <!-- Wave Menu -->
+  <div id="wave-menu" class="wave-menu">
     <div class="wave-bg"></div>
+    <button class="close-btn" id="closeBtn">×</button>
+    <nav class="menu-links">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 
   <!-- Hero -->
   <section class="hero fade-up">
     <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo">
-    <h1 id="rotatingTitle"></h1>
+    <h1 class="rotating-title"><span id="hero-text"></span></h1>
   </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Portfolio -->
-  <section id="portfolio" class="portfolio">
-    <div class="portfolio-grid reveal delay-2">
-      <a href="project1.html" class="portfolio-item">
-        <div class="project-placeholder">Project 1</div>
-        <div class="portfolio-overlay"><h3>Project 1 Title</h3></div>
-      </a>
-      <a href="project2.html" class="portfolio-item">
-        <div class="project-placeholder">Project 2</div>
-        <div class="portfolio-overlay"><h3>Project 2 Title</h3></div>
-      </a>
-      <a href="project3.html" class="portfolio-item">
-        <div class="project-placeholder">Project 3</div>
-        <div class="portfolio-overlay"><h3>Project 3 Title</h3></div>
-      </a>
-    </div>
-
-    <div class="view-all-link reveal delay-3">
-      <a href="portfolio.html" class="underline-link">View Full Portfolio →</a>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- About -->
-  <section id="about" class="about-container fade-up reveal delay-2">
-    <div class="about-image">
-      <div class="image-placeholder">About Photo Coming Soon</div>
-    </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
-        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="highlight-text">go create good things</span>.
-      </p>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Contact -->
-  <section id="contact" class="contact-section fade-up reveal delay-3">
-    <div class="contact-card">
-      <h2>Let’s Connect</h2>
-      <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
-      <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-  </footer>
-
-  <a href="#" class="scroll-to-top">&uarr;</a>
 
   <!-- Scripts -->
   <script>
-    const scrollBtn = document.querySelector(".scroll-to-top");
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      scrollBtn.style.display = window.pageYOffset > 300 ? "flex" : "none";
-      header.classList.toggle("scrolled", window.scrollY > 10);
-    });
-    scrollBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    // Rotating Text
+    const lines = ["Hi, I'm Brady", "I'm always looking for ways to", "Go Create Good Things"];
+    const heroText = document.getElementById("hero-text");
+    let idx = 0;
 
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => observer.observe(el));
-
-    const heroLogo = document.querySelector('.hero-logo');
-    window.addEventListener('scroll', () => {
-      const offset = window.scrollY * 0.2;
-      if (heroLogo) {
-        heroLogo.style.transform = `translateY(${offset}px) scale(1.05)`;
-      }
-    });
-
-    // Rotating Title Logic
-    const rotatingTitle = document.getElementById("rotatingTitle");
-    const titles = ["Hi, I'm Brady", "I'm always looking for ways to", "Go Create Good Things"];
-    let titleIndex = 0;
-
-    function showTitle() {
-      rotatingTitle.textContent = titles[titleIndex];
-      rotatingTitle.classList.remove("fade-in");
-      rotatingTitle.classList.add("fade-out");
-      setTimeout(() => {
-        rotatingTitle.classList.remove("fade-out");
-        rotatingTitle.classList.add("fade-in");
-      }, 50);
-
-      titleIndex++;
-      if (titleIndex < titles.length) {
-        setTimeout(showTitle, 2500);
+    function rotateText() {
+      if (idx < lines.length) {
+        heroText.classList.remove('fade-in');
+        heroText.classList.add('fade-out');
+        setTimeout(() => {
+          heroText.textContent = lines[idx];
+          heroText.classList.remove('fade-out');
+          heroText.classList.add('fade-in');
+          idx++;
+        }, 400);
+      } else {
+        clearInterval(rotationInterval);
+        heroText.textContent = "Go Create Good Things";
+        heroText.classList.add('final-gradient');
       }
     }
-    setTimeout(showTitle, 1000);
+
+    setTimeout(() => {
+      rotateText();
+      var rotationInterval = setInterval(rotateText, 3000);
+    }, 800);
 
     // Hamburger Menu
-    const hamburger = document.getElementById('hamburger');
-    const waveMenu = document.getElementById('waveMenu');
-    const closeMenu = document.getElementById('closeMenu');
-    hamburger.addEventListener('click', () => {
-      waveMenu.classList.add('open');
+    const menu = document.getElementById("wave-menu");
+    const hamburger = document.getElementById("hamburger");
+    const closeBtn = document.getElementById("closeBtn");
+
+    hamburger.addEventListener("click", () => {
+      menu.classList.add("active");
     });
-    closeMenu.addEventListener('click', () => {
-      waveMenu.classList.remove('open');
+
+    closeBtn.addEventListener("click", () => {
+      menu.classList.remove("active");
     });
   </script>
 </body>
