@@ -130,7 +130,7 @@ header {
 @keyframes zoomFloat {
   0% { transform: scale(0.6); opacity: 0; }
   60% { transform: scale(1.5); opacity: 1; }
-  100% { transform: scale(1.2); }
+  100% { transform: scale(1.2); } /* ← make sure this matches what you want */
 }
 
 @keyframes floatLoop {
@@ -140,11 +140,11 @@ header {
 
 .hero-logo.floating {
   animation: floatLoop 5s ease-in-out infinite;
+  animation-delay: 0.2s;
 }
 
 .float-logo {
   will-change: transform;
-  transition: transform 0.3s ease-out;
 }
 
 .hero-message {
