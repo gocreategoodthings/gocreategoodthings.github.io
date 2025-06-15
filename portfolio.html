@@ -190,53 +190,79 @@
 
   <a href="#" class="scroll-to-top">↑</a>
 
-  <script>
-    const toggleBtn = document.getElementById('menu-toggle');
-    const overlay = document.getElementById('nav-overlay');
-    const closeBtn = document.getElementById('close-btn');
+ <script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const overlay = document.getElementById('nav-overlay');
+  const closeBtn = document.getElementById('close-btn');
 
-    toggleBtn.onclick = () => overlay.classList.add('show');
-    closeBtn.onclick = () => overlay.classList.remove('show');
+  toggleBtn.addEventListener('click', () => {
+    const oldWave = document.querySelector('.wave');
+    if (oldWave) oldWave.remove();
 
-    const heroMsg = document.getElementById('hero-message');
-    const messages = [
-      "Hi, I'm Brady.",
-      "I'm always looking for ways to",
-      '<span class="highlight-gradient">Go Create Good Things</span>'
-    ];
-    let msgIndex = 0;
+    const wave = document.createElement('div');
+    wave.classList.add('wave');
+    overlay.insertBefore(wave, overlay.firstChild);
 
-    setTimeout(() => {
-      heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 4000);
-    }, 1000);
+    overlay.classList.add('show');
+  });
 
-    function showNextLine() {
-      heroMsg.classList.remove('fade-in');
-      heroMsg.classList.add('fade-out');
-      setTimeout(() => {
-        msgIndex++;
-        if (msgIndex < messages.length) {
-          heroMsg.innerHTML = messages[msgIndex];
-          heroMsg.classList.remove('fade-out');
-          heroMsg.classList.add('fade-in');
-          if (msgIndex < messages.length - 1) {
-            setTimeout(showNextLine, 4000);
-          }
-        }
-      }, 500);
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+
+  document.querySelectorAll('.nav-content a').forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.classList.remove('show');
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      overlay.classList.remove('show');
     }
+  });
 
-    // Scroll animation
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+  // 👇 Everything below here is your existing hero + scroll reveal
+  const heroMsg = document.getElementById('hero-message');
+  const messages = [
+    "Hi, I'm Brady.",
+    "I'm always looking for ways to",
+    '<span class="highlight-gradient">Go Create Good Things</span>'
+  ];
+  let msgIndex = 0;
+
+  setTimeout(() => {
+    heroMsg.classList.add('fade-in');
+    setTimeout(showNextLine, 4000);
+  }, 1000);
+
+  function showNextLine() {
+    heroMsg.classList.remove('fade-in');
+    heroMsg.classList.add('fade-out');
+    setTimeout(() => {
+      msgIndex++;
+      if (msgIndex < messages.length) {
+        heroMsg.innerHTML = messages[msgIndex];
+        heroMsg.classList.remove('fade-out');
+        heroMsg.classList.add('fade-in');
+        if (msgIndex < messages.length - 1) {
+          setTimeout(showNextLine, 4000);
         }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
-  </script>
+      }
+    }, 500);
+  }
+
+  // Scroll animation
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
