@@ -38,7 +38,6 @@ header {
   transform: scale(1.1) translateY(-2px);
 }
 
-/* HAMBURGER */
 .menu-toggle {
   font-size: 1.8rem;
   cursor: pointer;
@@ -47,7 +46,7 @@ header {
   z-index: 30;
 }
 
-/* NAV OVERLAY + WAVE */
+/* NAV OVERLAY AND WAVE SHAPE */
 .nav-overlay {
   position: fixed;
   top: 0;
