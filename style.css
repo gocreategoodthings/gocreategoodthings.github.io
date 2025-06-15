@@ -122,12 +122,20 @@ header {
 }
 
 .hero-logo {
-  width: 360px;
+  width: 380px;
   max-width: 95vw;
   display: block;
-  margin: 0 auto;
+}
+
+.logo-float-wrapper {
+  display: flex;
+  justify-content: center;
   animation: floatLoop 3s ease-in-out infinite;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
+}
+
+.logo-float-wrapper:hover {
+  transform: rotate(5deg) scale(1.04);
 }
 
 @keyframes floatLoop {
