@@ -19,6 +19,12 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: #00cfcf;
+  text-underline-offset: 3px;
+}
+
 h1, h2, h3 {
   font-family: 'Unbounded', sans-serif;
 }
@@ -95,7 +101,7 @@ header {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  z-index: 0;
+  z-index: 2;
 }
 
 .bubble {
@@ -103,8 +109,8 @@ header {
   bottom: -30px;
   background: rgba(0, 207, 207, 0.15);
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(0, 207, 207, 0.4),
-              0 0 15px rgba(0, 207, 207, 0.2);
+  box-shadow: 0 0 6px rgba(0, 207, 207, 0.35),
+              0 0 10px rgba(0, 207, 207, 0.15);
   animation: rise 12s linear infinite;
   opacity: 0.9;
 }
@@ -123,7 +129,7 @@ header {
 /* NAV CONTENT */
 .nav-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,7 +163,7 @@ header {
 
 .nav-content a:hover {
   color: #00e5ff;
-  text-shadow: 0 0 8px #00cfcf, 0 0 20px #00cfcf;
+  text-shadow: 0 0 4px #00cfcf, 0 0 6px #00cfcf;
 }
 
 .nav-content a:hover::after {
@@ -200,7 +206,7 @@ header {
 }
 
 .hero-logo:hover {
-  transform: translateY(-12px) rotate(3deg) scale(1.03);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .hero-message {
@@ -397,11 +403,12 @@ footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: #ccc;
+  color: #666;
 }
 
 footer a {
-  color: #fff;
+  color: #111;
+  font-weight: 600;
   text-decoration: none;
 }
 
