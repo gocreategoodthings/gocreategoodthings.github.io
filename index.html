@@ -90,9 +90,14 @@
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
 
-    toggleBtn.addEventListener('click', () => {
-      overlay.classList.add('show');
-    });
+ toggleBtn.addEventListener('click', () => {
+  overlay.classList.add('show');
+
+  const wave = document.querySelector('.wave');
+  wave.classList.remove('wave'); // reset animation
+  void wave.offsetWidth;         // force reflow
+  wave.classList.add('wave');    // re-add to trigger animation
+});
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
