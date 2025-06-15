@@ -7,153 +7,106 @@
   <link rel="icon" href="images/favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Work Sans', sans-serif;
+      background: #fff;
+      color: #111;
+    }
+    .wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 160%;
+      height: 100%;
+      background: #0b1d26;
+      clip-path: ellipse(80% 100% at 100% 50%);
+      transform: translateX(100%);
+      animation: waveSlideIn 0.8s ease forwards;
+      z-index: 1;
+    }
+    @keyframes waveSlideIn {
+      to {
+        transform: translateX(0);
+      }
+    }
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: transparent;
+      display: none;
+      z-index: 20;
+    }
+    .nav-overlay.show {
+      display: block;
+    }
+    .nav-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: white;
+      padding-top: 2rem;
+    }
+    .nav-content a {
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      margin: 1rem 0;
+    }
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 3;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo" /></a>
+      <a href="index.html"><img src="images/GCGT_Logo-07.png" alt="GCGT Logo" style="height: 64px;" /></a>
     </div>
     <button class="menu-toggle" id="menu-toggle">☰</button>
   </header>
 
-  <!-- WAVE NAV OVERLAY -->
-<nav class="nav-overlay" id="nav-overlay">
-  <div class="wave"></div> <!-- 👈 ADD THIS LINE RIGHT HERE -->
-  <div class="nav-content">
-    <div class="close-btn" id="close-btn">&times;</div>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-  <section class="hero">
-    <img src="images/GCGT_Logo-07.png" alt="GCGT Logo" class="hero-logo float-logo" id="hero-logo">
-    <div class="hero-message" id="hero-message">Hi, I'm Brady.</div>
-  </section>
-
-  <section class="portfolio reveal">
-    <div class="portfolio-grid">
-      <a href="project1.html" class="portfolio-item">
-        <div class="project-placeholder">Project 1</div>
-        <div class="portfolio-overlay"><h3>Project 1 Title</h3></div>
-      </a>
-      <a href="project2.html" class="portfolio-item">
-        <div class="project-placeholder">Project 2</div>
-        <div class="portfolio-overlay"><h3>Project 2 Title</h3></div>
-      </a>
-      <a href="project3.html" class="portfolio-item">
-        <div class="project-placeholder">Project 3</div>
-        <div class="portfolio-overlay"><h3>Project 3 Title</h3></div>
-      </a>
+  <nav class="nav-overlay" id="nav-overlay">
+    <div class="wave"></div>
+    <div class="nav-content">
+      <div class="close-btn" id="close-btn">&times;</div>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
-    <div class="view-all-link reveal">
-      <a href="portfolio.html" class="underline-link">View Full Portfolio →</a>
-    </div>
-  </section>
+  </nav>
 
-  <section id="about" class="about-container reveal">
-    <div class="about-image">
-      <div class="image-placeholder">About Photo Coming Soon</div>
-    </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        I’m a visual thinker drawn to clear, intentional design. Whether it’s shaping a brand, story, or building a campaign, I’m learning how to bring ideas to life in ways that make sense.<br><br>
-        Right now, I’m building the foundation, developing my skills, trusting the process, and looking for ways to <span class="highlight-gradient">go create good things</span>.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section reveal">
-    <div class="contact-card">
-      <h2>Let’s Connect</h2>
-      <p>Got a project, idea, or just want to say hey? Fill this out or email me directly.</p>
-      <form action="mailto:gocreategoodthings@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Go Create Good Things | <a href="https://instagram.com/gocreategoodthings" target="_blank">@gocreategoodthings</a>
-  </footer>
-
-  <a href="#" class="scroll-to-top">↑</a>
-
-  <!-- SCRIPT -->
   <script>
     const toggleBtn = document.getElementById('menu-toggle');
     const overlay = document.getElementById('nav-overlay');
     const closeBtn = document.getElementById('close-btn');
 
-toggleBtn.addEventListener('click', () => {
-  overlay.classList.add('show');
-});
-
-  const wave = document.querySelector('.wave');
-  wave.classList.remove('wave'); // reset animation
-  void wave.offsetWidth;         // force reflow
-  wave.classList.add('wave');    // re-add to trigger animation
-});
+    toggleBtn.addEventListener('click', () => {
+      overlay.classList.add('show');
+      const wave = overlay.querySelector('.wave');
+      wave.style.animation = 'none';
+      void wave.offsetWidth;
+      wave.style.animation = null;
+    });
 
     closeBtn.addEventListener('click', () => {
       overlay.classList.remove('show');
     });
-
-    document.querySelectorAll('.nav-content a').forEach(link => {
-      link.addEventListener('click', () => {
-        overlay.classList.remove('show');
-      });
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        overlay.classList.remove('show');
-      }
-    });
-
-    const heroMsg = document.getElementById('hero-message');
-    const messages = [
-      "Hi, I'm Brady.",
-      "I'm always looking for ways to",
-      '<span class="highlight-gradient">Go Create Good Things</span>'
-    ];
-    let msgIndex = 0;
-
-    setTimeout(() => {
-      heroMsg.classList.add('fade-in');
-      setTimeout(showNextLine, 4000);
-    }, 1000);
-
-    function showNextLine() {
-      heroMsg.classList.remove('fade-in');
-      heroMsg.classList.add('fade-out');
-      setTimeout(() => {
-        msgIndex++;
-        if (msgIndex < messages.length) {
-          heroMsg.innerHTML = messages[msgIndex];
-          heroMsg.classList.remove('fade-out');
-          heroMsg.classList.add('fade-in');
-          if (msgIndex < messages.length - 1) {
-            setTimeout(showNextLine, 4000);
-          }
-        }
-      }, 500);
-    }
-
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
