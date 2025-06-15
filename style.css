@@ -200,6 +200,10 @@ header {
   transition: transform 0.3s ease;
 }
 
+.portfolio-item:hover .project-thumb {
+  transform: scale(1.03);
+}
+
 .portfolio-item {
   position: relative;
   overflow: hidden;
