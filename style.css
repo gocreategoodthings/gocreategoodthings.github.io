@@ -435,3 +435,35 @@ footer a:hover {
 .scroll-to-top:hover {
   background: #b48b33;
 }
+
+/* WAVE ANIMATION (ENTRY + EXIT) */
+.wave {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 160%;
+  height: 100%;
+  background: #0b1d26;
+  clip-path: ellipse(80% 100% at 100% 50%);
+  animation: waveSlideIn 0.6s ease forwards;
+  z-index: 1;
+}
+
+.wave.out {
+  right: auto;
+  left: -100%;
+  clip-path: ellipse(80% 100% at 0% 50%);
+  animation: waveSlideOut 0.6s ease forwards;
+}
+
+@keyframes waveSlideIn {
+  to {
+    right: 0;
+  }
+}
+
+@keyframes waveSlideOut {
+  to {
+    left: 0;
+  }
+}
