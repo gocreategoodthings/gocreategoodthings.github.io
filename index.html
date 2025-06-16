@@ -162,9 +162,27 @@
   revealEls.forEach(el => observer.observe(el));
 
   const scrollBtn = document.querySelector('.scroll-to-top');
-  window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
+window.addEventListener('scroll', () => {
+  scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+
+// Hero Message Rotation
+const lines = document.querySelectorAll('#hero-message .line');
+let current = 0;
+
+function rotateLines() {
+  if (current < lines.length - 1) {
+    lines[current].classList.remove('active');
+    current++;
+    lines[current].classList.add('active');
+    setTimeout(rotateLines, 2600);
+  }
+}
+
+setTimeout(() => {
+  lines[current].classList.add('active');
+  setTimeout(rotateLines, 2600);
+}, 400);
 </script>
 </body>
 </html>
