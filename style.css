@@ -223,15 +223,14 @@ header {
 }
 
 .hero-message .line {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(100%);
+  transition: transform 1s ease-in-out;
   position: absolute;
+  opacity: 1;
 }
 
 .hero-message .line.active {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0%);
   position: relative;
 }
 
