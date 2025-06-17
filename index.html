@@ -169,6 +169,23 @@ window.addEventListener('scroll', () => {
   scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
 
+  const sunIcon = document.querySelector('.scroll-to-top img');
+
+document.querySelector('.scroll-to-top').addEventListener('click', function (e) {
+  e.preventDefault();
+  sunIcon.classList.add('spinning');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+  // Remove spin after 1s (adjust if needed)
+  setTimeout(() => {
+    sunIcon.classList.remove('spinning');
+  }, 1000);
+});
+
 // Hero Message Rotation
 const lines = document.querySelectorAll('#hero-message .line');
 let current = 0;
