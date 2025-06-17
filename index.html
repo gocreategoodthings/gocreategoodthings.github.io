@@ -183,6 +183,22 @@ setTimeout(() => {
   lines[current].classList.add('active');
   setTimeout(rotateLines, 4000);
 }, 400);
+
+document.querySelector('.scroll-to-top').addEventListener('click', function (e) {
+  e.preventDefault();
+  smoothScrollToTop();
+});
+
+function smoothScrollToTop() {
+  const scrollStep = -window.scrollY / 30;
+  const scrollInterval = setInterval(() => {
+    if (window.scrollY !== 0) {
+      window.scrollBy(0, scrollStep);
+    } else {
+      clearInterval(scrollInterval);
+    }
+  }, 16); // ~60fps
+}
 </script>
 </body>
 </html>
