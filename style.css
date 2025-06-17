@@ -145,7 +145,8 @@ header {
   margin: 1rem 0;
   font-weight: 600;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .nav-content a::after {
@@ -162,8 +163,7 @@ header {
 }
 
 .nav-content a:hover {
-  color: #00e5ff;
-  text-shadow: 0 0 4px #00cfcf, 0 0 6px #00cfcf;
+  color: #00cfcf;
 }
 
 .nav-content a:hover::after {
