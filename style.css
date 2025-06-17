@@ -435,25 +435,20 @@ footer a:hover {
   cursor: pointer;
   z-index: 40;
   text-decoration: none;
+  gap: 0.4rem;
 }
 
 .scroll-to-top img {
   width: 48px;
   height: 48px;
-  transition: transform 0.3s ease;
-}
-
-.scroll-to-top:hover img {
-  transform: translateY(-2px) scale(1.05);
+  transition: transform 0.4s ease;
 }
 
 .scroll-label {
   font-size: 0.75rem;
   color: #333;
-  margin-top: 0.4rem;
   font-weight: 500;
   font-family: 'Work Sans', sans-serif;
-  letter-spacing: 0.2px;
 }
 
 /* WAVE ANIMATION (ENTRY + EXIT) */
@@ -486,4 +481,13 @@ footer a:hover {
   to {
     left: 0;
   }
+}
+
+@keyframes spinSun {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spinning {
+  animation: spinSun 0.8s linear infinite;
 }
