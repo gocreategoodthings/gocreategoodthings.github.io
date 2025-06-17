@@ -425,33 +425,33 @@ footer a:hover {
   bottom: 2rem;
   right: 2rem;
   width: 56px;
-  height: 56px;
-  background: #fffbe6;
-  border-radius: 50%;
-  border: 2px solid #ffd93b;
+  height: auto;
+  background: transparent;
+  border: none;
   display: none;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   z-index: 40;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
 }
 
 .scroll-to-top img {
-  width: 32px;
-  height: 32px;
-  transition: transform 1.2s ease-in-out;
-}
-
-.scroll-to-top:hover {
-  background: #fff2b8;
-  box-shadow: 0 0 18px rgba(255, 215, 0, 0.7),
-              0 0 28px rgba(255, 215, 0, 0.4);
+  width: 38px;
+  height: 38px;
+  transition: transform 0.3s ease;
 }
 
 .scroll-to-top:hover img {
-  transform: rotate(360deg);
+  transform: translateY(-2px);
+}
+
+.scroll-label {
+  font-size: 0.75rem;
+  color: #444;
+  margin-top: 0.3rem;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* WAVE ANIMATION (ENTRY + EXIT) */
