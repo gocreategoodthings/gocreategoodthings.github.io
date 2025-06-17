@@ -175,13 +175,13 @@ function rotateLines() {
     lines[current].classList.remove('active');
     current++;
     lines[current].classList.add('active');
-    setTimeout(rotateLines, 2600);
+    setTimeout(rotateLines, 4000);
   }
 }
 
 setTimeout(() => {
   lines[current].classList.add('active');
-  setTimeout(rotateLines, 2600);
+  setTimeout(rotateLines, 4000);
 }, 400);
 </script>
 </body>
