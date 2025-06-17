@@ -216,14 +216,23 @@ header {
   min-height: 3.2em;
   margin-top: 2rem;
   position: relative;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-.hero-message.fade-in {
+.hero-message .line {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  position: absolute;
+}
+
+.hero-message .line.active {
   opacity: 1;
   transform: translateY(0);
+  position: relative;
 }
 
 .fade-out {
