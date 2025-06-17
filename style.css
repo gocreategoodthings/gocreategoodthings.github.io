@@ -424,31 +424,30 @@ footer a:hover {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: auto;
-  height: auto;
   background: transparent;
   border: none;
   display: none;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 40;
   text-decoration: none;
-  gap: 0.4rem;
+  gap: 0.5rem;
+  flex-direction: row; /* <- align side by side */
 }
 
 .scroll-to-top img {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   transition: transform 0.4s ease;
 }
 
 .scroll-label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #333;
   font-weight: 500;
   font-family: 'Work Sans', sans-serif;
+  margin: 0;
 }
 
 /* WAVE ANIMATION (ENTRY + EXIT) */
