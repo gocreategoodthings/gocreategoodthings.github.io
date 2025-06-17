@@ -11,7 +11,6 @@ body {
   background: #fff;
   color: #111;
   line-height: 1.6;
-  scroll-behavior: smooth;
 }
 
 a {
@@ -426,18 +425,20 @@ footer a:hover {
   bottom: 2rem;
   right: 2rem;
   font-size: 1.5rem;
-  text-decoration: none;
-  background: #d6ae49;
+  background: #00cfcf;
   color: #fff;
-  padding: 0.5rem 0.75rem;
+  padding: 0.65rem 0.75rem;
   border-radius: 50%;
   display: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   z-index: 40;
+  cursor: pointer;
 }
 
 .scroll-to-top:hover {
-  background: #b48b33;
+  background: #008c8c;
+  transform: translateY(-3px);
 }
 
 /* WAVE ANIMATION (ENTRY + EXIT) */
